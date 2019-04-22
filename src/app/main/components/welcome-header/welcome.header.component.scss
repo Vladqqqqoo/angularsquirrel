@@ -1,0 +1,20 @@
+.container{
+  width: 100vw;
+  background-color: #FFBA40;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cat-container{
+  min-width: 50%;
+}
+
+.left-container{
+  text-align: center;
+}
+
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}
