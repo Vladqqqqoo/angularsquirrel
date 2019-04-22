@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {NavigationComponent} from "./components/navigation/navigation.component";
+import {MainContainerComponentComponent} from './components/main-container-component/main-container-component.component';
 
 const routes: Routes = [
-  {path: '', component:  NavigationComponent},
+  {
+    path: '',
+    component: MainContainerComponentComponent,
+  },
+
 ];
 
 @NgModule({
