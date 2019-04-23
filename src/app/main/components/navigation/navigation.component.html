@@ -1,8 +1,27 @@
-<div class="row">
+<div class="row nav">
   <div class="col-md-6">
     <div class="row">
-      <div class="col-md-3">123</div>
-      <div class="col-md-3">321</div>
+      <div class="col-md-3">
+        <button mat-button #trigger="matMenuTrigger" (mouseenter)="showMenu(trigger)" [matMenuTriggerFor]="menu1">Menu
+        </button>
+        <mat-menu #menu1="matMenu" [hasBackdrop]="false" [overlapTrigger]="false">
+          <div class="lol" (mouseleave)="closeMenu(trigger)">
+            <button mat-menu-item>trig1</button>
+            <button mat-menu-item>trig2</button>
+          </div>
+        </mat-menu>
+      </div>
+      <div class="col-md-3">
+        <button #menutrigger="matMenuTrigger" (mouseenter)="showMenu(menutrigger)" mat-button
+                [matMenuTriggerFor]="menu2">Shots
+        </button>
+        <mat-menu #menu2="matMenu" [overlapTrigger]="false" [hasBackdrop]="false">
+          <div (mouseleave)="closeMenu(menutrigger)">
+            <button mat-menu-item>Men1</button>
+            <button mat-menu-item>Men2</button>
+          </div>
+        </mat-menu>
+      </div>
       <div class="col-md-3">4321</div>
       <div class="col-md-3">213213</div>
     </div>
