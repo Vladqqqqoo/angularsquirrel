@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import {MainRoutingModule} from './main-routing.module';
 import { WelcomeHeaderComponent } from './components/welcome-header/welcome.header.component';
-import { MainContainerComponentComponent } from './components/main-container-component/main-container-component.component';
+import { MainContainerComponent } from './components/main-container-component/main-container.component';
 import {MatButtonModule} from '@angular/material';
-import {AppModule} from "../app.module";
 
 @NgModule({
-  declarations: [NavigationComponent, WelcomeHeaderComponent, MainContainerComponentComponent],
+  declarations: [NavigationComponent, WelcomeHeaderComponent, MainContainerComponent],
   imports: [
     CommonModule,
     MatButtonModule,
