@@ -9,8 +9,9 @@ import {
   MatButtonModule,
   MatDialogModule,
   MatFormFieldModule, MatIconModule, MatInputModule,
-import { LoginAndRegisterFormContainer } from './components/login-and-register-form-container/login-and-register-form-container';
 } from '@angular/material';
+
+import { LoginAndRegisterFormContainer } from './components/login-and-register-form-container/login-and-register-form-container';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import {MaterialModule} from "../material/material.module";
@@ -22,16 +23,16 @@ import {MaterialModule} from "../material/material.module";
     MatDialogModule,
     MatButtonModule,
     MainRoutingModule,
-    {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'always'}}
-  providers: [
-  ],
-    LoginAndRegisterFormContainer
-  entryComponents: [
-  ],
-    MatInputModule
+    MatInputModule,
     MatFormFieldModule,
     MaterialModule,
-  ]
+    ],
+  providers: [
+    {provide: MAT_LABEL_GLOBAL_OPTIONS, useValue: {float: 'always'}},
+  ],
+  entryComponents: [
+    LoginAndRegisterFormContainer
+  ],
 })
 export class MainModule { }
 
