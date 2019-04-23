@@ -4,14 +4,14 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import {MainRoutingModule} from './main-routing.module';
 import { WelcomeHeaderComponent } from './components/welcome-header/welcome.header.component';
 import { MainContainerComponent } from './components/main-container-component/main-container.component';
-import {MatButtonModule} from '@angular/material';
+import {MaterialModule} from "../material/material.module";
 
 @NgModule({
   declarations: [NavigationComponent, WelcomeHeaderComponent, MainContainerComponent],
   imports: [
     CommonModule,
-    MatButtonModule,
     MainRoutingModule,
+    MaterialModule,
   ]
 })
 export class MainModule { }
