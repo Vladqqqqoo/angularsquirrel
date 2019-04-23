@@ -1,0 +1,149 @@
+//
+// Colors common
+// --------------------------------------------------
+
+$white:            #fff;
+$light-grey:       #b1b4c4;
+$grey:             #55596f;
+$dark-grey: 	   #767676;
+$darker-grey: 	   #616465;
+$dark-violet-grey: #a0a4b5;
+$black:            #000000;
+$blue:             #1990d0; 
+$dark-blue:	       #0b7ab6;
+$light-blue:  	   #dbf1fc;
+$green:            #6ab175;
+$sandy:			   #cab840;
+$dark:			   #20374a;
+$dark-green: 	   #2b4153;
+$red:              #f21932;
+$light-red:        #f85555;
+$reddy: 		   #ff3535;
+$highlight-added:  #1DB10B;
+
+// Text
+
+$text-blue: 		  $blue;
+
+// Backgroud
+$bg-white:           $white;
+$bg-light:         #f1f2f7;
+
+// Borders
+$bd-light-grey:    #e6e7ed;
+$bd-lightest-grey: #f3f3f5;
+$bd-grey:          #dfe0e7;
+$bd-grey-blue:     #dae1e7;
+$bd-light-blue:    #bbd9ed;
+$bd-dark-grey:     #9da9b3;
+$bd-dark-grey:     #9da9b3;
+$bd-dark: 		   #55596f;
+
+
+// Boostrap variables re-set
+
+// Fills
+
+//
+// Colors functional
+// --------------------------------------------------
+
+// Links:
+$link:          			$text-blue; /////
+$link-hover:       			$text-blue; /////
+
+// Button
+// $btn-text:         		    $blue; //
+// $btn-bg:           		  #d2e8fd; //
+
+// $btn-bg-disabled:           lighten($btn-bg, 10%); //
+// $btn-bg-hover:     		  #d2e8fd; //
+// $btn-bd-disabled:           lighten($btn-bg, 10%); //
+// $fill-btn-icon:             $blue; //
+
+// $btn-frame-bd:            #bfc7d1; //
+// $btn-frame-bd-hover:        darken($btn-frame-bd, 20%); //
+// $btn-frame-bd-disabled:     lighten($btn-frame-bd, 10%); //
+// $btn-frame-text:            $text-grey; //
+// $btn-frame-text-disabled:   lighten($btn-frame-text, 10%); //
+
+// Header
+// $fill-logo:                 $grey;
+// $fill-home:                 $grey;
+// $header-nav-text:           $text; //
+
+// Menu
+
+// Grid
+
+// Fields
+
+// radio & checkboxes
+// $check-bd:                 #e7ecf3; //
+// $check-sybmol:             #208df3; //
+// $check-text:                 $text-grey; //
+// $check-text-focus:           $dark; //
+// $radio-bd:                 #e7ecf3; //
+// $radio-sybmol:             #208df3; //
+// $radio-text:                 $text-grey; //
+// $radio-text-disabled:        lighten(#9da9b3, 10); //
+// $radio-text-focus:           $dark; //
+
+// Modals
+
+//
+// Typography
+// --------------------------------------------------
+$font-base: 'CenturyGothic', "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-serif: Georgia, 'Times New Roman', Times, serif;
+$font: 'ProximaNova', $font-base;
+
+
+// Font sizes
+// -------------------------
+$font-size-root: 	10px; /////
+$font-size: 		1.4rem; /////
+
+// Line heights
+// -------------------------
+
+$line-height: 1.143; /////
+
+// Font weights
+// -------------------------
+
+$lighter: 300; /////
+$normal: 400; /////
+$medium: 500; /////
+$semibold: 600; //////
+$bold: 700; /////
+$extrabold: 900; /////
+
+$content-width: 140rem; /////
+$content-width-max: 144rem; /////
+$gutter: 1.5rem; /////
+$gutter-md: 2.5rem; /////
+
+//
+// Border radius
+// --------------------------------------------------
+$border-radius: 0.8rem;
+
+// Media filters
+$mxw319 : 'screen and (max-width: 319px)'; // (srv)
+$mxw374 : 'screen and (max-width: 374px)'; // (srv)
+$mxw479 : 'screen and (max-width: 479px)'; // (srv)
+$mxw639 : 'screen and (max-width: 639px)'; // (srv)
+$mxw679 : 'screen and (max-width: 679px)'; // (srv)
+$mxw767 : 'screen and (max-width: 767px)'; // phones
+$mxw869 : 'screen and (max-width: 869px)'; //
+$mxw991 : 'screen and (max-width: 991px)'; // tablets
+$mxw1023 : 'screen and (max-width: 1023px)'; //
+$mxw1099 : 'screen and (max-width: 1099px)'; //
+$mxw1149 : 'screen and (max-width: 1149px)'; //
+$mxw1199 : 'screen and (max-width: 1199px)'; // medium desktop
+$mnw1200 : 'screen and (min-width: 1200px)'; // large desktop
+$mxw1365 : 'screen and (max-width: 1365px)'; 
+$mxw1399 : 'screen and (max-width: 1399px)';
+$mxw1599 : 'screen and (max-width: 1599px)'; // extra-large desktop
+

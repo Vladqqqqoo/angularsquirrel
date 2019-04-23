@@ -1,0 +1,149 @@
+{
+  "login": {
+    "phoneNumber": "Phone number",
+    "smsCode": "Code (from SMS)",
+    "anotherPhoneNumber": "Enter another phone number",
+    "resendSms": "Resend SMS with code",
+    "nextButton": "Next",
+    "loginButton": "Login",
+    "withPassword": "Login with password",
+    "twoStep": "Two step login"
+  },
+  "register": {
+    "phoneNumber": "Phone number",
+    "password": "Password",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "registerButton": "Register",
+    "email": "Email"
+  },
+  "sideBar": {
+    "overview": "Overview",
+    "users": "Users",
+    "voteTypes": "Vote types",
+    "agenda": "Agenda",
+    "leaveUsers": "Leave users",
+    "documentArchive": "Document archive",
+    "messages": "Messages",
+    "feedback": "Feedback",
+    "userAccess": "User access",
+    "settings": "Settings",
+    "publicLog": "Public log",
+    "logOut": "Log out"
+  },
+  "agendaList": {
+    "createdOn": "Created on",
+    "processedOn": "Processed on",
+    "currentAgenda": "Current agenda",
+    "addNewSection": "Add New Section",
+    "addNewItem": "Add New Item",
+    "addNewAgenda": "Add new Agenda"
+  },
+  "agendaDetails": {
+    "amendments": "Amendable document",
+    "speaker": "Speakers list",
+    "voting": "Voting",
+    "election": "Election",
+    "document": "Document",
+    "start": "Start",
+    "content": {
+      "uploaded": "Uploaded"
+    }
+  },
+  "amendmentsList":{
+    "deleted": "Amendment  was successfully deleted"
+  },
+  "editor": {
+    "editButton": "Edit",
+    "deleteButton": "Delete",
+    "addButton": "Add",
+    "noteButton": "Note",
+    "tools": {
+      "expand": "Expand",
+      "collapse": "Collapse",
+      "all": "All amendments",
+      "byOthers": "Added by others",
+      "byMe": "Added by me",
+      "notes": "My notes",
+      "close": "Close"
+    }
+  },
+  "errors": {
+    "phoneRequired": "Please, enter your phone number",
+    "passwordRequired": "Please, enter your password",
+    "error": "Error occurred",
+    "required": "Please, enter your",
+    "minPassword": "Your password must be at least 6 symbols long",
+    "incorrectEmail": "Please, enter correct email",
+    "wrongFormat": "Wrong file format",
+    "requiredFieldUniversal": "This field is required"
+  },
+  "successMessages": {
+    "smsSent": "SMS was sent to your phone number",
+    "login": "Logged in successfully",
+    "register": "Account registered successfully",
+    "agendaItemDelete": "Item was deleted",
+    "agendaDelete": "Agenda was deleted",
+    "docDelete": "Document was deleted from agenda",
+    "userDelete": "User was deleted",
+    "amendmentAccepted": "Amendment accepted",
+    "amendmentRejected": "Amendment rejected",
+    "amendmentsResultReset": "Amendment results reseted"
+  },
+  "addDocumentModal": {
+    "selectFile": "Select file",
+    "dropToUpload": "or drop file to upload",
+    "formats": "Supported formats: {{value}}",
+    "closeButton": "Close",
+    "insertButton": "Insert",
+    "createButton": "Create",
+    "anotherFile": "Select another file ",
+    "docName": "Document name"
+  },
+  "documents": {
+    "documents": "documents",
+    "edit": "Edit",
+    "moveTo": "Move to another folder",
+    "delete": "Delete"
+  },
+  "users": {
+    "group": "Group",
+    "type": "Type",
+    "usersList": "Users list",
+    "voteWeightGroup": "Vote weight group",
+    "voteWeightBase": "Vote weight base",
+    "addNew": "Add new",
+    "addList": "Add list of users",
+    "user": "user",
+    "clearSelection": "Clear selection",
+    "deleteSelectedUsers": "Delete selected users",
+    "sortBy": "Sort by",
+    "name": "User name",
+    "votes": "Votes",
+    "save": "Save",
+    "createModalTitle": "Add new user",
+    "editModalTitle": "Edit user",
+    "admins": "Administrators"
+  },
+  "amendmentNumber": "Amendment #",
+  "amendmentCommitteeProcess": "The amendment committee proposes to accept",
+  "requestedBy": "Requested by",
+  "by": "by",
+  "currentText": "current text",
+  "changedText": "changed text",
+  "yes": "Yes",
+  "no": "No",
+  "decline": "Decline",
+  "confirm": "Confirm",
+  "cancel": "Cancel",
+  "vote": "Vote",
+  "confirmationAdminVotingClosing": "Do you really want close this voting?",
+  "edited": "edited",
+  "added": "added",
+  "deleted": "deleted",
+  "note": "note",
+  "results": "Results",
+  "text": "Text",
+  "changeResults": "Change results or revote",
+  "okProceed": "Ok, Proceed"
+}

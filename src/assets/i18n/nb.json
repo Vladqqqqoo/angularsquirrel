@@ -1,0 +1,13 @@
+{
+  "activate": {
+    "title": "Aktivierung"
+  },
+  "errors": {
+    "phoneRequired": "Vennligst skriv inn telefonnummeret ditt",
+    "passwordRequired": "Vennligst skriv inn passordet ditt",
+    "error": "Feil oppsto"
+  },
+  "successMessages": {
+    "login": "Loggført med hell"
+  }
+}

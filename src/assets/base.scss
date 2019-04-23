@@ -1,0 +1,84 @@
+// Helpers
+@import "themes/base/styles/common/helpers";
+
+// Normalize
+@import "themes/base/styles/common/normalize";
+
+//Typography
+@import "themes/base/styles/common/fonts";
+@import "themes/base/styles/common/typography";
+
+// Scaffold
+@import "themes/base/styles/common/scaffold";
+
+// Grid
+@import "themes/base/styles/common/grid";
+
+/*// Plugins
+//@import (less) "plugins/;
+
+// Blocks
+// (please, add new blocks in alphabetical order)
+@import "themes/base/styles/blocks/app-component";
+*/
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//@import "~ngx-toastr/toastr.css";
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  app-component {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+}
+.app-container {
+  height: 100%;
+}
+
+app-agenda-add-doc {
+  display: block;
+}
+mat-dialog-container.mat-dialog-container {
+  border-radius: 0.3rem;
+}
+@media #{$mxw1365} {
+  .home-container.fullview-doc .amendments-tools-expand, 
+  .home-container.fullview-doc .documents-tools-expand {
+    left: 6rem;
+  }
+  .home-container.fullview-doc .amendments-tools-expand-img, 
+  .home-container.fullview-doc .documents-tools-expand-img {
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .home-container.fullview-doc .amendments-tools-expand-opposite-img, 
+  .home-container.fullview-doc .documents-tools-expand-opposite-img {
+    z-index: 3;
+    opacity: 1;
+    visibility: visible;
+  }
+  .home-container.fullview-doc .amendments-tools-expand-text, 
+  .home-container.fullview-doc .documents-tools-expand-text {
+    display: none;
+  }
+  .home-container.fullview-doc .amendments-tools-expand-opposite-text, 
+  .home-container.fullview-doc .documents-tools-expand-opposite-text {
+    display: block;
+  }
+  .amendments-tools-expand,
+  .documents-tools-expand {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
