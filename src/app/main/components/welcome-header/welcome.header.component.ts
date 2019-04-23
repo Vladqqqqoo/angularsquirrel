@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {LoginAndRegisterFormContainer} from '../login-and-register-form-container/login-and-register-form-container';
 
 @Component({
   selector: 'app-welcome-header',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomeHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  signInComponentInit(): void {
+    this.dialog.open(LoginAndRegisterFormContainer);
+  }
 
   ngOnInit() {
   }
-
 }
+
