@@ -1,0 +1,11 @@
+<div>
+  <h4>
+    Hello world
+  </h4>
+  <app-login-form *ngIf="initLogin"></app-login-form>
+  <app-register-form *ngIf="initRegister"></app-register-form>
+  <button mat-button color="accent" (click)="initLoginForm()" >Log in</button>
+  <button mat-button color="accent" (click)="initRegisterForm()">Register</button>
+</div>
+
+
