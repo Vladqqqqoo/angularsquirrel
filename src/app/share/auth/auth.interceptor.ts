@@ -3,8 +3,8 @@ import {HttpErrorResponse, HttpHandler, HttpInterceptor, HttpRequest} from '@ang
 import {AuthService} from './auth.service';
 import {Router} from '@angular/router';
 import {catchError} from 'rxjs/operators';
-import {throwError} from "rxjs";
-import {switchMap} from "rxjs/internal/operators/switchMap";
+import {throwError} from 'rxjs';
+import {switchMap} from 'rxjs/internal/operators/switchMap';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {MatDialog, MatMenuTrigger} from "@angular/material";
-import {LoginAndRegisterFormContainer} from "../login-and-register-form-container/login-and-register-form-container";
+import {MatDialog, MatMenuTrigger} from '@angular/material';
+import {LoginAndRegisterFormContainer} from '../login-and-register-form-container/login-and-register-form-container';
 
 
 @Component({

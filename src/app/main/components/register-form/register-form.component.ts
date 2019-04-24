@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from './confirm-password-validator';
-import {AuthService} from "../../../share/auth/auth.service";
+import {AuthService} from '../../../share/auth/auth.service';
 
 @Component({
   selector: 'app-register-form',
@@ -11,6 +11,7 @@ import {AuthService} from "../../../share/auth/auth.service";
 export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
+  registerError: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -52,11 +53,13 @@ export class RegisterFormComponent implements OnInit {
       console.log(data);
     },
       error => {
-      alert('Fail registration');
+      this.registerError = true;
       console.log(error);
       });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.registerError = false
+  }
 
 }

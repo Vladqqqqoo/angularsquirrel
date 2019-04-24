@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {catchError} from "rxjs/internal/operators/catchError";
+import {catchError} from 'rxjs/internal/operators/catchError';
 
 @Injectable({
   providedIn: 'root'
@@ -22,13 +22,19 @@ export class AuthService {
   }
 
   signIn(user): Observable<any> {
-    return this.http.post('http://localhost:3000/users/login', user);
+    return this.http.post('http://localhost:3000/users/login', user).pipe(
+      catchError(err => {
+        return throwError( new Error(err));
+      })
+    );
   }
 
   logOut(): Observable<any> {
     const req = this.getRefreshToken();
     return this.http.post('http://localhost:3000/users/logout', req).pipe(
-
+      catchError(err => {
+        return throwError( new Error(err));
+      })
     );
   }
 

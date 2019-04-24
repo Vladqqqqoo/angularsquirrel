@@ -1,5 +1,8 @@
 <div class="container-fluid">
   <form [formGroup]="registerForm" >
+    <div class="register-error" *ngIf="registerError">
+      Register Error
+    </div>
     <mat-form-field hintLabel="Input unique login">
       <input  formControlName="login" matInput placeholder="Login" >
       <mat-error *ngIf="registerForm.invalid">{{getLoginErrorMessage()}}</mat-error>
@@ -22,4 +25,5 @@
     <br>
     <button  class="signinButton" mat-flat-button color="primary" [disabled]="!registerForm.valid" (click)="registerOneUser()">Send request</button>
   </form>
+
 </div>

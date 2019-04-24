@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../../../share/auth/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -9,10 +10,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
-
+  loginError: boolean;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService,
   ) {
     this.loginForm = this.fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
@@ -31,14 +33,21 @@ export class LoginFormComponent implements OnInit {
       ;
   }
 
-  loginOneUser(){
-    const request = this.loginForm.value;
-
-    console.log(request)
+  loginOneUser() {
+    const userData = this.loginForm.value;
+    this.authService.signIn(userData).subscribe((data) => {
+      this.authService.setTokens(data);
+      alert('Login Successfully');
+      console.log(data);
+    }, (err) => {
+      this.loginError = true;
+      console.log(err);
+    });
   }
 
 
   ngOnInit() {
+    this.loginError = false
   }
 
 }
