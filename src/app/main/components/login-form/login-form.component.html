@@ -1,5 +1,8 @@
 <div class="container-fluid">
   <form [formGroup]="loginForm">
+    <div class="login-error" *ngIf="loginError">
+      Login Error
+    </div>
     <mat-form-field>
       <input formControlName="login" matInput placeholder="login">
       <mat-error *ngIf="loginForm.invalid">{{getLoginErrorMessage()}}</mat-error>

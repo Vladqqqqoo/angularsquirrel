@@ -5,3 +5,21 @@
   padding: 5px;
   box-shadow: 0 0 30px rgba(0,0,0,1);
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0 30px   #CCCCCC inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: black !important;
+}
+
+.register-error{
+  margin: 10px;
+  font-size: 15px;
+  color: #FF7B40	;
+  display: flex;
+  justify-content: center;
+}
