@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from './confirm-password-validator';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-register-form',
@@ -12,7 +13,8 @@ export class RegisterFormComponent implements OnInit {
   registerForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService,
   ) {
     this.registerForm = this.fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
@@ -29,25 +31,21 @@ export class RegisterFormComponent implements OnInit {
 
   getEmailErrorMessage() {
     return this.registerForm.get('email').hasError('required') ? 'You must enter some email' :
-      this.registerForm.get('email').hasError('pattern') ? 'invalid email' : ''
-    ;
+      this.registerForm.get('email').hasError('pattern') ? 'invalid email' : '';
   }
 
   getPasswordErrorMessage() {
     return this.registerForm.get('password').hasError('required') ? 'You must enter some password' :
-      this.registerForm.get('password').hasError('pattern') ? 'invalid password' : ''
-      ;
+      this.registerForm.get('password').hasError('pattern') ? 'invalid password' : '';
   }
 
   getConfPasswordErrorMessage() {
     return this.registerForm.get('confirmPassword').hasError('required') ? 'You must confirm your password' :
-      this.registerForm.get('confirmPassword').hasError('ConfirmPassword') ? 'Passwords don\'t match' : ''
-      ;
+      this.registerForm.get('confirmPassword').hasError('ConfirmPassword') ? 'Passwords don\'t match' : '';
   }
 
   registerOneUser() {
-    const request = this.registerForm.value;
-    console.log(request);
+    this.authService.signUp(this.registerForm.value).subscribe();
   }
 
   ngOnInit() {}

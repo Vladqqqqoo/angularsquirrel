@@ -4,7 +4,7 @@ export class ConfirmPasswordValidator {
   static confirmPassword(control: AbstractControl) {
     const password = control.get('password').value;
 
-    const confirmPassword = control.get('confirmPassword').value.toString();
+    const confirmPassword = control.get('confirmPassword').value;
     if (!confirmPassword) {
       return control.get('confirmPassword').setErrors( {required: true} );
     }
