@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MAT_DIALOG_DATA} from '@angular/material'
+import { Inject } from '@angular/core';
 
 @Component({
   selector: 'app-register-component',
@@ -7,11 +9,10 @@ import { Component, OnInit } from '@angular/core';
     '../../../grid.scss']
 })
 export class LoginAndRegisterFormContainer implements OnInit {
-
   initLogin: boolean;
   initRegister: boolean;
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   initLoginForm(): void {
     this.initLogin = true;
@@ -24,8 +25,8 @@ export class LoginAndRegisterFormContainer implements OnInit {
   }
 
   ngOnInit() {
-    this.initLogin = false;
-    this.initRegister = false;
+    this.initLogin = this.data.initLogin;
+    this.initRegister = this.data.initRegister;
   }
 
 }

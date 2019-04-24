@@ -1,5 +1,7 @@
 import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {MatMenuTrigger} from "@angular/material";
+import {MatDialog, MatMenuTrigger} from "@angular/material";
+import {LoginAndRegisterFormContainer} from "../login-and-register-form-container/login-and-register-form-container";
+
 
 @Component({
   selector: 'app-navigation',
@@ -9,11 +11,12 @@ import {MatMenuTrigger} from "@angular/material";
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
   }
 
-  @ViewChildren(MatMenuTrigger) private triggers: QueryList<MatMenuTrigger>;
-
+  signInComponentInit(): void {
+    this.dialog.open(LoginAndRegisterFormContainer, {data: {initRegister: true, initLogin: false}});
+  }
 
   ngOnInit() {
   }

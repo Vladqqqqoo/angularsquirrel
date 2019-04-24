@@ -12,7 +12,7 @@ export class WelcomeHeaderComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   signInComponentInit(): void {
-    this.dialog.open(LoginAndRegisterFormContainer);
+    this.dialog.open(LoginAndRegisterFormContainer, {data: {initLogin: true, initRegister: false}});
   }
 
   ngOnInit() {
