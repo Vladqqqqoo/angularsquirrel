@@ -10,6 +10,7 @@ import {RegisterFormComponent} from './components/register-form/register-form.co
 import {LoginFormComponent} from './components/login-form/login-form.component';
 import {MaterialModule} from '../material/material.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ShareModule} from "../share/share.module";
 
 @NgModule({
   declarations: [NavigationComponent, WelcomeHeaderComponent, MainContainerComponent, LoginAndRegisterFormContainer, RegisterFormComponent, LoginFormComponent],
@@ -17,7 +18,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     MainRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShareModule
   ],
   providers: [
   ],

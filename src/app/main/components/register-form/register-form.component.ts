@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from './confirm-password-validator';
-import {AuthService} from '../../auth/auth.service';
+import {AuthService} from "../../../share/auth/auth.service";
 
 @Component({
   selector: 'app-register-form',
@@ -45,7 +45,16 @@ export class RegisterFormComponent implements OnInit {
   }
 
   registerOneUser() {
-    this.authService.signUp(this.registerForm.value).subscribe();
+    const user = this.registerForm.value;
+    delete user.confirmPassword;
+    this.authService.signUp(user).subscribe(data => {
+      alert('Successful registration');
+      console.log(data);
+    },
+      error => {
+      alert('Fail registration');
+      console.log(error);
+      });
   }
 
   ngOnInit() {}
