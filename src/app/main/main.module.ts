@@ -8,7 +8,8 @@ import {MainContainerComponent} from './components/main-container-component/main
 import {LoginAndRegisterFormContainer} from './components/login-and-register-form-container/login-and-register-form-container';
 import {RegisterFormComponent} from './components/register-form/register-form.component';
 import {LoginFormComponent} from './components/login-form/login-form.component';
-import {MaterialModule} from "../material/material.module";
+import {MaterialModule} from '../material/material.module';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [NavigationComponent, WelcomeHeaderComponent, MainContainerComponent, LoginAndRegisterFormContainer, RegisterFormComponent, LoginFormComponent],
@@ -16,6 +17,7 @@ import {MaterialModule} from "../material/material.module";
     CommonModule,
     MainRoutingModule,
     MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
   ],

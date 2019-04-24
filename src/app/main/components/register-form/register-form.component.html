@@ -1,45 +1,25 @@
 <div class="example-container">
-
-  <div class="input-container">
-    <mat-form-field hintLabel="Max 10 characters">
-      <input matInput #input maxlength="10" placeholder="Email">
-      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+  <form [formGroup]="registerForm" >
+    <mat-form-field hintLabel="Input unique login">
+      <input  formControlName="login" matInput placeholder="Login" >
+      <mat-error *ngIf="registerForm.invalid">{{getLoginErrorMessage()}}</mat-error>
     </mat-form-field>
-  </div>
-
-  <div class="input-container">
-    <mat-form-field hintLabel="Max 10 characters">
-      <input matInput #input maxlength="10" placeholder="Password">
-      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    <br/>
+    <mat-form-field>
+      <input formControlName="email" matInput placeholder="email">
+      <mat-error *ngIf="registerForm.invalid">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
-  </div>
-
-  <div class="input-container">
-    <mat-form-field hintLabel="Max 10 characters">
-      <input matInput #input maxlength="10" placeholder="Confirm password">
-      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    <br>
+    <mat-form-field >
+      <input formControlName="password" matInput placeholder="Password">
+      <mat-error *ngIf="registerForm.invalid">{{getPasswordErrorMessage()}}</mat-error>
     </mat-form-field>
-  </div>
-
-  <div class="input-container">
-    <mat-form-field hintLabel="Max 10 characters">
-      <input matInput #input maxlength="10" placeholder="age">
-      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    <br>
+    <mat-form-field>
+      <input formControlName="confirmPassword" matInput placeholder="Confirm password">
+      <mat-error *ngIf="registerForm.invalid">{{getConfPasswordErrorMessage()}}</mat-error>
     </mat-form-field>
-  </div>
-
-  <div class="input-container">
-    <mat-form-field hintLabel="Max 10 characters">
-      <input matInput #input maxlength="10" placeholder="Password">
-      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-    </mat-form-field>
-  </div>
-
-  <div class="input-container">
-    <mat-form-field hintLabel="Max 10 characters">
-      <input matInput #input maxlength="10" placeholder="Confirm password">
-      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-    </mat-form-field>
-  </div>
-
+    <br>
+    <button  class="signinButton" mat-flat-button color="primary" [disabled]="!registerForm.valid" (click)="registerOneUser()">Send request</button>
+  </form>
 </div>
