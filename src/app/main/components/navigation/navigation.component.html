@@ -2,25 +2,24 @@
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-3">
-        <button mat-button #trigger="matMenuTrigger" (mouseenter)="showMenu(trigger)" [matMenuTriggerFor]="menu1">Menu
-        </button>
-        <mat-menu #menu1="matMenu" [hasBackdrop]="false" [overlapTrigger]="false">
-          <div class="lol" (mouseleave)="closeMenu(trigger)">
-            <button mat-menu-item>trig1</button>
-            <button mat-menu-item>trig2</button>
+        <div class="dropdown">
+          <button class="dropbtn">Menu</button>
+          <div class="dropdown-content">
+            <a href="#">menu 1</a>
+            <a href="#">menu 1</a>
+            <a href="#">menu 1</a>
           </div>
-        </mat-menu>
+        </div>
       </div>
       <div class="col-md-3">
-        <button #menutrigger="matMenuTrigger" (mouseenter)="showMenu(menutrigger)" mat-button
-                [matMenuTriggerFor]="menu2">Shots
-        </button>
-        <mat-menu #menu2="matMenu" [overlapTrigger]="false" [hasBackdrop]="false">
-          <div (mouseleave)="closeMenu(menutrigger)">
-            <button mat-menu-item>Men1</button>
-            <button mat-menu-item>Men2</button>
+        <div class="dropdown">
+          <button class="dropbtn">Shot</button>
+          <div class="dropdown-content">
+            <a href="#">shot 1</a>
+            <a href="#">shot 2</a>
+            <a href="#">shot 3</a>
           </div>
-        </mat-menu>
+        </div>
       </div>
       <div class="col-md-3">4321</div>
       <div class="col-md-3">213213</div>
