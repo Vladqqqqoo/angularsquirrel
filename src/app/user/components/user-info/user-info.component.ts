@@ -16,12 +16,35 @@ export class UserInfoComponent implements OnInit {
       lastName: ['', [Validators.required, Validators.pattern(/^[а-яА-ЯёЁa-zA-Z]+$/)]],
       age: [null, [Validators.required, Validators.pattern(/(^[1-9][0-9]?$)|(^100$)/)]],
       email: ['', [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
+      login: [],
+      location: [],
+      website: [],
+      skills: [],
+      bio: [],
     })
   }
 
   getFirstNameErrorMessage() {
     return this.userForm.get('firstName').hasError('required') ? 'You must enter a value' :
       this.userForm.get('firstName').hasError('pattern') ? 'Not a valid first name' :
+        '';
+  }
+
+  getLastNameErrorMessage() {
+    return this.userForm.get('lastName').hasError('required') ? 'You must enter a value' :
+      this.userForm.get('lastName').hasError('pattern') ? 'Not a valid last name' :
+        '';
+  }
+
+  getAgeErrorMessage() {
+    return this.userForm.get('age').hasError('required') ? 'You must enter a value' :
+      this.userForm.get('age').hasError('pattern') ? 'Not a valid age' :
+        '';
+  }
+
+  getEmailErrorMessage() {
+    return this.userForm.get('email').hasError('required') ? 'You must enter a value' :
+      this.userForm.get('email').hasError('email') ? 'Not a valid email' :
         '';
   }
 
