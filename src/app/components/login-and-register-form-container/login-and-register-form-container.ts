@@ -6,7 +6,7 @@ import { Inject } from '@angular/core';
   selector: 'app-register-component',
   templateUrl: './login-and-register-form-container.html',
   styleUrls: ['./login-and-register-form-container.scss',
-    '../../../grid.scss']
+    '../../grid.scss']
 })
 export class LoginAndRegisterFormContainer implements OnInit {
   initLogin: boolean;

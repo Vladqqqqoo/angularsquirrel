@@ -5,7 +5,7 @@ import {LoginAndRegisterFormContainer} from '../login-and-register-form-containe
 @Component({
   selector: 'app-welcome-header',
   templateUrl: './welcome.header.component.html',
-  styleUrls: ['./welcome.header.component.scss', './cat.scss', '../../../grid.scss']
+  styleUrls: ['./welcome.header.component.scss', './cat.scss', '../../grid.scss']
 })
 export class WelcomeHeaderComponent implements OnInit {
 
