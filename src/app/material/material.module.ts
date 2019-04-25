@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatMenuModule} from "@angular/material";
+import {ReactiveFormsModule} from "@angular/forms";
 
 const arrayModules = [
   MatMenuModule,
@@ -8,6 +9,7 @@ const arrayModules = [
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
+  ReactiveFormsModule
 ];
 @NgModule({
   declarations: [],

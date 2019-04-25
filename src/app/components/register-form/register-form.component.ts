@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from './confirm-password-validator';
-import {AuthService} from '../../../share/auth/auth.service';
+import {AuthService} from '../../share/auth/auth.service';
 
 @Component({
   selector: 'app-register-form',
