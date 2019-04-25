@@ -1,6 +1,13 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatMenuModule} from "@angular/material";
+import {
+  MatButtonModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatInputModule, MatListModule,
+  MatMenuModule,
+  MatSidenavModule
+} from "@angular/material";
 import {ReactiveFormsModule} from "@angular/forms";
 
 const arrayModules = [
@@ -9,7 +16,10 @@ const arrayModules = [
   MatDialogModule,
   MatFormFieldModule,
   MatInputModule,
-  ReactiveFormsModule
+  ReactiveFormsModule,
+  MatFormFieldModule,
+  MatSidenavModule,
+  MatListModule,
 ];
 @NgModule({
   declarations: [],
