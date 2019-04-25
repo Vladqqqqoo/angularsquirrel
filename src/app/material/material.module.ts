@@ -7,8 +7,8 @@ import {
   MatInputModule, MatListModule,
   MatMenuModule,
   MatSidenavModule
-} from "@angular/material";
-import {ReactiveFormsModule} from "@angular/forms";
+} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
 
 const arrayModules = [
   MatMenuModule,
@@ -17,7 +17,6 @@ const arrayModules = [
   MatFormFieldModule,
   MatInputModule,
   ReactiveFormsModule,
-  MatFormFieldModule,
   MatSidenavModule,
   MatListModule,
 ];
