@@ -23,6 +23,12 @@
 */
 //@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 //@import "~ngx-toastr/toastr.css";
+//
+.cdk-overlay-pane{
+  .mat-dialog-container {
+    background-color: #4869D6		;
+  }
+}
 
 html {
   position: relative;
