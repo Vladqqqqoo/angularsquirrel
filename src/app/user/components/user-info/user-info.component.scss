@@ -1,11 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .example-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: auto auto;
+  margin: auto 0;
 }
 
 .example-full-width {
   width: 100%;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
 }
 
