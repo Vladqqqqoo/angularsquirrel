@@ -2,12 +2,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
-
 import { FileUploader } from 'ng2-file-upload';
 
 const URL = 'my-backend.com/file-upload';
-
-
 
 @Component({
   selector: 'app-user-info',
@@ -16,7 +13,6 @@ const URL = 'my-backend.com/file-upload';
 })
 export class UserInfoComponent implements OnInit {
 
-  @ViewChild('fileInput') fileInput;
   userForm: FormGroup;
 
   public uploader:FileUploader = new FileUploader({url: URL});
@@ -29,7 +25,7 @@ export class UserInfoComponent implements OnInit {
     this.hasAnotherDropZoneOver = e;
   }
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private httpClient: HttpClient) {
     this.userForm = fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
       email: ['', [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
@@ -49,30 +45,6 @@ export class UserInfoComponent implements OnInit {
         '';
   }
 
-  onFileSelect(event) {
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.uploadForm.get('profile').setValue(file);
-    }
-  }
-
-
-  ngOnInit() {
-    this.uploadForm = this.fb.group({
-      profile: ['']
-    });
-  }
-
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.uploadForm.get('profile').value);
-
-    this.httpClient.post<any>('http://localhost:3000/customers/login', formData).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
-    );
-  }
-
   onSave() {
       const userBio = this.userForm.value;
       this.httpClient.post<any>('http://localhost:3000/account/info', userBio).subscribe(
@@ -81,10 +53,6 @@ export class UserInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.uploadForm = this.fb.group({
-      profile: ['']
-    });
-
     this.httpClient.get('http://localhost:3000/account/info').subscribe(
       data => {
         const array = Object.keys(this.userForm.getRawValue());
