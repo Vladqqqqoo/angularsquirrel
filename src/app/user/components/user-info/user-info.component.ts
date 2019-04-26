@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-user-info',
@@ -11,7 +12,7 @@ export class UserInfoComponent implements OnInit {
   userForm: FormGroup;
   uploadForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private httpClient: HttpClient) {
     this.userForm = fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
       email: ['', [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
@@ -43,6 +44,16 @@ export class UserInfoComponent implements OnInit {
     this.uploadForm = this.fb.group({
       profile: ['']
     });
+  }
+
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.uploadForm.get('profile').value);
+
+    this.httpClient.post<any>('http://localhost:3000/customers/login', formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
   }
 
 }
