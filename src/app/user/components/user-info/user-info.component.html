@@ -1,15 +1,82 @@
 <div class="row">
-  <div class="col-md-7">
-    <div class="row">
-      <div class="col-md-2">
-        <img src="" alt="image">
+  <div class="col-md-3">
+    <div class="col-md-12 center">
+      <div>
+        <img src="https://image.flaticon.com/icons/png/512/26/26098.png" alt="image" width="50px" height="50px">
       </div>
-      <div class="col-md-3">
-        <button mat-raised-button color="primary">Upload new picture</button>
-      </div>
-      <div class="col-md-2">
-        <button mat-raised-button color="warn">Delete</button>
-      </div>
+      <form [formGroup]="uploadForm">
+        <div>
+          <input type="file" name="profile" (change)="onFileSelect($event)"/>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12 center">
+      <button mat-raised-button color="primary" (click)="onSubmit()">Upload new picture</button>
+    </div>
+    <div class="col-md-12 center">
+      <button mat-raised-button color="warn">Delete</button>
     </div>
   </div>
+
+  <div class="col-md-7 example-form">
+    <form [formGroup]="userForm">
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>Login</mat-label>
+        <input required type="text" matInput formControlName="login" placeholder="Enter your login">
+        <mat-error *ngIf="userForm.invalid">{{getErrorMessage('login')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input required type="text" matInput formControlName="email" placeholder="Enter your email">
+        <mat-error *ngIf="userForm.invalid">{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput formControlName="firstName" placeholder="Enter your first name">
+        <mat-error *ngIf="userForm.invalid">{{getErrorMessage('firstName')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput formControlName="lastName" placeholder="Enter your last name">
+        <mat-error *ngIf="userForm.invalid">{{getErrorMessage('lastName')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>Age</mat-label>
+        <input type="number" matInput formControlName="age" placeholder="Enter your age">
+        <mat-error *ngIf=" userForm.invalid">{{getErrorMessage('age')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>Location</mat-label>
+        <input type="text" matInput formControlName="location" placeholder="Enter your location">
+        <mat-error *ngIf=" userForm.invalid">{{getErrorMessage('location')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>Website</mat-label>
+        <input type="text" matInput formControlName="website" placeholder="Enter your website">
+        <mat-error *ngIf=" userForm.invalid">{{getErrorMessage('website')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>Skills</mat-label>
+        <input type="text" matInput formControlName="skills" placeholder="Enter your skills">
+        <mat-error *ngIf=" userForm.invalid">{{getErrorMessage('skills')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+        <mat-label>Bio</mat-label>
+        <textarea matInput formControlName="bio" placeholder="Enter your bio" cols="30" rows="10"></textarea>
+        <mat-error *ngIf=" userForm.invalid">{{getErrorMessage('bio')}}</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button class="save" color="primary">Save</button>
+
+    </form>
+  </div>
 </div>
+

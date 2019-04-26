@@ -1,5 +1,8 @@
-<div class="container-fluid">
-  <app-navigation class="nav"></app-navigation>
-  <app-welcome-header *ngIf="!  authService.isLoggedIn()"></app-welcome-header>
-  <router-outlet></router-outlet>
+<div class="container-fluid wrapper">
+    <app-navigation class="nav"></app-navigation>
+    <app-welcome-header *ngIf="!  authService.isLoggedIn()"></app-welcome-header>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
 </div>
