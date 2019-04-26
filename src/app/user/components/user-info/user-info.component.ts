@@ -49,15 +49,6 @@ export class UserInfoComponent implements OnInit {
         '';
   }
 
-  clearUpload() {
-    this.uploader.clearQueue();
-    this.uploader.cancelAll();
-  }
-
-  onUpload() {
-    this.uploader.uploadAll();
-  }
-
   ngOnInit() {
 
   }
