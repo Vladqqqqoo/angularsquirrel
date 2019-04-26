@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpClient} from "@angular/common/http";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-user-info',
@@ -21,9 +21,9 @@ export class UserInfoComponent implements OnInit {
       age: [null, [Validators.pattern(/(^[1-9][0-9]?$)|(^100$)/)]],
       location: ['', [Validators.pattern(/^[#.0-9a-zA-Z\s,-]+$/)]],
       website: ['', [Validators.pattern(/^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/)]],
-      skills: ['',[Validators.pattern(/[а-яА-ЯёЁa-zA-Z,]+/)]],
-      bio: ['',],
-    })
+      skills: ['', [Validators.pattern(/[а-яА-ЯёЁa-zA-Z,]+/)]],
+      bio: ['', ],
+    });
   }
 
   getErrorMessage(field: string) {
@@ -39,20 +39,34 @@ export class UserInfoComponent implements OnInit {
     }
   }
 
+  onSubmit() {
+    const formData = new FormData();
+    formData.append('file', this.uploadForm.get('profile').value);
+    this.httpClient.post<any>('http://localhost:3000/customers/login', formData).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
+  }
+
+  onSave() {
+      const userBio = this.userForm.value;
+      this.httpClient.post<any>('http://localhost:3000/account/info', userBio).subscribe(
+        data => alert('Info saved')
+      );
+  }
 
   ngOnInit() {
     this.uploadForm = this.fb.group({
       profile: ['']
     });
-  }
 
-  onSubmit() {
-    const formData = new FormData();
-    formData.append('file', this.uploadForm.get('profile').value);
-
-    this.httpClient.post<any>('http://localhost:3000/customers/login', formData).subscribe(
-      (res) => console.log(res),
-      (err) => console.log(err)
+    this.httpClient.get('http://localhost:3000/account/info').subscribe(
+      data => {
+        const array = Object.keys(this.userForm.getRawValue());
+        for ( const key of array) {
+          this.userForm.get(key).setValue(data[key]);
+        }
+      }
     );
   }
 

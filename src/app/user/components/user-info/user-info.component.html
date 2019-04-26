@@ -19,7 +19,7 @@
   </div>
 
   <div class="col-md-7 example-form">
-    <form [formGroup]="userForm">
+    <form [formGroup]="userForm" >
       <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
         <mat-label>Login</mat-label>
         <input required type="text" matInput formControlName="login" placeholder="Enter your login">
@@ -73,10 +73,10 @@
         <textarea matInput formControlName="bio" placeholder="Enter your bio" cols="30" rows="10"></textarea>
         <mat-error *ngIf=" userForm.invalid">{{getErrorMessage('bio')}}</mat-error>
       </mat-form-field>
-
-      <button mat-raised-button class="save" color="primary">Save</button>
-
+      <button mat-raised-button class="save" color="primary" (click)="onSave()">Save</button>
     </form>
   </div>
+
+
 </div>
 
