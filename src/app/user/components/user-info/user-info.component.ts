@@ -1,18 +1,35 @@
-import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+
+
+import { FileUploader } from 'ng2-file-upload';
+
+const URL = 'my-backend.com/file-upload';
+
+
 
 @Component({
   selector: 'app-user-info',
   templateUrl: './user-info.component.html',
-  styleUrls: ['./user-info.component.scss']
+  styleUrls: ['./user-info.component.scss'],
 })
 export class UserInfoComponent implements OnInit {
 
+  @ViewChild('fileInput') fileInput;
   userForm: FormGroup;
-  uploadForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private httpClient: HttpClient) {
+  public uploader:FileUploader = new FileUploader({url: URL});
+  public hasBaseDropZoneOver:boolean = false;
+  public hasAnotherDropZoneOver:boolean = false;
+  public fileOverBase(e:any):void {
+    this.hasBaseDropZoneOver = e;
+  }
+  public fileOverAnother(e:any):void {
+    this.hasAnotherDropZoneOver = e;
+  }
+
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.userForm = fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
       email: ['', [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
@@ -39,9 +56,17 @@ export class UserInfoComponent implements OnInit {
     }
   }
 
+
+  ngOnInit() {
+    this.uploadForm = this.fb.group({
+      profile: ['']
+    });
+  }
+
   onSubmit() {
     const formData = new FormData();
     formData.append('file', this.uploadForm.get('profile').value);
+
     this.httpClient.post<any>('http://localhost:3000/customers/login', formData).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)

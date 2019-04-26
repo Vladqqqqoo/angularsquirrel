@@ -6,13 +6,18 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { PasswordComponent } from './components/password/password.component';
 import { SocialNetworksComponent } from './components/social-networks/social-networks.component';
 import {MaterialModule} from '../material/material.module';
+import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
-  declarations: [UserComponent, UserInfoComponent, PasswordComponent, SocialNetworksComponent],
+  declarations: [UserComponent, UserInfoComponent, PasswordComponent, SocialNetworksComponent,FileSelectDirective, FileDropDirective],
   imports: [
     CommonModule,
+    MaterialModule,
     UserRoutingModule,
-    MaterialModule
-  ]
+    FormsModule
+  ],
+  providers: [],
 })
 export class UserModule { }
