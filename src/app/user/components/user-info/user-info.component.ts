@@ -9,46 +9,40 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class UserInfoComponent implements OnInit {
 
   userForm: FormGroup;
+  uploadForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.userForm = fb.group({
-      firstName: ['', [Validators.required, Validators.pattern(/^[а-яА-ЯёЁa-zA-Z]+$/)]],
-      lastName: ['', [Validators.required, Validators.pattern(/^[а-яА-ЯёЁa-zA-Z]+$/)]],
-      age: [null, [Validators.required, Validators.pattern(/(^[1-9][0-9]?$)|(^100$)/)]],
+      login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
       email: ['', [Validators.required, Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
-      login: [],
-      location: [],
-      website: [],
-      skills: [],
-      bio: [],
+      firstName: ['', [Validators.pattern(/^[а-яА-ЯёЁa-zA-Z]+$/)]],
+      lastName: ['', [Validators.pattern(/^[а-яА-ЯёЁa-zA-Z]+$/)]],
+      age: [null, [Validators.pattern(/(^[1-9][0-9]?$)|(^100$)/)]],
+      location: ['', [Validators.pattern(/^[#.0-9a-zA-Z\s,-]+$/)]],
+      website: ['', [Validators.pattern(/^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?$/)]],
+      skills: ['',[Validators.pattern(/[а-яА-ЯёЁa-zA-Z,]+/)]],
+      bio: ['',],
     })
   }
 
-  getFirstNameErrorMessage() {
-    return this.userForm.get('firstName').hasError('required') ? 'You must enter a value' :
-      this.userForm.get('firstName').hasError('pattern') ? 'Not a valid first name' :
+  getErrorMessage(field: string) {
+    return this.userForm.get(field).hasError('required') ? 'You must enter a value' :
+      this.userForm.get(field).hasError('pattern') ? 'Not valid' :
         '';
   }
 
-  getLastNameErrorMessage() {
-    return this.userForm.get('lastName').hasError('required') ? 'You must enter a value' :
-      this.userForm.get('lastName').hasError('pattern') ? 'Not a valid last name' :
-        '';
+  onFileSelect(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.uploadForm.get('profile').setValue(file);
+    }
   }
 
-  getAgeErrorMessage() {
-    return this.userForm.get('age').hasError('required') ? 'You must enter a value' :
-      this.userForm.get('age').hasError('pattern') ? 'Not a valid age' :
-        '';
-  }
-
-  getEmailErrorMessage() {
-    return this.userForm.get('email').hasError('required') ? 'You must enter a value' :
-      this.userForm.get('email').hasError('email') ? 'Not a valid email' :
-        '';
-  }
 
   ngOnInit() {
+    this.uploadForm = this.fb.group({
+      profile: ['']
+    });
   }
 
 }
