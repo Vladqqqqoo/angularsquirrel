@@ -1,0 +1,94 @@
+.user-container img{
+  height: 200px;
+  border-radius: 50%;
+}
+
+.user-info-container{
+  padding: 20px;
+}
+
+.user-container{
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-container{
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+p{
+  display: block;
+  color: #666666;
+}
+
+.svg-icon {
+  width: 10%;
+  height: 10%;
+}
+
+.svg-icon:hover {
+  width: 15%;
+  transition: 400ms;
+  height: 15%;
+}
+
+.svg-container:active, .svg-container:focus {
+  outline: none;
+}
+.svg-container::-moz-focus-inner {
+  border: 0;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #4691f6;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+.svg-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.svg-container:hover{
+  .svg-icon {
+    width: 15%;
+    transition: 400ms;
+    height: 15%;
+  }
+  font-size: 110%;
+}
+
+.buttons-container{
+  display: none;
+}
+
+
+.post-container:hover{
+  transition: 400ms;
+  .buttons-container{
+    transition: 400ms;
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+
+
+

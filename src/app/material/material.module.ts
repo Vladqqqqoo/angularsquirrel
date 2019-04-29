@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {
   MatButtonModule,
   MatDialogModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatIconModule,
   MatInputModule, MatListModule,
   MatMenuModule,
   MatSidenavModule
@@ -19,6 +19,7 @@ const arrayModules = [
   ReactiveFormsModule,
   MatSidenavModule,
   MatListModule,
+  MatIconModule
 ];
 @NgModule({
   declarations: [],
