@@ -6,7 +6,7 @@
 .example-form {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   margin: auto auto;
   margin-top: 20px;
 }
@@ -21,4 +21,13 @@ img{
 
 p{
   margin-left: 10px;
+}
+
+.names-container{
+  display: flex;
+  flex-direction: row;
+}
+
+button{
+  margin: 10px;
 }

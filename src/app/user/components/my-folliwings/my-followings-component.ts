@@ -15,15 +15,18 @@ export class MyFollowingsComponent implements OnInit {
   users = [
     {
       firstName: 'Vlad',
-      lastName: 'Vlad'
+      lastName: 'Drobovich',
+      image: 'http://bm.img.com.ua/nxs/img/prikol/images/large/1/2/308321_879389.jpg'
     },
     {
       firstName: 'Vlad',
-      lastName: 'Vlad'
+      lastName: 'Drobovich',
+      image: 'http://bm.img.com.ua/nxs/img/prikol/images/large/1/2/308321_879389.jpg'
     },
     {
       firstName: 'Vlad',
-      lastName: 'Vlad'
+      lastName: 'Drobovich',
+      image: 'http://bm.img.com.ua/nxs/img/prikol/images/large/1/2/308321_879389.jpg'
     }
   ];
 

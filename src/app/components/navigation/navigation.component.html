@@ -27,6 +27,9 @@
     <button mat-raised-button color="accent" (click)="signInComponentInit()">Sign Up</button>
   </div>
   <div class="col-md-2" *ngIf="authService.isLoggedIn()">
+    <button mat-raised-button color="accent" (click)="addNewPost()">Add post</button>
+  </div>
+  <div class="col-md-2" *ngIf="authService.isLoggedIn()">
     <button mat-raised-button color="accent" (click)="logOut()">Log Out</button>
   </div>
 </div>

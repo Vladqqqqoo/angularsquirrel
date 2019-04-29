@@ -1,11 +1,17 @@
 <div class="form-container">
   <div class="row">
     <div class="col-md-7 example-form" *ngFor=" let user of users">
-      <img src="https://st2.depositphotos.com/5371668/8408/i/450/depositphotos_84086784-stock-photo-man-and-the-universe.jpg" alt="userPhoto">
-      <p>{{user.firstName}}</p>
-      <p>{{user.lastName}}</p>
-      <button>message</button>
-      <button>unfollow</button>
+      <img src = '{{user.image}}' alt="userPhoto">
+      <div class="content-container">
+        <div class="names-container">
+          <p>{{user.firstName}}</p>
+          <p>{{user.lastName}}</p>
+        </div>
+        <div class="buttons-container">
+          <button mat-raised-button color="accent">Message</button>
+          <button mat-raised-button color="accent">Unfollow</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
