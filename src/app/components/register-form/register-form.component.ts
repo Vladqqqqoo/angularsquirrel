@@ -59,7 +59,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.registerError = false
+    this.registerError = false;
   }
 
 }
