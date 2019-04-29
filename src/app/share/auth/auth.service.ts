@@ -34,7 +34,7 @@ export class AuthService {
       refreshToken: this.getRefreshToken()
     };
     console.log(userToken);
-    // this.removeTokens();
+    this.removeTokens();
     return this.http.post('http://localhost:3000/users/logout', userToken).pipe(
       catchError(err => {
         return throwError( new Error(err));
