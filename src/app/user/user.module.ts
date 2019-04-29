@@ -4,14 +4,14 @@ import { UserComponent } from './components/user/user.component';
 import {UserRoutingModule} from './user-routing.module';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { PasswordComponent } from './components/password/password.component';
-import { SocialNetworksComponent } from './components/social-networks/social-networks.component';
+import { MyFollowingsComponent } from './components/my-folliwings/my-followings-component';
 import {MaterialModule} from '../material/material.module';
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
-  declarations: [UserComponent, UserInfoComponent, PasswordComponent, SocialNetworksComponent,FileSelectDirective, FileDropDirective],
+  declarations: [UserComponent, UserInfoComponent, PasswordComponent, MyFollowingsComponent, FileSelectDirective, FileDropDirective],
   imports: [
     CommonModule,
     MaterialModule,

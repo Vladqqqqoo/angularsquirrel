@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SocialNetworksComponent } from './social-networks.component';
+import { UserProfileMainComponent } from './user-profile-main.component';
 
-describe('SocialNetworksComponent', () => {
-  let component: SocialNetworksComponent;
-  let fixture: ComponentFixture<SocialNetworksComponent>;
+describe('UserProfileMainComponent', () => {
+  let component: UserProfileMainComponent;
+  let fixture: ComponentFixture<UserProfileMainComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SocialNetworksComponent ]
+      declarations: [ UserProfileMainComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SocialNetworksComponent);
+    fixture = TestBed.createComponent(UserProfileMainComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

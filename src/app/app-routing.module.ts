@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {path: '', loadChildren: './main/main.module#MainModule'},
-  {path: 'account', canLoad:[], loadChildren: './user/user.module#UserModule'},
+  {path: 'account', canLoad: [], loadChildren: './user/user.module#UserModule'},
+  {path: 'profile', canLoad: [], loadChildren: './user-profile/user-profile.module#UserProfileModule'},
 ];
 
 @NgModule({

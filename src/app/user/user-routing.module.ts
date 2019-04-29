@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {UserComponent} from './components/user/user.component';
 import {UserInfoComponent} from './components/user-info/user-info.component';
 import {PasswordComponent} from './components/password/password.component';
-import {SocialNetworksComponent} from './components/social-networks/social-networks.component';
+import {MyFollowingsComponent} from './components/my-folliwings/my-followings-component';
 
 const routes: Routes = [
   {
@@ -19,8 +19,8 @@ const routes: Routes = [
         component: PasswordComponent,
       },
       {
-        path: 'social',
-        component: SocialNetworksComponent,
+        path: 'followings',
+        component: MyFollowingsComponent,
       }
     ]
   },

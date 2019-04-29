@@ -1,0 +1,33 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.example-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: auto auto;
+  margin-top: 20px;
+}
+
+img{
+  width: 70px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  height: 70px;
+}
+
+p{
+  margin-left: 10px;
+}
+
+.names-container{
+  display: flex;
+  flex-direction: row;
+}
+
+button{
+  margin: 10px;
+}

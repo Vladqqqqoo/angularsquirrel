@@ -33,7 +33,6 @@ export class AuthService {
     const userToken = {
       refreshToken: this.getRefreshToken()
     };
-    console.log(userToken);
     this.removeTokens();
     return this.http.post('http://localhost:3000/users/logout', userToken).pipe(
       catchError(err => {

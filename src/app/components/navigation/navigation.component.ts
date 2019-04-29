@@ -2,6 +2,7 @@ import {Component, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/co
 import {MatDialog, MatMenuTrigger} from '@angular/material';
 import {LoginAndRegisterFormContainer} from '../login-and-register-form-container/login-and-register-form-container';
 import {AuthService} from '../../share/auth/auth.service';
+import {AddNewPostService} from '../../share/add-post/add-new-post.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class NavigationComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private authService: AuthService,
+    private addNewPostService: AddNewPostService
   ) {
   }
 
@@ -26,8 +28,12 @@ export class NavigationComponent implements OnInit {
     this.dialog.open(LoginAndRegisterFormContainer, {data: {initRegister: true, initLogin: false}});
   }
 
+  addNewPost() {
+    this.addNewPostService.addOnePost();
+  }
+
   ngOnInit() {
-    if(  this.authService.isLoggedIn()){
+    if (this.authService.isLoggedIn()) {
 
     }
   }
