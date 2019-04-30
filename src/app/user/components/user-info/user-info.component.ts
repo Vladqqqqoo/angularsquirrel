@@ -17,13 +17,13 @@ export class UserInfoComponent implements OnInit {
   fileLabel: String;
   userForm: FormGroup;
 
-  public uploader:FileUploader = new FileUploader({url: URL});
-  public hasBaseDropZoneOver:boolean = false;
-  public hasAnotherDropZoneOver:boolean = false;
-  public fileOverBase(e:any):void {
+  public uploader: FileUploader = new FileUploader({url: URL});
+  public hasBaseDropZoneOver = false;
+  public hasAnotherDropZoneOver = false;
+  public fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
   }
-  public fileOverAnother(e:any):void {
+  public fileOverAnother(e: any): void {
     this.hasAnotherDropZoneOver = e;
   }
 
@@ -60,7 +60,7 @@ export class UserInfoComponent implements OnInit {
 
   deleteFile(item) {
     item.remove();
-    this.fileLabel = 'Choose a file'
+    this.fileLabel = 'Choose a file';
 
   }
 
