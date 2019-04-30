@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {AuthService} from "./share/auth/auth.service";
+import {AuthService} from './share/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +8,6 @@ import {AuthService} from "./share/auth/auth.service";
   './grid.scss']
 })
 export class AppComponent {
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService) {}
   title = 'angularsquirrel';
 }

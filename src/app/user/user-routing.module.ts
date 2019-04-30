@@ -17,14 +17,9 @@ const routes: Routes = [
       {
         path: 'password',
         component: PasswordComponent,
-      },
-      {
-        path: 'followings',
-        component: MyFollowingsComponent,
       }
     ]
   },
-
 ];
 
 @NgModule({
