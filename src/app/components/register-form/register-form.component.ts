@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from './confirm-password-validator';
 import {AuthService} from '../../share/auth/auth.service';
+import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material";
 
 @Component({
   selector: 'app-register-form',
@@ -16,6 +18,8 @@ export class RegisterFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.registerForm = this.fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
@@ -51,6 +55,7 @@ export class RegisterFormComponent implements OnInit {
     this.authService.signUp(user).subscribe(data => {
       alert('Successful registration');
       console.log(data);
+        this.dialog.closeAll();
     },
       error => {
       this.registerError = true;

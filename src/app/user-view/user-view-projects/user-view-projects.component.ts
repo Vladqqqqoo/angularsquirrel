@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AddNewPostService} from '../../share/add-post/add-new-post.service';
 
 @Component({
-  selector: 'app-user-profile-main',
-  templateUrl: './user-profile-main.component.html',
-  styleUrls: ['./user-profile-main.component.scss']
+  selector: 'user-view-projects',
+  templateUrl: './user-view-projects.component.html',
+  styleUrls: ['./user-view-projects.component.scss']
 })
-export class UserProfileMainComponent implements OnInit {
+export class UserViewProjectsComponent implements OnInit {
 
   constructor(
   ) {
