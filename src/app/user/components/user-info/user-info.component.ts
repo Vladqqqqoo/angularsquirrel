@@ -13,6 +13,8 @@ const URL = 'my-backend.com/file-upload';
 })
 export class UserInfoComponent implements OnInit {
 
+  avatarImage = 'https://image.flaticon.com/icons/png/512/26/26098.png';
+  fileLabel: String;
   userForm: FormGroup;
 
   public uploader:FileUploader = new FileUploader({url: URL});
@@ -45,12 +47,24 @@ export class UserInfoComponent implements OnInit {
         '';
   }
 
-  onSave() {
+  changeLabel() {
+    this.fileLabel = this.uploader.queue[0].file.name;
+  }
+
+  Save() {
       const userBio = this.userForm.value;
       this.httpClient.post<any>('http://localhost:3000/account/info', userBio).subscribe(
         data => alert('Info saved')
       );
   }
+
+  deleteFile(item) {
+    item.remove();
+    this.fileLabel = 'Choose a file'
+
+  }
+
+
 
   ngOnInit() {
     this.httpClient.get('http://localhost:3000/account/info').subscribe(

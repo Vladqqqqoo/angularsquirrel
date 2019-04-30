@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../share/auth/auth.service';
+import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material";
 
 @Component({
   selector: 'app-login-form',
@@ -15,6 +17,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private router: Router,
+    public dialog: MatDialog,
   ) {
     this.loginForm = this.fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
@@ -39,6 +43,8 @@ export class LoginFormComponent implements OnInit {
       this.authService.setTokens(data);
       alert('Login Successfully');
       console.log(data);
+      this.dialog.closeAll();
+
     }, (err) => {
       this.loginError = true;
       console.log(err);

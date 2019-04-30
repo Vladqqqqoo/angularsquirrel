@@ -1,7 +1,12 @@
 <div class="row nav">
-  <div class="col-md-8">
+  <div class="col-md-6">
     <div class="row">
-      <div class="col-md-1">
+      <div class="col-md-3">
+        <div class="dropdown">
+          <button class="linkToMain" routerLink="" color="warn" mat-mini-fab><img src="../../../assets/images/nut.png" alt="main"></button>
+        </div>
+      </div>
+      <div class="col-md-2">
         <div class="dropdown">
           <button class="dropbtn">Menu</button>
           <div class="dropdown-content">
@@ -11,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-2">
         <div class="dropdown">
           <button class="dropbtn">Shot</button>
           <div class="dropdown-content">
@@ -28,6 +33,9 @@
   </div>
   <div class="col-md-2" *ngIf="authService.isLoggedIn()">
     <button mat-raised-button color="accent" (click)="addNewPost()">Add post</button>
+  </div>
+  <div class="col-md-2" *ngIf="authService.isLoggedIn()">
+    <button mat-raised-button color="accent" routerLink="/profile">User Profile</button>
   </div>
   <div class="col-md-2" *ngIf="authService.isLoggedIn()">
     <button mat-raised-button color="accent" (click)="logOut()">Log Out</button>
