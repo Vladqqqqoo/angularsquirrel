@@ -3,10 +3,14 @@
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-12 center">
-          <img src="https://image.flaticon.com/icons/png/512/26/26098.png" alt="image" width="50px" height="50px">
+          <img [src]="avatarImage" alt="avatar image" width="50px" height="50px">
         </div>
         <div class="col-md-12">
-          <input type="file" ng2FileSelect [uploader]="uploader">
+          <input type="file" name="file" id="file" class="inputfile" (change)="changeLabel()" ng2FileSelect [uploader]="uploader"/>
+          <label *ngIf="!fileLabel; else showFileName" class="center" for="file">Choose a file</label>
+          <ng-template #showFileName>
+            <label class ="center" for="file">{{fileLabel}}</label>
+          </ng-template>
         </div>
       </div>
     </div>
@@ -16,7 +20,7 @@
         <button mat-raised-button color="primary" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
       </div>
       <div class="col-md-12 center">
-        <button mat-raised-button color="warn" (click)="item.remove()">Delete</button>
+        <button mat-raised-button color="warn" (click)="deleteFile(item)">Delete</button>
       </div>
     </div>
   </div>
@@ -76,7 +80,7 @@
         <textarea matInput formControlName="bio" placeholder="Enter your bio" cols="30" rows="10"></textarea>
         <mat-error *ngIf=" userForm.invalid">{{getErrorMessage('bio')}}</mat-error>
       </mat-form-field>
-      <button mat-raised-button class="save" color="primary" (click)="onSave()">Save</button>
+      <button mat-raised-button class="save" color="primary" (click)="Save()">Save</button>
     </form>
   </div>
 
