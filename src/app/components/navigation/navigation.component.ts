@@ -3,6 +3,7 @@ import {MatDialog, MatMenuTrigger} from '@angular/material';
 import {LoginAndRegisterFormContainer} from '../login-and-register-form-container/login-and-register-form-container';
 import {AuthService} from '../../share/auth/auth.service';
 import {AddNewPostService} from '../../share/add-post/add-new-post.service';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -16,12 +17,16 @@ export class NavigationComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private authService: AuthService,
-    private addNewPostService: AddNewPostService
+    private addNewPostService: AddNewPostService,
+    private router: Router
   ) {
   }
 
   logOut() {
-    this.authService.logOut().subscribe(data => this.authService.removeTokens());
+    this.authService.logOut().subscribe(data => {
+      this.authService.removeTokens();
+      this.router.navigate(['']);
+    });
   }
 
   signInComponentInit(): void {
