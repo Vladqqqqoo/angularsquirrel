@@ -48,10 +48,6 @@
   border-radius: 3px;
 }
 
-.inputfile:focus + label,
-.inputfile + label:hover {
-  //background-color: rgba(108, 138, 213, 0.7);
-}
 
 .inputfile + label {
   cursor: pointer; /* "hand" cursor */

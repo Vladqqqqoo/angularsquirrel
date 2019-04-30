@@ -30,7 +30,7 @@ export class NavigationComponent implements OnInit {
   }
 
   signInComponentInit(): void {
-    this.dialog.open(LoginAndRegisterFormContainer, {data: {initRegister: true, initLogin: false}});
+    this.dialog.open(LoginAndRegisterFormContainer, {data: {initRegister: false, initLogin: true}});
   }
 
   addNewPost() {

@@ -1,7 +1,11 @@
 @import "../../../assets/themes/base/styles/common/helpers";
 
+* {
+}
+
 .nav {
   background-color: #666666;
+  display: flex;
 }
 
 .dropbtn {
@@ -10,11 +14,12 @@
   padding: 16px;
   font-size: 16px;
   border: none;
+  margin: auto auto;
 }
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  margin: auto auto;
 }
 
 .dropdown-content {
@@ -33,10 +38,58 @@
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {background-color: #595959;}
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.mat-mini-fab.mat-warn.linkToMain {
-  background-color: 	#FF9340;
+.mat-mini-fab.mat-warn.linkToMainButton {
+  background-color: #FF9340;
+  z-index: 1;
+  margin: auto auto;
+}
+
+.navbutton {
+  margin: auto auto;
+}
+
+.linkToMain {
+  display: flex;
+}
+
+.button-In-Out {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-In-Out-Elem {
+  margin: auto 0;
+}
+.button-In-Out-Elem.mat-stroked-button{
+  &:hover {
+    background-color: white;
+    transition: 400ms;
+  }
+}
+
+.svg-icon {
+  margin: auto 0;
+  left: 0;
+  width: 23px;
+  height: 23px;
+  &:hover {
+    background-color: grey;
+    border-radius: 50%;
+  }
+}
+
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: white;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
 }
