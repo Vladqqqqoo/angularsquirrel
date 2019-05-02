@@ -41,13 +41,12 @@ export class AuthInterceptor implements HttpInterceptor {
       if (error instanceof HttpErrorResponse && error.status === 401) {
         return this.handle401Error(request, next);
       } else if (error.status === 403) {
-        this.authService.logOut().subscribe(success => {
-          if (success) {
-            this.router.navigate(['../']);
-          } else {
-            alert('Server error');
-          }
-        });
+        this.authService.logOut().subscribe(() => {
+           this.router.navigate(['../']);
+        },
+          error => {
+          console.log(error);
+          });
       } else {
         return throwError(error);
       }

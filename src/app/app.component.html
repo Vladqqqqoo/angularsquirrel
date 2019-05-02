@@ -1,6 +1,6 @@
 <div class="container-fluid wrapper">
     <app-navigation class="nav"></app-navigation>
-    <app-welcome-header *ngIf="!  authService.isLoggedIn()"></app-welcome-header>
+    <app-welcome-header *ngIf="!authService.isLoggedIn()"></app-welcome-header>
     <div class="content">
       <router-outlet></router-outlet>
     </div>
