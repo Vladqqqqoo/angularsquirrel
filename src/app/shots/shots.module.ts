@@ -5,9 +5,10 @@ import {MaterialModule} from '../material/material.module';
 import {ShotRoutingModule} from './shot-routing.module';
 import {FileUploadModule} from 'ng2-file-upload';
 import {ShareModule} from '../share/share.module';
+import { NewShotInfoComponent } from './new-shot-info/new-shot-info.component';
 
 @NgModule({
-  declarations: [NewShotComponent],
+  declarations: [NewShotComponent, NewShotInfoComponent],
   imports: [
     CommonModule,
     MaterialModule,

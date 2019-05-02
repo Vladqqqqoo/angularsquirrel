@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FileUploader} from 'ng2-file-upload';
+import {HttpClient} from '@angular/common/http';
 
 const URL = 'my-backend.com/file-upload';
 
@@ -12,21 +13,23 @@ const URL = 'my-backend.com/file-upload';
 
 export class NewShotComponent implements OnInit {
 
+  constructor(
+    private httpClient: HttpClient
+  ) { }
+
   public uploader: FileUploader = new FileUploader({url: URL});
   public hasBaseDropZoneOver = false;
-  public hasAnotherDropZoneOver = false;
 
   public fileOverBase(e: any) {
     this.hasBaseDropZoneOver = e;
+    console.log(1);
+  }
+
+  dropFile(e: any) {
     console.log(this.uploader);
+    this.uploader.options.queueLimit = 1;
   }
 
-  public fileOverAnother(e: any): void {
-    this.hasAnotherDropZoneOver = e;
-
-  }
-
-  constructor() { }
 
   ngOnInit() {
   }
