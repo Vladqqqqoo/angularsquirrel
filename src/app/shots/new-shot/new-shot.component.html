@@ -16,7 +16,7 @@
     </div>
   </div>
   <div *ngIf="uploader.queue[0]" class="buttons-container row-container">
-    <button mat-raised-button (click)="uploader.queue[0].upload()" routerLink="./info">Load file</button>
+    <button mat-raised-button (click)="uploader.queue[0].upload()">Load file</button>
     <button mat-raised-button (click)="uploader.queue[0].remove()">Remove it</button>
   </div>
 </div>

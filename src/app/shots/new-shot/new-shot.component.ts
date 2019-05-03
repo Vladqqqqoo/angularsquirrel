@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FileItem, FileUploader, ParsedResponseHeaders} from 'ng2-file-upload';
 import {HttpClient} from '@angular/common/http';
-import {AuthService} from "../../share/auth/auth.service";
+import {AuthService} from '../../share/auth/auth.service';
+import {Router} from '@angular/router';
 
 const URL = 'http://localhost:3000/shot/';
 
@@ -15,6 +16,7 @@ const URL = 'http://localhost:3000/shot/';
 export class NewShotComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private httpClient: HttpClient,
     private authService: AuthService,
   ) {
@@ -30,12 +32,12 @@ export class NewShotComponent implements OnInit {
   }
 
   dropFile(e: any) {
-    console.log(this.uploader);
     this.uploader.options.queueLimit = 1;
   }
 
-  onSuccessItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
-    // this.avatarImage = `http://localhost:3000/${response}`;
+  onSuccessItem(item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any {
+    const object = JSON.parse(response);
+    this.router.navigate([`shots/${object._id}`]);
   }
 
   onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {

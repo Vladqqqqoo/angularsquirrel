@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AddNewPostService} from '../../share/add-post/add-new-post.service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'user-view-projects',
@@ -9,24 +9,9 @@ import {AddNewPostService} from '../../share/add-post/add-new-post.service';
 export class UserViewProjectsComponent implements OnInit {
 
   constructor(
-  ) {
-    this.posts = [
-      {
-        image: 'http://fotorelax.ru/wp-content/uploads/2016/03/Beautiful-photos-and-pictures-on-various-subjects-01.jpg',
-      },
-      {
-        image: 'http://fotorelax.ru/wp-content/uploads/2016/03/Beautiful-photos-and-pictures-on-various-subjects-01.jpg',
-      },
-      {
-        image: 'http://fotorelax.ru/wp-content/uploads/2016/03/Beautiful-photos-and-pictures-on-various-subjects-01.jpg',
-      },
-      {
-        image: 'http://fotorelax.ru/wp-content/uploads/2016/03/Beautiful-photos-and-pictures-on-various-subjects-01.jpg',
-      },
-      {
-        image: 'http://fotorelax.ru/wp-content/uploads/2016/03/Beautiful-photos-and-pictures-on-various-subjects-01.jpg',
-      }
-    ];
+    private httpClient: HttpClient,
+    ) {
+
     this.user = {
       firstName: 'Alex',
       lastName: 'Alexeev',
@@ -39,6 +24,13 @@ export class UserViewProjectsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.httpClient.get(`http://localhost:3000/shot/list`).subscribe(data => {
+      this.posts = data;
+      for (const post of this.posts) {
+        post.url = `http://localhost:3000/${post.shotUrl}`;
+      }
+    } );
   }
 
 }
+

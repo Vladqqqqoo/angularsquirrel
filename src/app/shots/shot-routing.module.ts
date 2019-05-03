@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {NewShotComponent} from './new-shot/new-shot.component';
-import {NewShotInfoComponent} from './new-shot-info/new-shot-info.component';
+import {ShotEditComponent} from './shot-edit/shot-edit.component';
 
 const routes: Routes = [
   {
@@ -9,8 +9,8 @@ const routes: Routes = [
     component: NewShotComponent,
   },
   {
-    path: 'new/info',
-    component: NewShotInfoComponent,
+    path: ':id',
+    component: ShotEditComponent,
   },
 
 ];
