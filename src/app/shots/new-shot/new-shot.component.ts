@@ -3,7 +3,7 @@ import {FileItem, FileUploader, ParsedResponseHeaders} from 'ng2-file-upload';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from "../../share/auth/auth.service";
 
-const URL = 'http://localhost:3000/shots/';
+const URL = 'http://localhost:3000/shot/';
 
 @Component({
   selector: 'app-new-shot',

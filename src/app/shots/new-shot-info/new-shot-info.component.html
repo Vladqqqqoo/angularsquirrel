@@ -1,5 +1,5 @@
 <div class="post-info-container container-fluid">
-  <img class="col-md-8" src="https://www.w3schools.com/w3css/img_lights.jpg" alt="post">
+  <img class="col-md-8" [src]="imageUrl" alt="post">
   <div>
     <form [formGroup]="shotForm">
       <mat-form-field class="col-md-12"  appearance="fill">
@@ -15,7 +15,7 @@
         <input class="description-input" type="text" formControlName="description" matInput placeholder="Describe your shot">
       </mat-form-field>
       <div class="post-shot-button-container">
-        <button mat-raised-button (click)="postShot()">Post shot</button>
+        <button mat-raised-button (click)="putShot()">Post shot</button>
       </div>
     </form>
   </div>

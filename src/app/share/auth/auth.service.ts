@@ -10,11 +10,11 @@ export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
 
-  constructor(private http: HttpClient) {
+  constructor(private httpClient: HttpClient) {
   }
 
   signUp(user): Observable<any> {
-    return this.http.post('http://localhost:3000/users/signup', user).pipe(
+    return this.httpClient.post('http://localhost:3000/users/signup', user).pipe(
       catchError(error => {
         return throwError( new Error(error));
       })
@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   signIn(user): Observable<any> {
-    return this.http.post('http://localhost:3000/users/login', user).pipe(
+    return this.httpClient.post('http://localhost:3000/users/login', user).pipe(
       catchError(err => {
         return throwError( new Error(err));
       })
@@ -34,7 +34,7 @@ export class AuthService {
       refreshToken: this.getRefreshToken()
     };
     this.removeTokens();
-    return this.http.post('http://localhost:3000/users/logout', userToken).pipe(
+    return this.httpClient.post('http://localhost:3000/users/logout', userToken).pipe(
       catchError(err => {
         return throwError( new Error(err));
       })
@@ -64,7 +64,7 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.http.post('http://localhost:3000/users/refresh', {
+    return this.httpClient.post('http://localhost:3000/users/refresh', {
       refreshToken: this.getRefreshToken(),
     });
   }
