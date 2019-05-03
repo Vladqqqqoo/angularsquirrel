@@ -22,8 +22,8 @@ export class NewShotComponent implements OnInit {
 
   public fileOverBase(e: any) {
     this.hasBaseDropZoneOver = e;
-    console.log(1);
   }
+
 
   dropFile(e: any) {
     console.log(this.uploader);

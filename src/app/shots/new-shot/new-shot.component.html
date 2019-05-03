@@ -1,21 +1,25 @@
-<div class="row-container info-container">
-  <h3>Post your work</h3>
-</div>
-<div class="drop-zone-container">
-  <div ng2FileDrop
-       [ngClass]="{'nv-file-over-class': hasBaseDropZoneOver, 'disabled': uploader.queue[0]}"
-       (fileOver)="fileOverBase($event)"
-       [uploader]="uploader"
-       (onFileDrop)="dropFile($event)"
-       class="well col-md-10 my-drop-zone">
-    Put some image here
+<div class="container-new-post">
+  <div class="row-container info-container">
+    <h3>Post your work</h3>
+  </div>
+  <div class="drop-zone-container">
+    <div ng2FileDrop
+         [ngClass]="{'nv-file-over-class': hasBaseDropZoneOver, 'disabled': uploader.queue[0]}"
+         (fileOver)="fileOverBase($event)"
+         [uploader]="uploader"
+         (onFileDrop)="dropFile($event)"
+         class="well col-md-10 my-drop-zone">
+      Put some image here
+    </div>
+  </div>
+  <div *ngIf="uploader.queue[0]" class="buttons-container row-container">
+    <p>{{uploader.queue[0].file.name}}</p>
+    <button mat-raised-button (click)="uploader.queue[0].upload()" routerLink="./info">Load file</button>
+    <button mat-raised-button (click)="uploader.queue[0].remove()" >Remove it</button>
   </div>
 </div>
-<div *ngIf="uploader.queue[0]" class="buttons-container row-container">
-  <p>{{uploader.queue[0].file.name}}</p>
-  <button mat-raised-button (click)="uploader.queue[0].upload()">Load file</button>
-  <button mat-raised-button (click)="uploader.queue[0].remove()">Remove it</button>
-</div>
+
+
 
 
 
