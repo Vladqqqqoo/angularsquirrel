@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/internal/operators/catchError';
+import {tap} from "rxjs/internal/operators/tap";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class AuthService {
   signUp(user): Observable<any> {
     return this.http.post('http://localhost:3000/users/signup', user).pipe(
       catchError(error => {
-        return throwError( new Error(error));
+        return throwError(new Error(error));
       })
     );
   }
@@ -24,7 +25,7 @@ export class AuthService {
   signIn(user): Observable<any> {
     return this.http.post('http://localhost:3000/users/login', user).pipe(
       catchError(err => {
-        return throwError( new Error(err));
+        return throwError(new Error(err));
       })
     );
   }
@@ -36,7 +37,7 @@ export class AuthService {
     this.removeTokens();
     return this.http.post('http://localhost:3000/users/logout', userToken).pipe(
       catchError(err => {
-        return throwError( new Error(err));
+        return throwError(new Error(err));
       })
     );
   }

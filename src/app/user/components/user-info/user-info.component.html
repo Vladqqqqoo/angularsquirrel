@@ -3,30 +3,32 @@
     <div class="col-md-12 avatar">
       <div class="row">
         <div class="col-md-12 center">
-          <img [src]="avatarImage" alt="avatar image" width="50px" height="50px">
+          <img [src]="avatarImage" alt="avatar image">
         </div>
         <div class="col-md-12">
-          <input type="file" name="file" id="file" class="inputfile" (change)="changeLabel()" ng2FileSelect [uploader]="uploader"/>
-          <label *ngIf="!fileLabel; else showFileName" class="center" for="file">Choose a file</label>
+          <input type="file" name="avatar" id="avatar" class="inputfile" (change)="changeLabel()" ng2FileSelect
+                 [uploader]="uploader" multiple  />
+          <label *ngIf="!fileLabel; else showFileName" class="center" for="avatar">Choose a file</label>
           <ng-template #showFileName>
-            <label class ="center" for="file">{{fileLabel}}</label>
+            <label class="center" for="avatar">{{fileLabel}}</label>
           </ng-template>
         </div>
       </div>
     </div>
-
-    <div *ngFor="let item of uploader.queue">
+    <div *ngIf="uploader.queue[0]">
       <div class="col-md-12 center">
-        <button mat-raised-button color="primary" (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">Upload</button>
+        <button mat-raised-button color="primary" (click)="uploader.queue[0].upload()"
+                [disabled]="uploader.queue[0].isReady || uploader.queue[0].isUploading || uploader.queue[0].isSuccess">Upload
+        </button>
       </div>
       <div class="col-md-12 center">
-        <button mat-raised-button color="warn" (click)="deleteFile(item)">Delete</button>
+        <button mat-raised-button color="warn" (click)="deleteFile()">Delete</button>
       </div>
     </div>
   </div>
 
   <div class="col-md-7 example-form">
-    <form [formGroup]="userForm" >
+    <form [formGroup]="userForm">
       <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
         <mat-label>Login</mat-label>
         <input required type="text" matInput formControlName="login" placeholder="Enter your login">
