@@ -61,10 +61,7 @@ export class UserInfoComponent implements OnInit {
   deleteFile(item) {
     item.remove();
     this.fileLabel = 'Choose a file';
-
   }
-
-
 
   ngOnInit() {
     this.httpClient.get('http://localhost:3000/account/info').subscribe(

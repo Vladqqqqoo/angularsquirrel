@@ -9,13 +9,15 @@
          [uploader]="uploader"
          (onFileDrop)="dropFile($event)"
          class="well col-md-10 my-drop-zone">
-      Put some image here
+      <p *ngIf="!uploader.queue[0]; else showFileName">Put some image here</p>
+      <ng-template #showFileName>
+        <p>{{uploader.queue[0].file.name}}</p>
+      </ng-template>
     </div>
   </div>
   <div *ngIf="uploader.queue[0]" class="buttons-container row-container">
-    <p>{{uploader.queue[0].file.name}}</p>
     <button mat-raised-button (click)="uploader.queue[0].upload()" routerLink="./info">Load file</button>
-    <button mat-raised-button (click)="uploader.queue[0].remove()" >Remove it</button>
+    <button mat-raised-button (click)="uploader.queue[0].remove()">Remove it</button>
   </div>
 </div>
 
