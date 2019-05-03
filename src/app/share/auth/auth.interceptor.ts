@@ -24,7 +24,7 @@ export class AuthInterceptor implements HttpInterceptor {
     });
   }
 
-  private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
+   handle401Error(request: HttpRequest<any>, next: HttpHandler) {
     return this.authService.refreshToken().pipe(
       switchMap((tokens: any) => {
         this.authService.setTokens(tokens);
