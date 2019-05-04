@@ -24,7 +24,7 @@ export class UserViewProjectsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.httpClient.get(`http://localhost:3000/shot/list`).subscribe(data => {
+    this.httpClient.get(`http://localhost:3000/shot/user/list`).subscribe(data => {
       this.posts = data;
       for (const post of this.posts) {
         post.url = `http://localhost:3000/${post.shotUrl}`;
