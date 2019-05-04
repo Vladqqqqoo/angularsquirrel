@@ -1,0 +1,23 @@
+<div class="post-info-container container-fluid">
+  <img class="col-md-8" src="{{imageUrl}}" alt="post">
+  <div>
+    <form [formGroup]="shotForm">
+      <mat-form-field class="col-md-12"  appearance="fill">
+        <mat-label>Shot title</mat-label>
+        <input type="text" matInput formControlName="title" placeholder="Input shot title there">
+      </mat-form-field>
+      <mat-form-field class="col-md-12" appearance="fill">
+        <mat-label>Shot tags</mat-label>
+        <input type="text" matInput formControlName="tags" placeholder="Input some tags there">
+      </mat-form-field>
+      <mat-form-field class="col-md-12"  appearance="fill">
+        <mat-label>Description</mat-label>
+        <input class="description-input" type="text" formControlName="description" matInput placeholder="Describe your shot">
+      </mat-form-field>
+      <div class="post-shot-button-container">
+        <button mat-raised-button (click)="putShot()">Post shot</button>
+      </div>
+    </form>
+  </div>
+</div>
+

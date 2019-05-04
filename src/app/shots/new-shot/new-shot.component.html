@@ -1,12 +1,31 @@
-<p>
-  new-shot works!
-</p>
-
-<div ng2FileDrop
-     [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
-     (fileOver)="fileOverBase($event)"
-     [uploader]="uploader"
-     class="well my-drop-zone">
-  Base drop zone
+<div class="container-new-post">
+  <div class="row-container info-container">
+    <h3>Post your work</h3>
+  </div>
+  <div class="drop-zone-container">
+    <div ng2FileDrop
+         [ngClass]="{'nv-file-over-class': hasBaseDropZoneOver, 'disabled': uploader.queue[0]}"
+         (fileOver)="fileOverBase($event)"
+         [uploader]="uploader"
+         (onFileDrop)="dropFile($event)"
+         class="well col-md-10 my-drop-zone">
+      <p *ngIf="!uploader.queue[0]; else showFileName">Put some image here</p>
+      <ng-template #showFileName>
+        <p>{{uploader.queue[0].file.name}}</p>
+      </ng-template>
+    </div>
+  </div>
+  <div *ngIf="uploader.queue[0]" class="buttons-container row-container">
+    <button mat-raised-button (click)="uploader.queue[0].upload()">Load file</button>
+    <button mat-raised-button (click)="uploader.queue[0].remove()">Remove it</button>
+  </div>
 </div>
+
+
+
+
+
+
+
+
 

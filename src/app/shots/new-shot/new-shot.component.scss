@@ -1,5 +1,29 @@
 .my-drop-zone {
-  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: dotted 3px lightgray;
 }
-.nv-file-over-class { border: dotted 3px green; }
+
+.container-new-post{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.drop-zone-container{
+  display: flex;
+  justify-content: center;
+  height: 65%;
+}
+.info-container{
+  display: flex;
+  justify-content: center;
+}
+.nv-file-over-class {
+  border: dotted 3px green;
+}
+.row{
+  display: flex;
+  justify-content: center;
+}
