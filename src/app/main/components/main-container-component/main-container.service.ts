@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MainContainerService {
+
+  constructor(
+    private httpClient: HttpClient,
+  ) { }
+
+  getAllPost(): Observable<any> {
+    return this.httpClient.get('http://localhost:3000/shot/list');
+  }
+
+}

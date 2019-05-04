@@ -4,3 +4,12 @@
 //  background-color: $sandy;
 //  @include fs(60px, 30px);
 //}
+
+.one-post-container{
+  padding: 10px;
+}
+
+.one-post-container img{
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
