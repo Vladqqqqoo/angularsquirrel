@@ -10,12 +10,14 @@ import {UserViewProjectsService} from "./user-view-projects.service";
 export class UserViewProjectsComponent implements OnInit {
   posts: any;
   user: any;
-  constructor(private userViewProjectsService:UserViewProjectsService) {
+
+  constructor(private userViewProjectsService: UserViewProjectsService) {
   }
 
   ngOnInit() {
     this.userViewProjectsService.getUserInfo().subscribe(userInfo => {
       this.user = userInfo;
+      this.user.avatar = `http://localhost:3000/${userInfo['avatar']}`;
     });
 
     this.userViewProjectsService.getProjectList().subscribe(shots => {
