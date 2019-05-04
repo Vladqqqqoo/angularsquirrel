@@ -53,6 +53,7 @@ export class NewShotComponent implements OnInit {
 
   ngOnInit() {
     this.uploader.setOptions({authToken: `Bearer ${this.authService.getAccessToken()}`});
+
   }
 
 }

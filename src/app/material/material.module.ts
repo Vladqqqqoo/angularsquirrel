@@ -19,7 +19,7 @@ const arrayModules = [
   ReactiveFormsModule,
   MatSidenavModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
 ];
 @NgModule({
   declarations: [],

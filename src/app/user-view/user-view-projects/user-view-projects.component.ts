@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {UserViewProjectsService} from "./user-view-projects.service";
+
 
 @Component({
   selector: 'user-view-projects',
@@ -7,29 +8,22 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./user-view-projects.component.scss']
 })
 export class UserViewProjectsComponent implements OnInit {
-
-  constructor(
-    private httpClient: HttpClient,
-    ) {
-
-    this.user = {
-      firstName: 'Alex',
-      lastName: 'Alexeev',
-      location: 'Minsk, Belarus'
-    };
+  posts: any;
+  user: any;
+  constructor(private userViewProjectsService:UserViewProjectsService) {
   }
 
-  user: object;
-  posts: any;
-
-
   ngOnInit() {
-    this.httpClient.get(`http://localhost:3000/shot/user/list`).subscribe(data => {
-      this.posts = data;
+    this.userViewProjectsService.getUserInfo().subscribe(userInfo => {
+      this.user = userInfo;
+    });
+
+    this.userViewProjectsService.getProjectList().subscribe(shots => {
+      this.posts = shots;
       for (const post of this.posts) {
         post.url = `http://localhost:3000/${post.shotUrl}`;
       }
-    } );
+    });
   }
 
 }
