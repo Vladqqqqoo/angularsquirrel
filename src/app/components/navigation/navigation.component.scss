@@ -59,6 +59,7 @@
 .button-In-Out {
   display: flex;
   justify-content: flex-end;
+  color: white;
 }
 
 .button-In-Out-Elem {
@@ -66,6 +67,7 @@
 }
 .button-In-Out-Elem.mat-stroked-button{
   &:hover {
+    color: black;
     background-color: white;
     transition: 400ms;
   }

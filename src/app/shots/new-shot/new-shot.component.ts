@@ -37,7 +37,7 @@ export class NewShotComponent implements OnInit {
 
   onSuccessItem(item: FileItem, response: any, status: number, headers: ParsedResponseHeaders): any {
     const object = JSON.parse(response);
-    this.router.navigate([`shots/${object._id}`]);
+    this.router.navigate([`shots/edit/${object._id}`]);
   }
 
   onErrorItem(item: FileItem, response: string, status: number, headers: ParsedResponseHeaders): any {
