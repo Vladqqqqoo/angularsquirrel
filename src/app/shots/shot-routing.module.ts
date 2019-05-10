@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {NewShotComponent} from './new-shot/new-shot.component';
 import {ShotEditComponent} from './shot-edit/shot-edit.component';
-import {OneShotComponent} from './one-shot/one-shot.component';
+import {OneShotContainerComponent} from '../share/one-shot-container/one-shot-container.component';
 
 const routes: Routes = [
   {
@@ -15,9 +15,8 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: OneShotComponent,
+    component: OneShotContainerComponent,
   },
-
 ];
 
 @NgModule({

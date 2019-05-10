@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {AuthService} from '../../../share/auth/auth.service';
 import {MainContainerService} from './main-container.service';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import {OneShotContainerComponent} from '../../../share/one-shot-container/one-shot-container.component';
+import {OneShotContainerService} from '../../../share/one-shot-container/one-shot-container.service';
 
 @Component({
   selector: 'app-main-container-component',
@@ -15,6 +17,8 @@ export class MainContainerComponent implements OnInit {
   posts: any;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private oneShotService: OneShotContainerService,
     public dialog: MatDialog,
     private authService: AuthService,
     private mainContainerService: MainContainerService,
@@ -23,8 +27,8 @@ export class MainContainerComponent implements OnInit {
 
   openPost(e) {
     const postId = e.target.attributes.id.value;
-    // this.dialog.open()
-    this.router.navigate([`./shots/${postId}`]);
+    this.dialog.open(OneShotContainerComponent, {data: {id: postId}});
+    // this.router.navigate([`./shots/${postId}`]);
   }
 
   ngOnInit() {
