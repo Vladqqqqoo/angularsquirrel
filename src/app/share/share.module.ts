@@ -4,12 +4,11 @@ import {AuthService} from './auth/auth.service';
 import {AuthInterceptor} from './auth/auth.interceptor';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
-import {OneShotContainerComponent} from './one-shot-container/one-shot-container.component';
 import {MaterialModule} from '../material/material.module';
 import { OneShotComponent } from './one-shot/one-shot.component';
 
 @NgModule({
-  declarations: [ FileSelectDirective, FileDropDirective, OneShotContainerComponent, OneShotComponent],
+  declarations: [ FileSelectDirective, FileDropDirective, OneShotComponent],
   imports: [
     CommonModule,
     MaterialModule
@@ -22,6 +21,6 @@ import { OneShotComponent } from './one-shot/one-shot.component';
       multi: true
     },
   ],
-  exports: [ FileSelectDirective, FileDropDirective, OneShotContainerComponent]
+  exports: [ FileSelectDirective, FileDropDirective, OneShotComponent]
 })
 export class ShareModule { }

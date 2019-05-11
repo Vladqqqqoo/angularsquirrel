@@ -1,3 +1,5 @@
-<p>
-  one-shot works!
-</p>
+<div class="container-fluid container-of-shot">
+  <img class="arrow-container" src="../../../assets/images/back.png" alt="left arrow" (click)="previousShot()" >
+  <img class="shot-image" *ngIf="shotImageUrl" [src]="shotImageUrl" alt="any">
+  <img class="arrow-container" src="../../../assets/images/right-arrow.png" alt="right arrow" (click)="nextShot()">
+</div>

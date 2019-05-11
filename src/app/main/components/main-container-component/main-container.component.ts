@@ -1,10 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {AuthService} from '../../../share/auth/auth.service';
 import {MainContainerService} from './main-container.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
-import {OneShotContainerComponent} from '../../../share/one-shot-container/one-shot-container.component';
-import {OneShotContainerService} from '../../../share/one-shot-container/one-shot-container.service';
+import {OneShotComponent} from '../../../share/one-shot/one-shot.component';
 
 @Component({
   selector: 'app-main-container-component',
@@ -18,28 +17,33 @@ export class MainContainerComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
-    private oneShotService: OneShotContainerService,
     public dialog: MatDialog,
     private authService: AuthService,
     private mainContainerService: MainContainerService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
   }
 
   openPost(postId) {
     console.log(postId);
     this.router.navigate([`shot/${postId}`]);
-    this.dialog.open(OneShotContainerComponent, {data: {id: postId}});
-    this.dialog.afterAllClosed.subscribe(
-      smth => {
-        this.dialog.closeAll();
-        this.router.navigate(['/']);
-      }
-    );
+  }
+
+  openDialog(shotId) {
+    setTimeout(() => {
+      this.dialog.open(OneShotComponent, {data: {id: shotId}});
+      this.dialog.afterAllClosed.subscribe(
+        smth => {
+          this.dialog.closeAll();
+          this.router.navigate(['/']);
+        }
+      );
+    });
   }
 
   ngOnInit() {
-    this.mainContainerService.getAllPost().subscribe(
+     this.mainContainerService.getAllPost().subscribe(
       shots => {
         this.posts = shots;
         console.log(shots);
@@ -48,6 +52,9 @@ export class MainContainerComponent implements OnInit {
         }
       }
     );
+     if (this.route.snapshot.params.shotId) {
+      this.openDialog(this.route.snapshot.params.shotId);
+    }
   }
 
 }
