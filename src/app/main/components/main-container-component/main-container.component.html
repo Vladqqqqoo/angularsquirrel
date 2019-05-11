@@ -1,12 +1,15 @@
 <div class="row">
-  <div *ngFor="let post of posts" class="col-lg-3 col-md-4 col-sm-6 one-post-container dropUpLike">
-    <div (click)="openPost(post._id)">
-      <img [src]="post.url" alt="some shot image">
+  <div *ngFor="let shot of shots; let number = index" class="col-lg-3 col-md-4 col-sm-6 one-post-container dropUpLike">
+    <div (click)="openPost(shot._id)">
+      <img [src]="shot.url" alt="some shot image">
     </div>
     <div class="dropUpLikeContent">
-      <button mat-icon-button color="warn" (click)="sendLike(post._id)" class="dropUpLikeIcon">
-        <mat-icon aria-label="like shot">favorite</mat-icon>
+      <button [color]="shot.isLiked? 'warn':'primary'" mat-icon-button   (click)="sendLike(number, shot._id)" class="dropUpLikeIcon" >
+        <mat-icon aria-label="like shot">favorite
+        </mat-icon>
+        <span>{{shot.likes}}</span>
       </button>
     </div>
   </div>
 </div>
+

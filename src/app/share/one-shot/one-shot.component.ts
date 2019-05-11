@@ -44,6 +44,7 @@ export class OneShotComponent implements OnInit {
   sendLike(shotId) {
     this.oneShotService.sendLike(shotId).subscribe(
       likes => {
+
         console.log(likes);
       }
     );

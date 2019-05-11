@@ -14,7 +14,8 @@ import {Location} from '@angular/common';
 })
 export class MainContainerComponent implements OnInit {
 
-  posts: any;
+  shots: any;
+
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -26,10 +27,12 @@ export class MainContainerComponent implements OnInit {
   ) {
   }
 
-  sendLike(id) {
+  sendLike(index, id) {
     this.mainContainerService.sendLike(id).subscribe(
-      likes => {
-        console.log(likes);
+      likeInfo => {
+        console.log(likeInfo);
+        this.shots[index].likes = likeInfo.likes;
+        this.shots[index].isLiked = likeInfo.isLiked;
       }
     );
   }
@@ -41,22 +44,28 @@ export class MainContainerComponent implements OnInit {
   }
 
   openDialog(shotId) {
-      this.dialog.open(OneShotComponent, {data: {id: shotId}});
-      this.dialog.afterAllClosed.subscribe(
-        smth => {
-          this.dialog.closeAll();
-          this.location.go('/');
-        }
-      );
+    this.dialog.open(OneShotComponent, {data: {id: shotId}});
+    this.dialog.afterAllClosed.subscribe(
+      smth => {
+        this.dialog.closeAll();
+        this.location.go('/');
+      }
+    );
   }
 
   ngOnInit() {
-     this.mainContainerService.getAllPost().subscribe(
+    this.mainContainerService.getAllPost().subscribe(
       shots => {
-        this.posts = shots;
-        for (const post of this.posts) {
-          post.url = `http://localhost:3000/${post.shotUrl}`;
+        this.shots = shots;
+        for (const shot of this.shots) {
+          shot.url = `http://localhost:3000/${shot.shotUrl}`;
+          if (shot.likedBy.includes(localStorage.getItem('USER_ID'))) {
+            shot.isLiked = true;
+          } else {
+            shot.isLiked = false;
+          }
         }
+        console.log(shots);
       }
     );
   }
