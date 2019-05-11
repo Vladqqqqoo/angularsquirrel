@@ -26,6 +26,15 @@ export class MainContainerComponent implements OnInit {
   ) {
   }
 
+  sendLike(id) {
+    this.mainContainerService.sendLike(id).subscribe(
+      likes => {
+        console.log(likes);
+      }
+    );
+  }
+
+
   openPost(shotId) {
     this.location.go(`shots/${shotId}`);
     this.openDialog(shotId);

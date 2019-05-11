@@ -4,7 +4,7 @@
       <img [src]="post.url" alt="some shot image">
     </div>
     <div class="dropUpLikeContent">
-      <button mat-icon-button color="warn" class="dropUpLikeIcon">
+      <button mat-icon-button color="warn" (click)="sendLike(post._id)" class="dropUpLikeIcon">
         <mat-icon aria-label="like shot">favorite</mat-icon>
       </button>
     </div>
