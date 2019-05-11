@@ -1,7 +1,7 @@
 <div class="row">
-  <div  *ngFor="let post of posts" class="col-lg-3 col-md-4 col-sm-6 one-post-container">
-    <div  routerLink="shot/{{post._id}}" (click)="openPost($event)">
+  <a  *ngFor="let post of posts" class="col-lg-3 col-md-4 col-sm-6 one-post-container">
+    <div   (click)="openPost(post._id)">
       <img id="{{post._id}}" src="{{post.url}}" alt="some shot image">
     </div>
-  </div>
+  </a>
 </div>

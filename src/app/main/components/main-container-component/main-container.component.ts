@@ -23,12 +23,19 @@ export class MainContainerComponent implements OnInit {
     private authService: AuthService,
     private mainContainerService: MainContainerService,
     private router: Router
-  ) { }
+  ) {
+  }
 
-  openPost(e) {
-    const postId = e.target.attributes.id.value;
+  openPost(postId) {
+    console.log(postId);
+    this.router.navigate([`shot/${postId}`]);
     this.dialog.open(OneShotContainerComponent, {data: {id: postId}});
-    // this.router.navigate([`./shots/${postId}`]);
+    this.dialog.afterAllClosed.subscribe(
+      smth => {
+        this.dialog.closeAll();
+        this.router.navigate(['/']);
+      }
+    );
   }
 
   ngOnInit() {

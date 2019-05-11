@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: MainContainerComponent,
-  }
+  },
+  {
+    path: 'shot/:shotId',
+    component: MainContainerComponent,
+  },
 ];
 
 @NgModule({

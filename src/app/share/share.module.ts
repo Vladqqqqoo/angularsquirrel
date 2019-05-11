@@ -6,15 +6,13 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 import {OneShotContainerComponent} from './one-shot-container/one-shot-container.component';
 import {MaterialModule} from '../material/material.module';
-import {ShareRoutingModule} from './share-routing.module';
 import { OneShotComponent } from './one-shot/one-shot.component';
 
 @NgModule({
   declarations: [ FileSelectDirective, FileDropDirective, OneShotContainerComponent, OneShotComponent],
   imports: [
     CommonModule,
-    MaterialModule,
-    ShareRoutingModule
+    MaterialModule
   ],
   providers: [
     AuthService,
