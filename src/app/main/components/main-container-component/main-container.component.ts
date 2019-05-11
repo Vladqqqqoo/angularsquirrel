@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {AuthService} from '../../../share/auth/auth.service';
 import {MainContainerService} from './main-container.service';
-import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import {ActivatedRoute, Router} from '@angular/router';
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import {OneShotComponent} from '../../../share/one-shot/one-shot.component';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-main-container-component',
@@ -15,23 +17,34 @@ export class MainContainerComponent implements OnInit {
   posts: any;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) private data: any,
+    private location: Location,
     public dialog: MatDialog,
     private authService: AuthService,
     private mainContainerService: MainContainerService,
-    private router: Router
-  ) { }
+    private router: Router,
+  ) {
+  }
 
-  openPost(e) {
-    const postId = e.target.attributes.id.value;
-    // this.dialog.open()
-    this.router.navigate([`./shots/${postId}`]);
+  openPost(shotId) {
+    this.location.go(`shots/${shotId}`);
+    this.openDialog(shotId);
+  }
+
+  openDialog(shotId) {
+      this.dialog.open(OneShotComponent, {data: {id: shotId}});
+      this.dialog.afterAllClosed.subscribe(
+        smth => {
+          this.dialog.closeAll();
+          this.location.go('/');
+        }
+      );
   }
 
   ngOnInit() {
-    this.mainContainerService.getAllPost().subscribe(
+     this.mainContainerService.getAllPost().subscribe(
       shots => {
         this.posts = shots;
-        console.log(shots);
         for (const post of this.posts) {
           post.url = `http://localhost:3000/${post.shotUrl}`;
         }

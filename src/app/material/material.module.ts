@@ -1,8 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {
+  MAT_DIALOG_DATA,
   MatButtonModule,
-  MatDialogModule,
+  MatDialogModule, MatDialogRef,
   MatFormFieldModule, MatIconModule,
   MatInputModule, MatListModule,
   MatMenuModule,
@@ -19,13 +20,17 @@ const arrayModules = [
   ReactiveFormsModule,
   MatSidenavModule,
   MatListModule,
-  MatIconModule,
+  MatIconModule
 ];
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     ...arrayModules
+  ],
+  providers: [
+    { provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] },
   ],
   exports: [...arrayModules]
 })

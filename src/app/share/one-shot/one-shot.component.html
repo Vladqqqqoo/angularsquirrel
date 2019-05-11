@@ -1,0 +1,7 @@
+<div class="container-fluid container-of-shot">
+  <img [ngStyle]="{'opacity': prevShot ? 0.9 : 0.1}" class="arrow-container col-md-1" src="../../../assets/images/back.png"
+       alt="left arrow" (click)="openPreviousShot()" >
+  <img *ngIf="shotImageUrl" class="shot-image col-md-10"  [src]="shotImageUrl" alt="any">
+  <img [ngStyle]="{'opacity': nextShot ? 0.9 : 0.1}" class="arrow-container col-md-1" src="../../../assets/images/right-arrow.png"
+       alt="right arrow" (click)="openNextShot()">
+</div>
