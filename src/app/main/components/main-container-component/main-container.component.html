@@ -1,7 +1,12 @@
 <div class="row">
-  <a  *ngFor="let post of posts" class="col-lg-3 col-md-4 col-sm-6 one-post-container">
-    <div   (click)="openPost(post._id)">
+  <div *ngFor="let post of posts" class="col-lg-3 col-md-4 col-sm-6 one-post-container dropUpLike">
+    <div (click)="openPost(post._id)">
       <img [src]="post.url" alt="some shot image">
     </div>
-  </a>
+    <div class="dropUpLikeContent">
+      <button mat-icon-button color="warn" class="dropUpLikeIcon">
+        <mat-icon aria-label="like shot">favorite</mat-icon>
+      </button>
+    </div>
+  </div>
 </div>

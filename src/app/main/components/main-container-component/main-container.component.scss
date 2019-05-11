@@ -5,13 +5,34 @@
 //  @include fs(60px, 30px);
 //}
 
-.one-post-container{
+.one-post-container {
   padding: 10px;
 }
 
-.one-post-container img{
+.one-post-container img {
   width: 100%;
   height: 200px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dropUpLikeIcon {
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  margin-top: -42px;
+  z-index: 5;
+}
+
+.dropUpLike:hover .dropUpLikeIcon {
+  opacity: 0.8;
+  transition: 600ms;
+  display: block;
+}
+
+.dropUpLikeContent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
