@@ -5,6 +5,7 @@ import {MaterialModule} from '../material/material.module';
 import {ShotRoutingModule} from './shot-routing.module';
 import {ShareModule} from '../share/share.module';
 import { ShotEditComponent } from './shot-edit/shot-edit.component';
+import {OneShotComponent} from '../share/one-shot/one-shot.component';
 
 @NgModule({
   declarations: [NewShotComponent, ShotEditComponent],

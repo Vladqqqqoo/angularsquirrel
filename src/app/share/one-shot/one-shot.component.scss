@@ -1,17 +1,19 @@
 .shot-image{
   width: 600px;
   border-radius: 20px;
-  height: 100%;
 }
 
 .arrow-container{
+  transition: 400ms;
   border-radius: 50%;
   width: 40px;
   height: 40px;
 }
 
 .container-of-shot {
+  width: 800px;
   padding: 10px;
+  height: 80vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
