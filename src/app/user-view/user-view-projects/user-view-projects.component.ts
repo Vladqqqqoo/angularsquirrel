@@ -25,6 +25,7 @@ export class UserViewProjectsComponent implements OnInit {
       for (const post of this.posts) {
         post.url = `http://localhost:3000/${post.shotUrl}`;
       }
+      // for (let i=0; i < this.)
     });
   }
 
