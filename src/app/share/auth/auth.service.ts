@@ -10,6 +10,7 @@ import {tap} from "rxjs/internal/operators/tap";
 export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
+  private readonly USER_ID = 'USER_ID';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -57,11 +58,13 @@ export class AuthService {
   setTokens(tokens) {
     localStorage.setItem(this.JWT_TOKEN, tokens.jwt);
     localStorage.setItem(this.REFRESH_TOKEN, tokens.refreshToken);
+    localStorage.setItem(this.USER_ID, tokens.userId);
   }
 
   removeTokens() {
     localStorage.removeItem(this.JWT_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);
+    localStorage.removeItem(this.USER_ID);
   }
 
   refreshToken() {
