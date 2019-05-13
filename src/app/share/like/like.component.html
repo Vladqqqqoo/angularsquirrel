@@ -1,0 +1,5 @@
+<button [color]="shot.isLiked? 'warn':'primary'" mat-icon-button   (click)="sendLike(number, shot._id)" class="dropUpLikeIcon" >
+  <mat-icon aria-label="like shot">favorite
+  </mat-icon>
+  <span>{{shot.likes}}</span>
+</button>

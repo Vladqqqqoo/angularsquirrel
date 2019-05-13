@@ -28,6 +28,14 @@
   justify-content: center;
 }
 
+.post-container img {
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
 p{
   display: block;
   color: #666666;
@@ -36,5 +44,3 @@ p{
 .account-info {
   justify-content: center;
 }
-
-

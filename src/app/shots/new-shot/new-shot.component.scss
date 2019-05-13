@@ -23,7 +23,15 @@
 .nv-file-over-class {
   border: dotted 3px green;
 }
-.row{
+.row {
   display: flex;
   justify-content: center;
+}
+
+.buttons-container {
+  margin: 20px auto;
+}
+
+.buttons-container button{
+  margin: 0 10px;
 }

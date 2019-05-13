@@ -37,10 +37,11 @@ export class ShotEditComponent implements OnInit {
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;
     this.shotService.getShot(id).subscribe((data) => {
-      this.imageUrl = `http://localhost:3000/${data.shotUrl}`;
+      const editShot = data.currentShot;
+      this.imageUrl = `http://localhost:3000/${editShot.shotUrl}`;
       const array = Object.keys(this.shotForm.getRawValue());
       for ( const key of array) {
-        this.shotForm.get(key).setValue(data[key]);
+        this.shotForm.get(key).setValue(editShot[key]);
       }
     });
   }
