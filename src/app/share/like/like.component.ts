@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {LikeService} from "./like.service";
 
 @Component({
   selector: 'app-like',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LikeComponent implements OnInit {
 
-  constructor() { }
+  @Input() shot;
+  @Output() changeLikes = new EventEmitter();
+
+  constructor(private likeService: LikeService) {}
+
+  sendLike(id) {
+    this.likeService.sendLike(id).subscribe(
+      likeInfo => {
+        this.changeLikes.emit(likeInfo);
+        console.log(likeInfo);
+      }
+    );
+  }
 
   ngOnInit() {
   }

@@ -27,14 +27,9 @@ export class MainContainerComponent implements OnInit {
   ) {
   }
 
-  sendLike(index, id) {
-    this.mainContainerService.sendLike(id).subscribe(
-      likeInfo => {
-        console.log(likeInfo);
-        this.shots[index].likes = likeInfo.likes;
-        this.shots[index].isLiked = likeInfo.isLiked;
-      }
-    );
+  changeLikesAmount(index, likeInfo) {
+    this.shots[index].likes = likeInfo.likes;
+    this.shots[index].isLiked = likeInfo.isLiked;
   }
 
 

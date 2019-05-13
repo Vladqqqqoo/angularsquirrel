@@ -22,6 +22,6 @@ import { LikeComponent } from './like/like.component';
       multi: true
     },
   ],
-  exports: [ FileSelectDirective, FileDropDirective, OneShotComponent]
+  exports: [ FileSelectDirective, FileDropDirective, OneShotComponent, LikeComponent]
 })
 export class ShareModule { }

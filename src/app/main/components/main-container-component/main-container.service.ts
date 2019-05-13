@@ -15,8 +15,4 @@ export class MainContainerService {
     return this.httpClient.get('http://localhost:3000/shot/list');
   }
 
-  sendLike(id): Observable<any> {
-    return this.httpClient.put(`http://localhost:3000/shot/like`, {shotId : id});
-  }
-
 }
