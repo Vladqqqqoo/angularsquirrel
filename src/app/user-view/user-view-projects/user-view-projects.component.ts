@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {UserViewProjectsService} from "./user-view-projects.service";
+import {UserViewProjectsService} from './user-view-projects.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,9 +12,31 @@ export class UserViewProjectsComponent implements OnInit {
   posts: any;
   user: any;
 
-  constructor(private userViewProjectsService: UserViewProjectsService) {
+  constructor(
+    private userViewProjectsService: UserViewProjectsService,
+    private router: Router,
+  ) {
   }
 
+
+  editOne(id) {
+    this.router.navigate([`shots/edit/${id}`]);
+  }
+
+  deleteOne(id) {
+    this.userViewProjectsService.deleteOneShot(id).subscribe(
+      data => {
+        this.userViewProjectsService.getProjectList().subscribe(shots => {
+          this.posts = shots;
+          for (const post of this.posts) {
+            post.url = `http://localhost:3000/${post.shotUrl}`;
+          }
+          // for (let i=0; i < this.)
+        });
+      }
+    );
+
+  }
   ngOnInit() {
     this.userViewProjectsService.getUserInfo().subscribe(userInfo => {
       this.user = userInfo;

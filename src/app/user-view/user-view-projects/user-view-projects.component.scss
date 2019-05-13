@@ -44,3 +44,27 @@ p{
 .account-info {
   justify-content: center;
 }
+
+.buttons-container{
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -40px;
+  background-color: white;
+}
+
+
+.post-container {
+  mat-icon {
+    opacity: 0
+  }
+}
+.post-container:hover{
+  mat-icon {
+    transition: 400ms;
+    opacity: 0.9;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  }
+
+}

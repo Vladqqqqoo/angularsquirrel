@@ -16,4 +16,8 @@ export class UserViewProjectsService {
     return this.httpClient.get('http://localhost:3000/account/info');
   }
 
+  deleteOneShot(id){
+    return this.httpClient.delete(`http://localhost:3000/shot/${id}`);
+  }
+
 }
