@@ -4,6 +4,7 @@ import {UserViewRoutingModule} from './user-view-routing.module';
 import {MaterialModule} from '../material/material.module';
 import {UserViewProjectsComponent} from './user-view-projects/user-view-projects.component';
 import {MyFollowingsComponent} from '../user/components/my-folliwings/my-followings-component';
+import {ShareModule} from "../share/share.module";
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import {MyFollowingsComponent} from '../user/components/my-folliwings/my-followi
   imports: [
     CommonModule,
     UserViewRoutingModule,
-    MaterialModule
+    MaterialModule,
+    ShareModule
   ]
 })
 export class UserViewModule { }

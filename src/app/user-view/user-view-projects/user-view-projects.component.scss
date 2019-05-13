@@ -1,28 +1,28 @@
-.user-container img{
+.user-container img {
   overflow: hidden;
   border-radius: 50%;
   height: 150px;
   width: 150px;
 }
 
-.user-info-container{
+.user-info-container {
   padding: 20px;
 }
 
-.user-container{
+.user-container {
   border-radius: 5px;
   padding: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.post-container{
+.post-container {
   border-radius: 5px;
   padding: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,8 +35,7 @@
 }
 
 
-
-p{
+p {
   display: block;
   color: #666666;
 }
@@ -45,20 +44,19 @@ p{
   justify-content: center;
 }
 
-.buttons-container{
+.buttons-container {
   display: flex;
   justify-content: flex-end;
   margin-bottom: -40px;
   background-color: white;
 }
 
-
 .post-container {
   mat-icon {
     opacity: 0
   }
 }
-.post-container:hover{
+.post-container:hover {
   mat-icon {
     transition: 400ms;
     opacity: 0.9;
@@ -66,5 +64,26 @@ p{
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   }
+}
 
+.dropUpLikeIcon {
+  border-radius: 50%;
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  margin-top: -42px;
+  z-index: 5;
+}
+
+.dropUpLike:hover .dropUpLikeIcon {
+  opacity: 0.8;
+  transition: 600ms;
+  display: block;
+}
+
+.dropUpLikeContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }

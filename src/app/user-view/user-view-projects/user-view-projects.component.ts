@@ -31,12 +31,16 @@ export class UserViewProjectsComponent implements OnInit {
           for (const post of this.posts) {
             post.url = `http://localhost:3000/${post.shotUrl}`;
           }
-          // for (let i=0; i < this.)
         });
       }
     );
-
   }
+
+  changeLikesAmount(index, likeInfo) {
+    this.posts[index].likes = likeInfo.likes;
+    this.posts[index].isLiked = likeInfo.isLiked;
+  }
+
   ngOnInit() {
     this.userViewProjectsService.getUserInfo().subscribe(userInfo => {
       this.user = userInfo;
@@ -48,7 +52,6 @@ export class UserViewProjectsComponent implements OnInit {
       for (const post of this.posts) {
         post.url = `http://localhost:3000/${post.shotUrl}`;
       }
-      // for (let i=0; i < this.)
     });
   }
 
