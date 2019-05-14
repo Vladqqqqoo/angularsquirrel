@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../share/auth/auth.service';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
+
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-form',
@@ -12,23 +14,23 @@ import {MatDialog} from '@angular/material';
 export class LoginFormComponent implements OnInit {
 
   loginForm: FormGroup;
-  loginError: boolean;
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
     public dialog: MatDialog,
+    private toastr: ToastrService,
   ) {
     this.loginForm = this.fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
       password: ['', [Validators.required, Validators.pattern(/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)]],
-  });
+    });
   }
 
   getLoginErrorMessage() {
     return this.loginForm.get('login').hasError('required') ? 'You must enter your login' :
-      this.loginForm.get('login').hasError('pattern') ? 'Your login is invalid' :  '';
+      this.loginForm.get('login').hasError('pattern') ? 'Your login is invalid' : '';
   }
 
   getPasswordErrorMessage() {
@@ -41,19 +43,26 @@ export class LoginFormComponent implements OnInit {
     const userData = this.loginForm.value;
     this.authService.signIn(userData).subscribe((data) => {
       this.authService.setTokens(data);
-      alert('Login Successfully');
+      this.toastr.success('You are successfully logged in', 'Authorization successful', {
+        progressBar: false,
+        positionClass: "toast-top-right",
+        timeOut: 2000,
+        extendedTimeOut: 1000,
+      });
       console.log(data);
       this.dialog.closeAll();
-
     }, (err) => {
-      this.loginError = true;
+      this.toastr.error('Check login and password and try again', 'Authorization failed', {
+        progressBar: false,
+        positionClass: "toast-center-center-login",
+        timeOut: 2000,
+        extendedTimeOut: 1000,
+      });
       console.log(err);
     });
   }
 
-
   ngOnInit() {
-    this.loginError = false;
   }
 
 }

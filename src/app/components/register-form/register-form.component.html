@@ -1,10 +1,7 @@
 <div class="container-fluid">
-  <form [formGroup]="registerForm" >
-    <div class="register-error" *ngIf="registerError">
-      Register Error
-    </div>
-    <mat-form-field hintLabel="Input unique login">
-      <input  formControlName="login" matInput placeholder="Login" >
+  <form [formGroup]="registerForm">
+    <mat-form-field>
+      <input formControlName="login" matInput placeholder="Login">
       <mat-error *ngIf="registerForm.invalid">{{getLoginErrorMessage()}}</mat-error>
     </mat-form-field>
     <br/>
@@ -13,7 +10,7 @@
       <mat-error *ngIf="registerForm.invalid">{{getEmailErrorMessage()}}</mat-error>
     </mat-form-field>
     <br>
-    <mat-form-field >
+    <mat-form-field>
       <input type="password" formControlName="password" matInput placeholder="Password">
       <mat-error *ngIf="registerForm.invalid">{{getPasswordErrorMessage()}}</mat-error>
     </mat-form-field>
@@ -23,7 +20,9 @@
       <mat-error *ngIf="registerForm.invalid">{{getConfPasswordErrorMessage()}}</mat-error>
     </mat-form-field>
     <br>
-    <button  class="signinButton" mat-flat-button color="primary" [disabled]="!registerForm.valid" (click)="registerOneUser()">Send request</button>
+    <button class="signupButton" mat-flat-button color="primary" [disabled]="!registerForm.valid"
+            (click)="registerOneUser()">Sign Up
+    </button>
   </form>
 
 </div>

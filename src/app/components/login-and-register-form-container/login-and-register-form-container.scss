@@ -1,9 +1,23 @@
 *{
-  padding: 20px;
-
+  padding: 10px;
+  overflow: hidden;
 }
 
 
 .my-container{
   background-image: url("http://redpithemes.com/Documentation/assets/img/page_bg/page_bg_blur02.jpg");
+}
+
+.my-container button {
+  padding-top:5px;
+}
+
+.outButtons.mat-button.mat-primary.ng-star-inserted  {
+  color: black;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.outButtons.mat-button.mat-primary.ng-star-inserted:hover  {
+  color: white;
 }

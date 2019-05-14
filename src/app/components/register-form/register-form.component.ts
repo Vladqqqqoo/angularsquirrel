@@ -5,6 +5,8 @@ import {AuthService} from '../../share/auth/auth.service';
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material";
 
+import {ToastrService} from 'ngx-toastr';
+
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -13,13 +15,13 @@ import {MatDialog} from "@angular/material";
 export class RegisterFormComponent implements OnInit {
 
   registerForm: FormGroup;
-  registerError: boolean;
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private toastr: ToastrService,
   ) {
     this.registerForm = this.fb.group({
       login: ['', [Validators.required, Validators.pattern(/^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$/)]],
@@ -53,18 +55,27 @@ export class RegisterFormComponent implements OnInit {
     const user = this.registerForm.value;
     delete user.confirmPassword;
     this.authService.signUp(user).subscribe(data => {
-      alert('Successful registration');
+        this.toastr.success('You have successfully registered', 'Registration successful', {
+          progressBar: false,
+          positionClass: "toast-top-right",
+          timeOut: 2000,
+          extendedTimeOut: 1000,
+        });
       console.log(data);
         this.dialog.closeAll();
     },
       error => {
-      this.registerError = true;
+        this.toastr.error('This login exists, choose other one', 'Registration failed', {
+          progressBar: false,
+          positionClass: "toast-center-center-login",
+          timeOut: 2000,
+          extendedTimeOut: 1000,
+        });
       console.log(error);
       });
   }
 
   ngOnInit() {
-    this.registerError = false;
   }
 
 }

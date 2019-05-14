@@ -14,6 +14,10 @@ import {MaterialModule} from './material/material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import {AuthInterceptor} from './share/auth/auth.interceptor';
 
+import { CommonModule } from '@angular/common';
+
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +34,11 @@ import {AuthInterceptor} from './share/auth/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    CommonModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true
+    }),
   ],
   providers: [ {
     provide: HTTP_INTERCEPTORS,
