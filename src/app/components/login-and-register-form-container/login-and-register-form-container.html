@@ -1,11 +1,17 @@
 <div class="my-container">
-  <h4>
-    Hello world
-  </h4>
-  <app-login-form *ngIf="initLogin"></app-login-form>
-  <app-register-form *ngIf="initRegister"></app-register-form>
-  <button *ngIf="!initLogin" mat-button color="accent" (click)="initLoginForm()" >Log in</button>
-  <button *ngIf="!initRegister" mat-button color="accent" (click)="initRegisterForm()">Register</button>
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Nice to meet you</h4>
+      <app-login-form *ngIf="initLogin"></app-login-form>
+      <app-register-form *ngIf="initRegister"></app-register-form>
+      <button *ngIf="!initLogin" class="outButtons" mat-button color="primary" (click)="initLoginForm()">Have an
+        account...
+      </button>
+      <button *ngIf="!initRegister" class="outButtons" mat-button color="primary" (click)="initRegisterForm()">Don't
+        have an account?
+      </button>
+    </div>
+  </div>
 </div>
 
 

@@ -14,6 +14,12 @@
 // Grid
 @import "themes/base/styles/common/grid";
 
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+// toastr
+@import "themes/base/styles/common/toastr";
+
 /*// Plugins
 //@import (less) "plugins/;
 
