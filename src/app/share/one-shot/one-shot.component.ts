@@ -29,6 +29,7 @@ export class OneShotComponent implements OnInit {
   openPreviousShot() {
     if (!this.prevShot) {} else {
       this.location.go(`shots/${this.prevShot._id}`);
+      this.shot = this.prevShot;
       this.shotImageUrl = `http://localhost:3000/${this.prevShot.shotUrl}`;
       this.oneShotService.getOneShot(this.prevShot._id).subscribe(
         prev => {
@@ -50,6 +51,7 @@ export class OneShotComponent implements OnInit {
     if (!this.nextShot) {} else {
       this.location.go(`shots/${this.nextShot._id}`);
       this.shotImageUrl = `http://localhost:3000/${this.nextShot.shotUrl}`;
+      this.shot = this.nextShot;
       this.oneShotService.getOneShot(this.nextShot._id).subscribe(
         next => {
           this.shot = next.currentShot;
@@ -62,11 +64,7 @@ export class OneShotComponent implements OnInit {
   }
 
   isLiked() {
-    if (this.shot.likedBy.includes(localStorage.getItem('USER_ID'))) {
-      this.shot.isLiked = true;
-    } else {
-      this.shot.isLiked = false;
-    }
+    this.shot.isLiked = !!this.shot.likedBy.includes(localStorage.getItem('USER_ID'));
   }
 
   ngOnInit() {

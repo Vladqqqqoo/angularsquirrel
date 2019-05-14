@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {LikeService} from "./like.service";
+import {LikeService} from './like.service';
 
 @Component({
   selector: 'app-like',

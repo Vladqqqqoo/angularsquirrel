@@ -11,6 +11,9 @@
     </button>
     <div  class="image-container" >
       <img *ngIf="shotImageUrl" [src]="shotImageUrl" alt="any">
+      <p *ngIf="shot">{{shot.title}}</p>
+      <p *ngIf="shot">{{shot.tags}}</p>
+      <p *ngIf="shot">{{shot.description}}</p>
     </div>
   <button class="navigate-button">
     <i [ngStyle]="{'opacity': nextShot ? 0.9 : 0.1}"
@@ -22,6 +25,9 @@
     </i>
   </button>
   </div>
+
+  <p></p>
+  <p></p>
   <div class="dropUpLikeContent" *ngIf="shot">
     <app-like class="dropUpLikeIcon" [shot]="shot" (changeLikes)="changeLikesAmount($event)"></app-like>
   </div>

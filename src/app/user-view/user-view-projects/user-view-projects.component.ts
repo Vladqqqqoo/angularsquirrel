@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {UserViewProjectsService} from './user-view-projects.service';
 import {Router} from '@angular/router';
-
+import {MatDialog} from '@angular/material';
+import {OneShotComponent} from '../../share/one-shot/one-shot.component';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'user-view-projects',
@@ -9,12 +11,14 @@ import {Router} from '@angular/router';
   styleUrls: ['./user-view-projects.component.scss']
 })
 export class UserViewProjectsComponent implements OnInit {
-  posts: any;
+  shots: any;
   user: any;
 
   constructor(
     private userViewProjectsService: UserViewProjectsService,
     private router: Router,
+    private location: Location,
+    private dialog: MatDialog,
   ) {
   }
 
@@ -27,18 +31,29 @@ export class UserViewProjectsComponent implements OnInit {
     this.userViewProjectsService.deleteOneShot(id).subscribe(
       data => {
         this.userViewProjectsService.getProjectList().subscribe(shots => {
-          this.posts = shots;
-          for (const post of this.posts) {
-            post.url = `http://localhost:3000/${post.shotUrl}`;
+          this.shots = shots;
+          for (const shot of this.shots) {
+            shot.url = `http://localhost:3000/${shot.shotUrl}`;
           }
         });
       }
     );
   }
 
+  openShot(shotId) {
+    this.location.go(`shots/${shotId}`);
+    this.dialog.open(OneShotComponent, {data: {id: shotId}});
+    this.dialog.afterAllClosed.subscribe(
+      data => {
+        this.dialog.closeAll();
+        this.location.go('profile');
+      }
+    );
+  }
+
   changeLikesAmount(index, likeInfo) {
-    this.posts[index].likes = likeInfo.likes;
-    this.posts[index].isLiked = likeInfo.isLiked;
+    this.shots[index].likes = likeInfo.likes;
+    this.shots[index].isLiked = likeInfo.isLiked;
   }
 
   ngOnInit() {
@@ -48,9 +63,10 @@ export class UserViewProjectsComponent implements OnInit {
     });
 
     this.userViewProjectsService.getProjectList().subscribe(shots => {
-      this.posts = shots;
-      for (const post of this.posts) {
-        post.url = `http://localhost:3000/${post.shotUrl}`;
+      this.shots = shots;
+      for (const shot of this.shots) {
+        shot.url = `http://localhost:3000/${shot.shotUrl}`;
+        shot.isLiked = !!shot.likedBy.includes(localStorage.getItem('USER_ID'));
       }
     });
   }

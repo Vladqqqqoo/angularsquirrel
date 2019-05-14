@@ -15,19 +15,19 @@
 </div>
 <div class="row">
   <div class="col-sm-6 col-md-4 col-lg-3 user-info-container one-post-container dropUpLike"
-       *ngFor="let post of posts; let number = index">
+       *ngFor="let shot of shots; let number = index" >
     <div class="post-container">
       <div class="buttons-container">
-        <button mat-icon-button color="primary" (click)="editOne(post._id)">
+        <button mat-icon-button color="primary" (click)="editOne(shot._id)">
           <mat-icon aria-label="Edit this shot">edit</mat-icon>
         </button>
-        <button mat-icon-button color="primary" (click)="deleteOne(post._id)">
+        <button mat-icon-button color="primary" (click)="deleteOne(shot._id)">
           <mat-icon aria-label="Delete this shot">delete_forever</mat-icon>
         </button>
       </div>
-      <img alt="some post" [src]="post.url">
+      <img alt="some post" (click)="openShot(shot._id)" [src]="shot.url">
       <div class="dropUpLikeContent">
-        <app-like class="dropUpLikeIcon" [shot]="post" (changeLikes)="changeLikesAmount(number, $event)"></app-like>
+        <app-like class="dropUpLikeIcon" [shot]="shot" (changeLikes)="changeLikesAmount(number, $event)"></app-like>
       </div>
     </div>
   </div>
