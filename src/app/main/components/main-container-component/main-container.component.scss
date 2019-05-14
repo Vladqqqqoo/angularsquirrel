@@ -1,10 +1,3 @@
-//@import "~src/assets/themes/base/styles/common/helpers";
-//
-//.container {
-//  background-color: $sandy;
-//  @include fs(60px, 30px);
-//}
-
 .one-post-container {
   padding: 10px;
 }
@@ -21,7 +14,7 @@
   opacity: 0;
   position: absolute;
   background-color: white;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   margin-top: -42px;
   z-index: 5;
 }

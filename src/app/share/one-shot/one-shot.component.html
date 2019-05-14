@@ -1,15 +1,29 @@
-<div class="container-fluid container-of-shot">
-  <div class="">
-    <img [ngStyle]="{'opacity': prevShot ? 0.9 : 0.1}" class="arrow-container col-md-1" src="../../../assets/images/back.png"
-         alt="left arrow" (click)="openPreviousShot()" >
-    <img *ngIf="shotImageUrl" class="shot-image col-md-10"  [src]="shotImageUrl" alt="any">
-    <img [ngStyle]="{'opacity': nextShot ? 0.9 : 0.1}" class="arrow-container col-md-1" src="../../../assets/images/right-arrow.png"
-         alt="right arrow" (click)="openNextShot()">
-  </div>
-  <div class="dropUpLikeContent">
-    <button mat-icon-button color="warn" (click)="sendLike(post._id)" class="dropUpLikeIcon">
-      <mat-icon aria-label="like shot">favorite</mat-icon>
+<div class="row one-shot-component-container">
+  <div class="shot-container">
+    <button class="navigate-button">
+      <i [ngStyle]="{'opacity': prevShot ? 0.9 : 0.1}"
+         (click)="openPreviousShot()" class="material-icons">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </i>
     </button>
+    <div  class="image-container" >
+      <img *ngIf="shotImageUrl" [src]="shotImageUrl" alt="any">
+    </div>
+  <button class="navigate-button">
+    <i [ngStyle]="{'opacity': nextShot ? 0.9 : 0.1}"
+       (click)="openNextShot()" class="material-icons">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </i>
+  </button>
+  </div>
+  <div class="dropUpLikeContent" *ngIf="shot">
+    <app-like class="dropUpLikeIcon" [shot]="shot" (changeLikes)="changeLikesAmount($event)"></app-like>
   </div>
 </div>
 

@@ -1,9 +1,8 @@
-import {Component, Inject, OnInit, OnDestroy} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {OneShotService} from './one-shot.service';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-one-shot',
@@ -36,18 +35,15 @@ export class OneShotComponent implements OnInit {
           this.shot = prev.currentShot;
           this.prevShot = prev.prevShot;
           this.nextShot = prev.nextShot;
+          this.isLiked();
         }
       );
     }
   }
 
-  sendLike(shotId) {
-    this.oneShotService.sendLike(shotId).subscribe(
-      likes => {
-
-        console.log(likes);
-      }
-    );
+  changeLikesAmount(likeInfo) {
+    this.shot.likes = likeInfo.likes;
+    this.shot.isLiked = likeInfo.isLiked;
   }
 
   openNextShot() {
@@ -59,11 +55,19 @@ export class OneShotComponent implements OnInit {
           this.shot = next.currentShot;
           this.nextShot = next.nextShot;
           this.prevShot = next.prevShot;
+          this.isLiked();
         }
       );
     }
   }
 
+  isLiked() {
+    if (this.shot.likedBy.includes(localStorage.getItem('USER_ID'))) {
+      this.shot.isLiked = true;
+    } else {
+      this.shot.isLiked = false;
+    }
+  }
 
   ngOnInit() {
     if (this.data.id) {
@@ -76,6 +80,7 @@ export class OneShotComponent implements OnInit {
       this.prevShot = shot.prevShot;
       this.shot = shot.currentShot;
       this.shotImageUrl = `http://localhost:3000/${shot.currentShot.shotUrl}`;
+      this.isLiked();
     } );
   }
 
