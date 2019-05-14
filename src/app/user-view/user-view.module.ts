@@ -4,7 +4,8 @@ import {UserViewRoutingModule} from './user-view-routing.module';
 import {MaterialModule} from '../material/material.module';
 import {UserViewProjectsComponent} from './user-view-projects/user-view-projects.component';
 import {MyFollowingsComponent} from '../user/components/my-folliwings/my-followings-component';
-import {ShareModule} from "../share/share.module";
+import {ShareModule} from '../share/share.module';
+import {OneShotComponent} from '../share/one-shot/one-shot.component';
 
 
 @NgModule({
@@ -14,6 +15,9 @@ import {ShareModule} from "../share/share.module";
     UserViewRoutingModule,
     MaterialModule,
     ShareModule
+  ],
+  entryComponents: [
+    OneShotComponent
   ]
 })
 export class UserViewModule { }

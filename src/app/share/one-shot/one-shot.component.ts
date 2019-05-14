@@ -1,9 +1,8 @@
-import {Component, Inject, OnInit, OnDestroy} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {OneShotService} from './one-shot.service';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
-import {el} from '@angular/platform-browser/testing/src/browser_util';
 
 @Component({
   selector: 'app-one-shot',
@@ -30,40 +29,43 @@ export class OneShotComponent implements OnInit {
   openPreviousShot() {
     if (!this.prevShot) {} else {
       this.location.go(`shots/${this.prevShot._id}`);
+      this.shot = this.prevShot;
       this.shotImageUrl = `http://localhost:3000/${this.prevShot.shotUrl}`;
       this.oneShotService.getOneShot(this.prevShot._id).subscribe(
         prev => {
           this.shot = prev.currentShot;
           this.prevShot = prev.prevShot;
           this.nextShot = prev.nextShot;
+          this.isLiked();
         }
       );
     }
   }
 
-  sendLike(shotId) {
-    this.oneShotService.sendLike(shotId).subscribe(
-      likes => {
-
-        console.log(likes);
-      }
-    );
+  changeLikesAmount(likeInfo) {
+    this.shot.likes = likeInfo.likes;
+    this.shot.isLiked = likeInfo.isLiked;
   }
 
   openNextShot() {
     if (!this.nextShot) {} else {
       this.location.go(`shots/${this.nextShot._id}`);
       this.shotImageUrl = `http://localhost:3000/${this.nextShot.shotUrl}`;
+      this.shot = this.nextShot;
       this.oneShotService.getOneShot(this.nextShot._id).subscribe(
         next => {
           this.shot = next.currentShot;
           this.nextShot = next.nextShot;
           this.prevShot = next.prevShot;
+          this.isLiked();
         }
       );
     }
   }
 
+  isLiked() {
+    this.shot.isLiked = !!this.shot.likedBy.includes(localStorage.getItem('USER_ID'));
+  }
 
   ngOnInit() {
     if (this.data.id) {
@@ -76,6 +78,7 @@ export class OneShotComponent implements OnInit {
       this.prevShot = shot.prevShot;
       this.shot = shot.currentShot;
       this.shotImageUrl = `http://localhost:3000/${shot.currentShot.shotUrl}`;
+      this.isLiked();
     } );
   }
 
