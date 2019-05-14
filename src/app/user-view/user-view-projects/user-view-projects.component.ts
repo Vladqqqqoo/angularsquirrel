@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {OneShotComponent} from '../../share/one-shot/one-shot.component';
 import {Location} from '@angular/common';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'user-view-projects',
@@ -19,12 +20,17 @@ export class UserViewProjectsComponent implements OnInit {
     private router: Router,
     private location: Location,
     private dialog: MatDialog,
+    private toastr: ToastrService,
   ) {
   }
 
 
   editOne(id) {
     this.router.navigate([`shots/edit/${id}`]);
+  }
+
+  test() {
+    console.log(`test`);
   }
 
   deleteOne(id) {

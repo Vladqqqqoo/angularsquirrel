@@ -15,8 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {AuthInterceptor} from './share/auth/auth.interceptor';
 
 import { CommonModule } from '@angular/common';
-
-import { ToastrModule } from 'ngx-toastr';
+import {ShareModule} from "./share/share.module";
 
 @NgModule({
   declarations: [
@@ -36,9 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     MaterialModule,
     CommonModule,
-    ToastrModule.forRoot({
-      preventDuplicates: true
-    }),
+    ShareModule
   ],
   providers: [ {
     provide: HTTP_INTERCEPTORS,

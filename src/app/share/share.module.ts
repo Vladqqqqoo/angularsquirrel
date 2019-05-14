@@ -7,12 +7,16 @@ import {FileDropDirective, FileSelectDirective} from 'ng2-file-upload';
 import {MaterialModule} from '../material/material.module';
 import { OneShotComponent } from './one-shot/one-shot.component';
 import { LikeComponent } from './like/like.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [ FileSelectDirective, FileDropDirective, OneShotComponent, LikeComponent],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true
+    }),
   ],
   providers: [
     AuthService,
@@ -22,6 +26,6 @@ import { LikeComponent } from './like/like.component';
       multi: true
     },
   ],
-  exports: [ FileSelectDirective, FileDropDirective, OneShotComponent, LikeComponent]
+  exports: [ FileSelectDirective, FileDropDirective, OneShotComponent, LikeComponent, ToastrModule]
 })
 export class ShareModule { }
