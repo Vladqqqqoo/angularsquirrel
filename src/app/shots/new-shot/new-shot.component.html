@@ -8,7 +8,7 @@
          (fileOver)="fileOverBase($event)"
          [uploader]="uploader"
          (onFileDrop)="dropFile($event)"
-         class="well col-md-10 my-drop-zone">
+         class="well col-md-6 my-drop-zone">
       <p *ngIf="!uploader.queue[0]; else showFileName">Put some image here</p>
       <ng-template #showFileName>
         <p>{{uploader.queue[0].file.name}}</p>

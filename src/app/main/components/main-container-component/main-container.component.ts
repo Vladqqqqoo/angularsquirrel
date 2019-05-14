@@ -23,7 +23,6 @@ export class MainContainerComponent implements OnInit {
     public dialog: MatDialog,
     private authService: AuthService,
     private mainContainerService: MainContainerService,
-    private router: Router,
   ) {
   }
 

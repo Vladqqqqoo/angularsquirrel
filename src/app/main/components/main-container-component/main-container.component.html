@@ -1,10 +1,11 @@
-<div class="row">
-  <div *ngFor="let shot of shots; let number = index" class="col-sm-6 col-md-4 col-lg-3 one-post-container dropUpLike">
+<div class="row allPosts">
+  <div *ngFor="let shot of shots; let number = index" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 dropUpLike">
     <div (click)="openPost(shot._id)">
       <img [src]="shot.url" alt="some shot image">
     </div>
     <div class="dropUpLikeContent">
       <app-like class="dropUpLikeIcon" [shot]="shot" (changeLikes)="changeLikesAmount(number,$event)"></app-like>
+      <span class="userName">{{shot.username.login}}</span>
     </div>
   </div>
 </div>

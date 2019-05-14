@@ -1,9 +1,5 @@
-.one-post-container {
-  padding: 10px;
-}
-
-.one-post-container img {
-  width: 100%;
+img {
+  width: 350px;
   height: 200px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -11,23 +7,37 @@
 
 .dropUpLikeIcon {
   border-radius: 50%;
-  opacity: 0;
-  position: absolute;
-  background-color: white;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  margin-top: -42px;
-  z-index: 5;
 }
 
-.dropUpLike:hover .dropUpLikeIcon {
-  opacity: 0.8;
-  transition: 600ms;
-  display: block;
+.dropUpLikeIcon:hover {
+  opacity: 1;
+  transition: 800ms;
+  background-color: #b0b5b545;
 }
-
+//
 .dropUpLikeContent {
-  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.dropUpLike {
+  display: flex;
   justify-content: center;
+  flex-direction: column;
+  width: 350px;
+  margin: 40px 20px 20px 20px;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.allPosts {
+  justify-content: center;
+}
+
+.userName {
+  margin: auto 0;
+  font-family: 'ProximaNova';
+  font-size: 16px;
 }
