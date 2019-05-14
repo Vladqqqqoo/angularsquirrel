@@ -1,34 +1,49 @@
-.shot-image{
-  width: 600px;
-  border-radius: 10px;
+*{
+  margin: 0;
 }
 
-.arrow-container{
+.image-container{
+  width: 60vw;
+  img{
+    width: 100%;
+  }
+}
+
+.navigate-button{
   transition: 400ms;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  i{
+    transition: 400ms;
+  }
 }
 
-.container-of-shot {
-  background-color: rgba(255,255,255, 0.85);
-  width: 800px;
+.navigate-button:hover{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.shot-container{
   padding: 10px;
-  height: 80vh;
+  height: 60vh;
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
 }
-.arrow-container:hover{
-  transition: 400ms;
-  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+
+.one-shot-component-container{
+  width: 80vw;
+  margin: 0 auto;
+  background-color: rgba(255,255,255, 0.85);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
 }
 
 .dropUpLikeIcon {
-  opacity: 1;
+  border-radius: 50%;
+  margin-bottom: 5px;
   background-color: white;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   z-index: 5;
 }
 
@@ -41,5 +56,12 @@
 .dropUpLikeContent {
   width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+}
+
+@media screen and (max-width: 725px) {
+  svg{
+    width: 50%;
+  }
 }
