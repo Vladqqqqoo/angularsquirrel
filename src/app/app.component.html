@@ -1,4 +1,4 @@
-<app-query-preloader *ngIf="preload"></app-query-preloader>
+<app-query-preloader *ngIf="preloaderService.dataSubj$ | async"></app-query-preloader>
 <div class="container-fluid wrapper">
     <app-navigation class="nav"></app-navigation>
     <app-welcome-header *ngIf="!authService.isLoggedIn()"></app-welcome-header>
