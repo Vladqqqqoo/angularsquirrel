@@ -21,7 +21,7 @@ export class CommentsComponent implements OnInit {
   ) {
     this.newCommentMessageForm = this.fb.control('');
     this.router.events.subscribe(
-      (event: Event) => {
+      (event) => {
         if (event instanceof NavigationEnd) {
           console.log(this.route.snapshot.params.shotId);
           this.commentsService.getComments(this.route.snapshot.params.shotId)
