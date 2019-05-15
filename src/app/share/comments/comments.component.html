@@ -7,3 +7,6 @@
   <input required type="text" [formControl]="newCommentMessageForm" matInput placeholder="Enter your comment">
   <button mat-button (click)="sendComment()">  Comment </button>
 </div>
+  <div *ngIf="shot" >
+    {{shot.isLiked}}
+  </div>
