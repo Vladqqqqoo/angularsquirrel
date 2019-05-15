@@ -1,5 +1,5 @@
 <div class="row allPosts">
-  <div *ngFor="let shot of shots; let number = index" class="col-sm-6 col-md-4 col-lg-3 col-xl-2 dropUpLike">
+  <div *ngFor="let shot of shots; let number = index" class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-2 dropUpLike">
     <div (click)="openPost(shot._id)">
       <img [src]="shot.url" alt="some shot image">
     </div>
