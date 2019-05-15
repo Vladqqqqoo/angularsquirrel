@@ -1,8 +1,9 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import {OneShotService} from './one-shot.service';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Location} from '@angular/common';
+import {ShotAndCommentShareService} from '../shot-and-comment-share.service';
 
 @Component({
   selector: 'app-one-shot',
@@ -17,9 +18,9 @@ export class OneShotComponent implements OnInit {
   nextShot: any;
   prevShot: any;
 
-
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
+    private shareService: ShotAndCommentShareService,
     private oneShotService: OneShotService,
     private route: ActivatedRoute,
     private router: Router,
@@ -28,7 +29,8 @@ export class OneShotComponent implements OnInit {
 
   openPreviousShot() {
     if (!this.prevShot) {} else {
-      this.router.navigate([`shots/${this.prevShot._id}`]);
+      this.shareService.emitChange(this.prevShot._id);
+      this.location.go(`shots/${this.prevShot._id}`);
       this.shot = this.prevShot;
       this.shotImageUrl = `http://localhost:3000/${this.prevShot.shotUrl}`;
       this.oneShotService.getOneShot(this.prevShot._id).subscribe(
@@ -49,7 +51,8 @@ export class OneShotComponent implements OnInit {
 
   openNextShot() {
     if (!this.nextShot) {} else {
-      this.router.navigate([`shots/${this.nextShot._id}`]);
+      this.shareService.emitChange(this.nextShot._id);
+      this.location.go(`shots/${this.nextShot._id}`);
       this.shotImageUrl = `http://localhost:3000/${this.nextShot.shotUrl}`;
       this.shot = this.nextShot;
       this.oneShotService.getOneShot(this.nextShot._id).subscribe(
@@ -70,6 +73,7 @@ export class OneShotComponent implements OnInit {
   ngOnInit() {
     if (this.data.id) {
       this.shotId = this.data.id;
+      this.shareService.emitChange(this.shotId);
     } else if (this.route.snapshot.params.shotId) {
       this.shotId = this.route.snapshot.params.shotId;
     }

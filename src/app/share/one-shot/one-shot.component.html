@@ -28,6 +28,6 @@
   <div class="dropUpLikeContent" *ngIf="shot">
     <app-like class="dropUpLikeIcon" [shot]="shot" (changeLikes)="changeLikesAmount($event)"></app-like>
   </div>
-  <app-comments class="col-8"></app-comments>
+  <app-comments [shot]="shot" class="col-8"></app-comments>
 </div>
 
