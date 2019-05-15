@@ -30,7 +30,6 @@ export class CommentsComponent implements OnInit {
         }
       );
     this.shareService.subscribeOnChange().subscribe(data => {
-        console.log(data);
         this.commentsService.getComments(data)
           .subscribe(
             comments => {
@@ -42,7 +41,6 @@ export class CommentsComponent implements OnInit {
   }
 
   sendComment() {
-    console.log(this.shot);
     const commentMessage = this.newCommentMessageForm.value;
     const shotId = this.route.snapshot.params.shotId;
     this.commentsService.sendComment(commentMessage, shotId)

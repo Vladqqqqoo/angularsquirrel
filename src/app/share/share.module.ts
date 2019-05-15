@@ -9,7 +9,7 @@ import {OneShotComponent} from './one-shot/one-shot.component';
 import {LikeComponent} from './like/like.component';
 import {ToastrModule} from 'ngx-toastr';
 import {CommentsComponent} from './comments/comments.component';
-import {PreloaderInterceptor} from "./preloaders/preloader.interceptor";
+import {PreloaderInterceptor} from './preloaders/preloader.interceptor';
 import { QueryPreloaderComponent } from './preloaders/query-preloader/query-preloader.component';
 
 
@@ -35,7 +35,7 @@ import { QueryPreloaderComponent } from './preloaders/query-preloader/query-prel
       multi: true
     },
   ],
-  exports: [FileSelectDirective, FileDropDirective, OneShotComponent, LikeComponent, ToastrModule,QueryPreloaderComponent]
+  exports: [FileSelectDirective, FileDropDirective, OneShotComponent, LikeComponent, ToastrModule, QueryPreloaderComponent]
 })
 export class ShareModule {
 }

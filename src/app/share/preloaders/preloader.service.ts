@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Subject} from "rxjs";
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,6 @@ export class PreloaderService {
   }
 
   loading(value) {
-    console.log('hello');
     this.dataSubj.next(value);
   }
 

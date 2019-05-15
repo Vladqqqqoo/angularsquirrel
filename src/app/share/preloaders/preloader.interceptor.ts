@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/internal/operators/tap';
-import {PreloaderService} from "./preloader.service";
+import {PreloaderService} from './preloader.service';
 
 @Injectable({
   providedIn: 'root'
