@@ -14,9 +14,4 @@ export class OneShotService {
   getOneShot(shotId): Observable<any> {
     return this.httpClient.get(`http://localhost:3000/shot/${shotId}`);
   }
-
-  sendLike(id): Observable<any> {
-    return this.httpClient.put(`http://localhost:3000/shot/like`, {shotId : id});
-  }
-
 }

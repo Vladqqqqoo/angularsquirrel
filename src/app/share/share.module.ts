@@ -8,9 +8,10 @@ import {MaterialModule} from '../material/material.module';
 import { OneShotComponent } from './one-shot/one-shot.component';
 import { LikeComponent } from './like/like.component';
 import { ToastrModule } from 'ngx-toastr';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
-  declarations: [ FileSelectDirective, FileDropDirective, OneShotComponent, LikeComponent],
+  declarations: [ FileSelectDirective, FileDropDirective, OneShotComponent, LikeComponent, CommentsComponent],
   imports: [
     CommonModule,
     MaterialModule,
