@@ -4,7 +4,6 @@ import {LoginAndRegisterFormContainer} from '../login-and-register-form-containe
 import {AuthService} from '../../share/auth/auth.service';
 import {Router} from "@angular/router";
 
-
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
