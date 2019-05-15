@@ -1,7 +1,9 @@
 <div class="container-fluid">
-  <p>
-    comments works!
-  </p>
+  <div class="comment" *ngFor="let comment of comments">
+    <h6>
+      {{comment.commentMessage}}
+    </h6>
+  </div>
   <input required type="text" [formControl]="newCommentMessageForm" matInput placeholder="Enter your comment">
   <button mat-button (click)="sendComment()">  Comment </button>
 </div>

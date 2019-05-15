@@ -28,7 +28,7 @@ export class OneShotComponent implements OnInit {
 
   openPreviousShot() {
     if (!this.prevShot) {} else {
-      this.location.go(`shots/${this.prevShot._id}`);
+      this.router.navigate([`shots/${this.prevShot._id}`]);
       this.shot = this.prevShot;
       this.shotImageUrl = `http://localhost:3000/${this.prevShot.shotUrl}`;
       this.oneShotService.getOneShot(this.prevShot._id).subscribe(
@@ -49,7 +49,7 @@ export class OneShotComponent implements OnInit {
 
   openNextShot() {
     if (!this.nextShot) {} else {
-      this.location.go(`shots/${this.nextShot._id}`);
+      this.router.navigate([`shots/${this.nextShot._id}`]);
       this.shotImageUrl = `http://localhost:3000/${this.nextShot.shotUrl}`;
       this.shot = this.nextShot;
       this.oneShotService.getOneShot(this.nextShot._id).subscribe(
