@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl} from '@angular/forms';
 import {CommentsService} from './comments.service';
 import {ActivatedRoute} from '@angular/router';
@@ -10,15 +10,18 @@ import {Subscription} from 'rxjs';
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })
+
 export class CommentsComponent implements OnInit, OnDestroy {
 
   newCommentMessageForm: FormControl;
   comments: any;
   shotId: any;
-  urlId: any = true;
 
   private httpSubscription: Subscription;
   private eventSubscription: Subscription;
+
+  @Input() shot;
+
 
   constructor(
     private shareService: ShotAndCommentShareService,
@@ -27,16 +30,17 @@ export class CommentsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
   ) {
     this.newCommentMessageForm = this.fb.control('');
-    if (this.urlId) {
-      this.shotId = this.route.snapshot.params.shotId;
-      this.getAllComments();
-    }
-    this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
-        this.shotId = data;
+    if (this.route.snapshot.params.shotId) {
+        this.shotId = this.route.snapshot.params.shotId;
         this.getAllComments();
-        this.urlId = false;
-      }
-    );
+        this.getChangeEvent();
+    } else {
+      this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
+          this.shotId = data;
+          this.getAllComments();
+        }
+      );
+    }
   }
 
   getAllComments() {
@@ -47,25 +51,29 @@ export class CommentsComponent implements OnInit, OnDestroy {
         });
   }
 
+  getChangeEvent() {
+    this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
+        this.shotId = data;
+        this.getAllComments();
+      }
+    );
+  }
+
   sendComment() {
     const commentMessage = this.newCommentMessageForm.value;
     this.commentsService.sendComment(commentMessage, this.shotId)
       .subscribe(
         data => {
-          this.comments.push(data);
+          this.comments.push(data[0]);
         }
       );
   }
 
   ngOnInit() {
-    if (this.route.snapshot.params.shotId) {
-      this.urlId = true;
-    }
   }
 
   ngOnDestroy(): void {
-    this.eventSubscription.unsubscribe();
     this.httpSubscription.unsubscribe();
+    this.eventSubscription.unsubscribe();
   }
-
 }

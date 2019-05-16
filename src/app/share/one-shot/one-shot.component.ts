@@ -17,6 +17,7 @@ export class OneShotComponent implements OnInit {
   shotImageUrl: string;
   nextShot: any;
   prevShot: any;
+  done: boolean;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -85,5 +86,6 @@ export class OneShotComponent implements OnInit {
       this.shotImageUrl = `http://localhost:3000/${shot.currentShot.shotUrl}`;
       this.isLiked();
     } );
+    this.done = true;
   }
 }

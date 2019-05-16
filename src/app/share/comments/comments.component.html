@@ -1,5 +1,9 @@
-<div class="container-fluid">
+<div *ngIf="shot" class="container-fluid">
   <div class="comment" *ngFor="let comment of comments">
+    <div class="user-info">
+      <img *ngIf="comment.user.avatar" src="http://localhost:3000/{{comment.user.avatar}}" alt="ap;[a[a">
+      <p>{{comment.user.login}}</p>
+    </div>
     <h6>
       {{comment.commentMessage}}
     </h6>
