@@ -18,8 +18,8 @@ export class CommentsComponent implements OnInit {
 
   constructor(
     private shareService: ShotAndCommentShareService,
-    private fb: FormBuilder,
     private commentsService: CommentsService,
+    private fb: FormBuilder,
     private route: ActivatedRoute,
   ) {
     this.newCommentMessageForm = this.fb.control('');
@@ -30,6 +30,7 @@ export class CommentsComponent implements OnInit {
         }
       );
     this.shareService.subscribeOnChange().subscribe(data => {
+
         this.commentsService.getComments(data)
           .subscribe(
             comments => {

@@ -1,5 +1,38 @@
 <div class="row one-shot-component-container">
-  <div class="shot-container">
+  <button class="navigate-button leftArrow">
+    <i [ngStyle]="{'opacity': prevShot ? 0.9 : 0.1}"
+       (click)="openPreviousShot()" class="material-icons">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </i>
+  </button>
+  <div *ngIf="shot" class="shot-container">
+    <div class="shot-header">
+      <h5>{{shot.title}}</h5>
+    </div>
+    <div *ngIf="shot" class="image-container">
+      <img *ngIf="shotImageUrl" [src]="shotImageUrl" alt="any">
+    </div>
+    <div *ngIf="shot" class="shot-information">
+      <p>{{shot.tags}}</p>
+      <p>{{shot.description}}</p>
+    </div>
+    <div class="dropUpLikeContent" *ngIf="shot">
+      <app-like class="dropUpLikeIcon" [shot]="shot" (changeLikes)="changeLikesAmount($event)"></app-like>
+    </div>
+  </div>
+  <button class="navigate-button rightArrow">
+    <i [ngStyle]="{'opacity': nextShot ? 0.9 : 0.1}"
+       (click)="openNextShot()" class="material-icons">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </i>
+  </button>
+  <div class="row hideButtons">
     <button class="navigate-button">
       <i [ngStyle]="{'opacity': prevShot ? 0.9 : 0.1}"
          (click)="openPreviousShot()" class="material-icons">
@@ -9,25 +42,16 @@
         </svg>
       </i>
     </button>
-    <div  class="image-container" >
-      <img *ngIf="shotImageUrl" [src]="shotImageUrl" alt="any">
-      <p *ngIf="shot">{{shot.title}}</p>
-      <p *ngIf="shot">{{shot.tags}}</p>
-      <p *ngIf="shot">{{shot.description}}</p>
-    </div>
-  <button class="navigate-button">
-    <i [ngStyle]="{'opacity': nextShot ? 0.9 : 0.1}"
-       (click)="openNextShot()" class="material-icons">
-      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
-        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
-        <path d="M0 0h24v24H0z" fill="none"></path>
-      </svg>
-    </i>
-  </button>
+    <button class="navigate-button">
+      <i [ngStyle]="{'opacity': nextShot ? 0.9 : 0.1}"
+         (click)="openNextShot()" class="material-icons">
+        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </i>
+    </button>
   </div>
-  <div class="dropUpLikeContent" *ngIf="shot">
-    <app-like class="dropUpLikeIcon" [shot]="shot" (changeLikes)="changeLikesAmount($event)"></app-like>
-  </div>
-  <app-comments [shot]="shot" class="col-8"></app-comments>
+    <app-comments [shot]="shot" class="col-8"></app-comments>
 </div>
 

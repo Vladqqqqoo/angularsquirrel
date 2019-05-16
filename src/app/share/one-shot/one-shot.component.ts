@@ -28,10 +28,12 @@ export class OneShotComponent implements OnInit {
   ) { }
 
   openPreviousShot() {
-    if (!this.prevShot) {} else {
+    if (!this.prevShot) {
+
+    } else {
       this.shareService.emitChange(this.prevShot._id);
       this.location.go(`shots/${this.prevShot._id}`);
-      this.shot = this.prevShot;
+      // this.shot = this.prevShot;
       this.shotImageUrl = `http://localhost:3000/${this.prevShot.shotUrl}`;
       this.oneShotService.getOneShot(this.prevShot._id).subscribe(
         prev => {
@@ -44,17 +46,14 @@ export class OneShotComponent implements OnInit {
     }
   }
 
-  changeLikesAmount(likeInfo) {
-    this.shot.likes = likeInfo.likes;
-    this.shot.isLiked = likeInfo.isLiked;
-  }
-
   openNextShot() {
-    if (!this.nextShot) {} else {
+    if (!this.nextShot) {
+
+    } else {
       this.shareService.emitChange(this.nextShot._id);
       this.location.go(`shots/${this.nextShot._id}`);
       this.shotImageUrl = `http://localhost:3000/${this.nextShot.shotUrl}`;
-      this.shot = this.nextShot;
+      // this.shot = this.nextShot;
       this.oneShotService.getOneShot(this.nextShot._id).subscribe(
         next => {
           this.shot = next.currentShot;
@@ -64,6 +63,11 @@ export class OneShotComponent implements OnInit {
         }
       );
     }
+  }
+
+  changeLikesAmount(likeInfo) {
+    this.shot.likes = likeInfo.likes;
+    this.shot.isLiked = likeInfo.isLiked;
   }
 
   isLiked() {

@@ -20,17 +20,11 @@ export class UserViewProjectsComponent implements OnInit {
     private router: Router,
     private location: Location,
     private dialog: MatDialog,
-    private toastr: ToastrService,
   ) {
   }
 
-
   editOne(id) {
     this.router.navigate([`shots/edit/${id}`]);
-  }
-
-  test() {
-    console.log(`test`);
   }
 
   deleteOne(id) {

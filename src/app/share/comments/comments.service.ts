@@ -21,6 +21,7 @@ export class CommentsService {
   }
 
   getComments(id): Observable<any> {
+    console.log('comment service');
     return this.httpClient.get(`http://localhost:3000/comment/all/${id}`);
   }
 }

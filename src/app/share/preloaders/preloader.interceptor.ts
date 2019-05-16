@@ -1,5 +1,12 @@
 import {Injectable} from '@angular/core';
-import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
+import {
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse
+} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/internal/operators/tap';
 import {PreloaderService} from './preloader.service';
@@ -17,6 +24,8 @@ export class PreloaderInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       tap(event => {
         if (event instanceof HttpResponse) {
+          this.preloaderService.loading(false);
+        } if (event instanceof HttpErrorResponse) {
           this.preloaderService.loading(false);
         }
       })

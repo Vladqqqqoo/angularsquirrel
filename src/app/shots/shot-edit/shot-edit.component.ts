@@ -30,7 +30,7 @@ export class ShotEditComponent implements OnInit {
     const putInfo = this.shotForm.value;
     const id = this.activatedRoute.snapshot.params.id;
     this.shotService.putShot(id, putInfo).subscribe(data => {
-    this.router.navigate(['../../']);
+    this.router.navigate(['../../profile']);
     });
   }
 

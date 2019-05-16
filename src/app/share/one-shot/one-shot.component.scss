@@ -1,14 +1,16 @@
 *{
   margin: 0;
-  white-space: pre-wrap;
-  overflow-y: hidden;
+  //white-space: pre-wrap;
+  //overflow-y: hidden;
 }
 
-.image-container{
-  width: 60vw;
-  img{
-    width: 100%;
-  }
+.image-container {
+  max-width: 600px;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
 }
 
 .navigate-button{
@@ -17,6 +19,7 @@
   i{
     transition: 400ms;
   }
+  margin: auto 0;
 }
 
 .navigate-button:hover{
@@ -24,21 +27,37 @@
 }
 
 .shot-container{
-  padding: 10px;
-  height: 60vh;
-  margin: 0 auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+  padding: 10px;
 }
 
+
 .one-shot-component-container{
-  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
   margin: 0 auto;
+  max-width: 800px;
   background-color: rgba(255,255,255, 0.85);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+}
+
+.shot-header {
+  display: flex;
+  align-content: center;
+  height: 40px;
+}
+
+.shot-information {
+  margin-top: 10px;
+  p {
+    margin-bottom: 5px;
+  }
 }
 
 .dropUpLikeIcon {
@@ -62,6 +81,10 @@
   justify-content: center;
 }
 
+.hideButtons {
+  display: none;
+}
+
 app-comments{
   margin: 0 auto;
 }
@@ -69,5 +92,23 @@ app-comments{
 @media screen and (max-width: 725px) {
   svg{
     width: 50%;
+  }
+}
+
+@media (max-width: 930px) {
+  .leftArrow {
+    display: none;
+  }
+  .rightArrow {
+    display: none;
+  }
+
+  .hideButtons {
+    display: block;
+  }
+
+  .one-shot-component-container {
+    flex-direction: column;
+    text-align: center;
   }
 }
