@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {AuthService} from '../../../share/auth/auth.service';
 import {MainContainerService} from './main-container.service';
-import {ActivatedRoute, Router} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
 import {OneShotComponent} from '../../../share/one-shot/one-shot.component';
 import {Location} from '@angular/common';
@@ -53,13 +52,8 @@ export class MainContainerComponent implements OnInit {
         this.shots = shots;
         for (const shot of this.shots) {
           shot.url = `http://localhost:3000/${shot.shotUrl}`;
-          if (shot.likedBy.includes(localStorage.getItem('USER_ID'))) {
-            shot.isLiked = true;
-          } else {
-            shot.isLiked = false;
-          }
+          shot.isLiked = !!shot.likedBy.includes(localStorage.getItem('USER_ID'));
         }
-        console.log(shots);
       }
     );
   }

@@ -5,7 +5,6 @@ import {UserRoutingModule} from './user-routing.module';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { PasswordComponent } from './components/password/password.component';
 import {MaterialModule} from '../material/material.module';
-import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload/ng2-file-upload';
 import {FormsModule} from '@angular/forms';
 import {ShareModule} from '../share/share.module';
 

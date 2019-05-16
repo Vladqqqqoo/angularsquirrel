@@ -15,7 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import {AuthInterceptor} from './share/auth/auth.interceptor';
 
 import { CommonModule } from '@angular/common';
-import {ShareModule} from "./share/share.module";
+import {ShareModule} from './share/share.module';
 
 @NgModule({
   declarations: [

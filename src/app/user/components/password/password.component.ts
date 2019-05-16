@@ -50,7 +50,6 @@ export class PasswordComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
 }

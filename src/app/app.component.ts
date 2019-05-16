@@ -1,8 +1,8 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AuthService} from './share/auth/auth.service';
-import {PreloaderService} from "./share/preloaders/preloader.service";
-import {delay, startWith} from "rxjs/operators";
-import {tap} from "rxjs/internal/operators/tap";
+import {PreloaderService} from './share/preloaders/preloader.service';
+import {startWith} from 'rxjs/operators';
+import {tap} from 'rxjs/internal/operators/tap';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +15,10 @@ export class AppComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private preloaderService: PreloaderService,
-              private cdRef : ChangeDetectorRef) {
+              private cdRef: ChangeDetectorRef) {
   }
 
-  title = 'angularsquirrel';
-
   ngOnInit() {
-
     this.preloaderService.dataSubj$
       .pipe(
         startWith(null),

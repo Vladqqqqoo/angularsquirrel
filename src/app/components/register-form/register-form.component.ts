@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {ConfirmPasswordValidator} from './confirm-password-validator';
 import {AuthService} from '../../share/auth/auth.service';
-import {Router} from "@angular/router";
-import {MatDialog} from "@angular/material";
+import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material';
 
 import {ToastrService} from 'ngx-toastr';
 
@@ -57,21 +57,21 @@ export class RegisterFormComponent implements OnInit {
     this.authService.signUp(user).subscribe(data => {
         this.toastr.success('You have successfully registered', 'Registration successful', {
           progressBar: false,
-          positionClass: "toast-top-right",
+          positionClass: 'toast-top-right',
           timeOut: 2000,
           extendedTimeOut: 1000,
         });
-      console.log(data);
+        console.log(data);
         this.dialog.closeAll();
     },
       error => {
         this.toastr.error('This login exists, choose other one', 'Registration failed', {
           progressBar: false,
-          positionClass: "toast-center-center-login",
+          positionClass: 'toast-center-center-login',
           timeOut: 2000,
           extendedTimeOut: 1000,
         });
-      console.log(error);
+        console.log(error);
       });
   }
 

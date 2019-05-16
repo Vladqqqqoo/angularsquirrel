@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Inject, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {OneShotService} from './one-shot.service';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -10,7 +10,7 @@ import {ShotAndCommentShareService} from '../shot-and-comment-share.service';
   templateUrl: './one-shot.component.html',
   styleUrls: ['./one-shot.component.scss']
 })
-export class OneShotComponent implements OnInit{
+export class OneShotComponent implements OnInit {
 
   shotId: string;
   shot: any;

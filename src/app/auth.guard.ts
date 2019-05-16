@@ -9,12 +9,12 @@ import {
   UrlSegment, UrlTree
 } from '@angular/router';
 import {Observable} from 'rxjs';
-import {AuthService} from "./share/auth/auth.service";
+import {AuthService} from './share/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanLoad, CanActivate{
+export class AuthGuard implements CanLoad, CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {
   }

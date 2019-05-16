@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {UserComponent} from './components/user/user.component';
 import {UserInfoComponent} from './components/user-info/user-info.component';
 import {PasswordComponent} from './components/password/password.component';
-import {MyFollowingsComponent} from './components/my-folliwings/my-followings-component';
 
 const routes: Routes = [
   {

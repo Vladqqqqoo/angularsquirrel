@@ -4,7 +4,6 @@ import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {OneShotComponent} from '../../share/one-shot/one-shot.component';
 import {Location} from '@angular/common';
-import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'user-view-projects',

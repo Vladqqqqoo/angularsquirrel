@@ -6,20 +6,20 @@ import {Observable, Subject} from 'rxjs';
 })
 export class ShotAndCommentShareService {
 
-  obs: any;
-  $obs: any;
+  changeShot: any;
+  $changeShot: any;
 
   constructor() {
-    this.obs = new Subject();
-    this.$obs = this.obs.asObservable();
+    this.changeShot = new Subject();
+    this.$changeShot = this.changeShot.asObservable();
   }
 
   emitChange(e) {
-    this.obs.next(e);
+    this.changeShot.next(e);
   }
 
   subscribeOnChange(): Observable<any> {
-    return this.$obs;
+    return this.$changeShot;
   }
 
 }

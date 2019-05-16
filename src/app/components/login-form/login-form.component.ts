@@ -45,7 +45,7 @@ export class LoginFormComponent implements OnInit {
       this.authService.setTokens(data);
       this.toastr.success('You are successfully logged in', 'Authorization successful', {
         progressBar: false,
-        positionClass: "toast-top-right",
+        positionClass: 'toast-top-right',
         timeOut: 2000,
         extendedTimeOut: 1000,
       });
@@ -54,7 +54,7 @@ export class LoginFormComponent implements OnInit {
     }, (err) => {
       this.toastr.error('Check login and password and try again', 'Authorization failed', {
         progressBar: false,
-        positionClass: "toast-center-center-login",
+        positionClass: 'toast-center-center-login',
         timeOut: 2000,
         extendedTimeOut: 1000,
       });

@@ -9,8 +9,7 @@ export class CommentsService {
 
   constructor(
     private httpClient: HttpClient
-  ) {
-  }
+  ) {}
 
   sendComment(message, id): Observable<any> {
     return this.httpClient.post(`http://localhost:3000/comment`, {

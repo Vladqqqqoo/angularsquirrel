@@ -14,5 +14,4 @@ export class MainContainerService {
   getAllPost(): Observable<any> {
     return this.httpClient.get('http://localhost:3000/shot/list');
   }
-
 }

@@ -14,6 +14,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
 
   newCommentMessageForm: FormControl;
   comments: any;
+  shotId: any;
 
   private httpSubscription: Subscription;
   private eventSubscription: Subscription;
@@ -25,12 +26,21 @@ export class CommentsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
   ) {
     this.newCommentMessageForm = this.fb.control('');
+    this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
+      this.shotId = data;
+      this.commentsService.getComments(this.shotId)
+          .subscribe(
+            comments => {
+              this.comments = comments;
+            }
+          );
+      }
+    );
   }
 
   sendComment() {
     const commentMessage = this.newCommentMessageForm.value;
-    const shotId = this.route.snapshot.params.shotId;
-    this.commentsService.sendComment(commentMessage, shotId)
+    this.commentsService.sendComment(commentMessage, this.shotId)
       .subscribe(
         data => {
           this.comments.push(data);
@@ -39,16 +49,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-      this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
-        this.commentsService.getComments(data)
-          .subscribe(
-            comments => {
-              this.comments = comments;
-            }
-          );
-      }
-    );
-      this.httpSubscription = this.commentsService.getComments(this.route.snapshot.params.shotId)
+    this.shotId = this.route.snapshot.params.shotId;
+    this.httpSubscription = this.commentsService.getComments(this.shotId)
       .subscribe(
         comments => {
           this.comments = comments;
@@ -59,6 +61,5 @@ export class CommentsComponent implements OnInit, OnDestroy {
     this.eventSubscription.unsubscribe();
     this.httpSubscription.unsubscribe();
   }
-
 
 }
