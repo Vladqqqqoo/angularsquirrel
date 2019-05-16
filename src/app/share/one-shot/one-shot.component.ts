@@ -47,7 +47,6 @@ export class OneShotComponent implements OnInit {
 
   openNextShot() {
     if (!this.nextShot) {
-
     } else {
       this.shareService.emitChange(this.nextShot._id);
       this.location.go(`shots/${this.nextShot._id}`);
