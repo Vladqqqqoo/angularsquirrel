@@ -1,8 +1,12 @@
 .my-drop-zone {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   border: dotted 3px lightgray;
+  p {
+    margin-top: 10px;
+  }
 }
 
 .container-new-post{
@@ -22,7 +26,9 @@
   justify-content: center;
 }
 .nv-file-over-class {
-  border: dotted 3px green;
+  background-color: #cacac880;
+  border: dotted 3px black;
+  transition: 400ms;
 }
 .row {
   display: flex;
