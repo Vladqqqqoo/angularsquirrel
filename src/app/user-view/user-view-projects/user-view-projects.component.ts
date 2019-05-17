@@ -41,7 +41,10 @@ export class UserViewProjectsComponent implements OnInit {
 
   openShot(shotId) {
     this.location.go(`shots/${shotId}`);
-    this.dialog.open(OneShotComponent, {data: {id: shotId}});
+    this.dialog.open(OneShotComponent, {
+      data: {id: shotId},
+      panelClass: 'modalWindow',
+    });
     this.dialog.afterAllClosed.subscribe(
       data => {
         this.dialog.closeAll();

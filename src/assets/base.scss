@@ -31,6 +31,11 @@
 //@import "~ngx-toastr/toastr.css";
 //
 
+.modalWindow .mat-dialog-container {
+  position: relative;
+  margin-bottom: 450px;
+}
+
 .cdk-overlay-pane{
   .mat-dialog-container {
     background: transparent;

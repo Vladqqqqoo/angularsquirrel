@@ -37,7 +37,10 @@ export class MainContainerComponent implements OnInit {
   }
 
   openDialog(shotId) {
-    this.dialog.open(OneShotComponent, {data: {id: shotId}});
+    this.dialog.open(OneShotComponent, {
+      data: {id: shotId},
+      panelClass: 'modalWindow',
+    });
     this.dialog.afterAllClosed.subscribe(
       smth => {
         this.dialog.closeAll();
