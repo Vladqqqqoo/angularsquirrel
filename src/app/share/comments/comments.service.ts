@@ -22,4 +22,8 @@ export class CommentsService {
   getComments(id): Observable<any> {
     return this.httpClient.get(`http://localhost:3000/comment/all/${id}`);
   }
+
+  deleteOneComment(id): Observable<any> {
+    return this.httpClient.delete(`http://localhost:3000/comment/${id}`);
+  }
 }

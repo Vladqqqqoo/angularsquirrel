@@ -3,8 +3,9 @@ import {FileItem, FileUploader, ParsedResponseHeaders} from 'ng2-file-upload';
 import {HttpClient} from '@angular/common/http';
 import {AuthService} from '../../share/auth/auth.service';
 import {Router} from '@angular/router';
-import {DomSanitizer} from "@angular/platform-browser";
-import {ToastrService} from "ngx-toastr";
+import {DomSanitizer} from '@angular/platform-browser';
+import {ToastrService} from 'ngx-toastr';
+import {Subscription} from 'rxjs';
 
 const URL = 'http://localhost:3000/shot/';
 
@@ -51,7 +52,7 @@ export class NewShotComponent implements OnInit {
           this.uploader.clearQueue();
         }
       };
-    }
+    };
   }
 
 

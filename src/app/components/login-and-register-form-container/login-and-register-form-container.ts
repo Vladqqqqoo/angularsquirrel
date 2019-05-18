@@ -9,8 +9,8 @@ import { Inject } from '@angular/core';
     '../../grid.scss']
 })
 export class LoginAndRegisterFormContainer implements OnInit {
-  initLogin: boolean;
-  initRegister: boolean;
+  private initLogin: boolean;
+  private initRegister: boolean;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 

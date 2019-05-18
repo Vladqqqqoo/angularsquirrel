@@ -19,7 +19,6 @@ export class OneShotComponent implements OnInit {
   prevShot: any;
   arrows: any;
 
-
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
     private shareService: ShotAndCommentShareService,

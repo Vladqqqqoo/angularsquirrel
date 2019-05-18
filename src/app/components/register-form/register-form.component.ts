@@ -14,7 +14,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class RegisterFormComponent implements OnInit {
 
-  registerForm: FormGroup;
+  private registerForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,

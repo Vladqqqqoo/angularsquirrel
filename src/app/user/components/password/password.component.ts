@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ChangePasswordValidator} from './change.password.validator';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-password',
@@ -10,7 +11,8 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 })
 export class PasswordComponent implements OnInit {
 
-  passwordForm: FormGroup;
+  private passwordForm: FormGroup;
+  private httpSubscription: Subscription;
 
   constructor(
     private fb: FormBuilder,

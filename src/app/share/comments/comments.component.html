@@ -7,6 +7,9 @@
     <h6>
       {{comment.commentMessage}}
     </h6>
+    <button mat-button (click)="deleteComment(comment._id)">
+      delete
+    </button>
   </div>
   <input required type="text" [formControl]="newCommentMessageForm" matInput placeholder="Enter your comment">
   <button mat-button (click)="sendComment()">  Comment </button>
