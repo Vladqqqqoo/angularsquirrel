@@ -13,9 +13,11 @@ import {Subscription} from 'rxjs';
 
 export class CommentsComponent implements OnInit, OnDestroy {
 
-  newCommentMessageForm: FormControl;
-  comments: any;
-  shotId: any;
+  private newCommentMessageForm: FormControl;
+  private editCommentForm: FormControl;
+  private comments: any;
+  private shotId: any;
+  private editing: any;
 
   private httpSubscription: Subscription;
   private eventSubscription: Subscription;
@@ -30,6 +32,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
   ) {
     this.newCommentMessageForm = this.fb.control('');
+    this.editCommentForm = this.fb.control({disabled: true});
     if (this.route.snapshot.params.shotId) {
         this.shotId = this.route.snapshot.params.shotId;
         this.getAllComments();
@@ -69,6 +72,12 @@ export class CommentsComponent implements OnInit, OnDestroy {
           });
       }
     );
+  }
+
+  editComment(id, index){
+    console.log(id);
+    console.log(index)
+    this.comments[index].editing =true;
   }
 
   sendComment() {
