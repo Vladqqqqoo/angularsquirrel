@@ -1,5 +1,5 @@
-<div class="row one-shot-component-container">
-  <button class="navigate-button leftArrow">
+<div [ngStyle]="{'justify-content': arrows ? 'space-between':'center'}"  class="row one-shot-component-container">
+  <button *ngIf="arrows"  class="navigate-button leftArrow">
     <i [ngStyle]="{'opacity': prevShot ? 0.9 : 0.1}"
        (click)="openPreviousShot()" class="material-icons">
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
@@ -23,7 +23,7 @@
       <app-like class="dropUpLikeIcon" [shot]="shot" (changeLikes)="changeLikesAmount($event)"></app-like>
     </div>
   </div>
-  <button class="navigate-button rightArrow">
+  <button *ngIf="arrows" class="navigate-button rightArrow">
     <i [ngStyle]="{'opacity': nextShot ? 0.9 : 0.1}"
        (click)="openNextShot()" class="material-icons">
       <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@
       </svg>
     </i>
   </button>
-  <div class="row hideButtons">
+  <div *ngIf="arrows" class="row hideButtons">
     <button class="navigate-button">
       <i [ngStyle]="{'opacity': prevShot ? 0.9 : 0.1}"
          (click)="openPreviousShot()" class="material-icons">
