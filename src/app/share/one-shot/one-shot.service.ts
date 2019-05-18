@@ -11,7 +11,7 @@ export class OneShotService {
     private httpClient: HttpClient,
   ) { }
 
-  getOneShot(shotId): Observable<any> {
-    return this.httpClient.get(`http://localhost:3000/shot/${shotId}`);
+  getOneShot(shotId, userId): Observable<any> {
+    return this.httpClient.get(`http://localhost:3000/shot/?shotId=${shotId}&userId=${userId}`);
   }
 }
