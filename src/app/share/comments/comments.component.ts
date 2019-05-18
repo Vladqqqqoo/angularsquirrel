@@ -17,7 +17,6 @@ export class CommentsComponent implements OnInit, OnDestroy {
   private editCommentForm: FormControl;
   private comments: any;
   private shotId: any;
-  private editing: any;
 
   private httpSubscription: Subscription;
   private eventSubscription: Subscription;
@@ -33,12 +32,13 @@ export class CommentsComponent implements OnInit, OnDestroy {
   ) {
     this.newCommentMessageForm = this.fb.control('');
     this.editCommentForm = this.fb.control({disabled: true});
+
     if (this.route.snapshot.params.shotId) {
-        this.shotId = this.route.snapshot.params.shotId;
-        this.getAllComments();
-        this.getChangeEvent();
+      this.shotId = this.route.snapshot.params.shotId;
+      this.getAllComments();
+      this.getChangeEvent();
     } else {
-      this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
+      this.eventSubscription = this.shareService.subscribeOnChange().subscribe(data => {
           this.shotId = data;
           this.getAllComments();
         }
@@ -55,7 +55,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   getChangeEvent() {
-    this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
+    this.eventSubscription = this.shareService.subscribeOnChange().subscribe(data => {
         this.shotId = data;
         this.getAllComments();
       }
@@ -74,10 +74,17 @@ export class CommentsComponent implements OnInit, OnDestroy {
     );
   }
 
-  editComment(id, index){
-    console.log(id);
-    console.log(index)
-    this.comments[index].editing =true;
+  editComment(id, index, inputForm) {
+    if (inputForm.disabled) {
+      inputForm.disabled = false;
+    } else {
+      this.commentsService.updateOneComment(id, inputForm.value).subscribe(()=>{
+        this.commentsService.getComments(this.shotId).subscribe(data => {
+          this.comments = data;
+        })
+      });
+      inputForm.disabled = true;
+    }
   }
 
   sendComment() {
@@ -91,6 +98,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.editCommentForm.disable();
   }
 
   ngOnDestroy(): void {
