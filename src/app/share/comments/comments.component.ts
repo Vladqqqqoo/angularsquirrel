@@ -78,10 +78,10 @@ export class CommentsComponent implements OnInit, OnDestroy {
     if (inputForm.disabled) {
       inputForm.disabled = false;
     } else {
-      this.commentsService.updateOneComment(id, inputForm.value).subscribe(()=>{
+      this.commentsService.updateOneComment(id, inputForm.value).subscribe(() => {
         this.commentsService.getComments(this.shotId).subscribe(data => {
           this.comments = data;
-        })
+        });
       });
       inputForm.disabled = true;
     }

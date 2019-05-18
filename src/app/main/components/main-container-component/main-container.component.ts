@@ -69,8 +69,11 @@ export class MainContainerComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.httpSubscription.unsubscribe();
+    if (this.dialogSubscription) {
     this.dialogSubscription.unsubscribe();
+    }
   }
+
 
 
 }
