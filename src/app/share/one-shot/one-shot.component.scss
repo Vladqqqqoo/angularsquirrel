@@ -8,7 +8,15 @@
   max-width: 600px;
 }
 
+mat-dialog-content {
+  margin: 0;
+  padding: 0;
+  max-height: 100vh;
+}
 
+::-webkit-scrollbar {
+  display: none;
+}
 
 .image-container img {
   width: 100%;
