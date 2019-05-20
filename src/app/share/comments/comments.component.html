@@ -1,18 +1,21 @@
 <div *ngIf="shot" class="container-fluid my-class">
   <div class="comment" *ngFor="let comment of comments;  let number = index">
+    <div *ngIf="comment.commentatorId === commentatorId" class="button-container">
+      <button mat-button (click)="editComment(comment._id, number, inputComment)">
+        <mat-icon *ngIf="inputComment.disabled; else doneElement"  aria-label="Edit this comment">edit</mat-icon>
+        <ng-template #doneElement>
+          <mat-icon aria-label="Edit this comment">done_outline</mat-icon>
+        </ng-template>
+      </button>
+      <button mat-button (click)="deleteComment(comment._id)">
+        <mat-icon aria-label="Delete this comment">delete_forever</mat-icon>
+      </button>
+    </div>
     <div class="user-info">
       <img *ngIf="comment.user.avatar" src="http://localhost:3000/{{comment.user.avatar}}" alt="ap;[a[a">
       <p>{{comment.user.login}}</p>
     </div>
     <input #inputComment required type="text" [formControl]="editCommentForm" matInput placeholder="Your comment" value="{{comment.commentMessage}}">
-    <div *ngIf="comment.commentatorId === commentatorId" class="button-container">
-      <button mat-button (click)="deleteComment(comment._id)">
-        delete
-      </button>
-      <button mat-button (click)="editComment(comment._id, number, inputComment)">
-        edit
-      </button>
-    </div>
   </div>
   <button mat-button (click)="sendComment()">  Comment </button>
   <input required type="text" [formControl]="newCommentMessageForm" matInput placeholder="Enter your comment">

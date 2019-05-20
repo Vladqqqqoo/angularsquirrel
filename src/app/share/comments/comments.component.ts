@@ -64,7 +64,6 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   deleteComment(id) {
-    console.log(id);
     this.commentsService.deleteOneComment(id).subscribe(
       () => {
         this.commentsService.getComments(this.shotId).subscribe(
