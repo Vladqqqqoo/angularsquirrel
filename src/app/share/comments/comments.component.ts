@@ -17,6 +17,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   private editCommentForm: FormControl;
   private comments: any;
   private shotId: any;
+  private commentatorId: any;
 
   private httpSubscription: Subscription;
   private eventSubscription: Subscription;
@@ -98,6 +99,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.commentatorId = localStorage.getItem('USER_ID');
     this.editCommentForm.disable();
   }
 

@@ -26,3 +26,14 @@ img{
   display: flex;
   flex-direction: column-reverse;
 }
+
+.button-container{
+  opacity: 0;
+  transition: 400ms;
+}
+
+.comment:hover{
+  .button-container{
+    opacity: 1;
+  }
+}

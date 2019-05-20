@@ -7,7 +7,9 @@ import {Observable} from 'rxjs';
 })
 export class ShotService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
   getShot(id): Observable<any> {
     return this.httpClient.get(`http://localhost:3000/shot/?shotId=${id}`);
