@@ -13,9 +13,11 @@ import {Subscription} from 'rxjs';
 
 export class CommentsComponent implements OnInit, OnDestroy {
 
-  newCommentMessageForm: FormControl;
-  comments: any;
-  shotId: any;
+  private newCommentMessageForm: FormControl;
+  private editCommentForm: FormControl;
+  private comments: any;
+  private shotId: any;
+  private commentatorId: any;
 
   private httpSubscription: Subscription;
   private eventSubscription: Subscription;
@@ -30,12 +32,14 @@ export class CommentsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
   ) {
     this.newCommentMessageForm = this.fb.control('');
+    this.editCommentForm = this.fb.control({disabled: true});
+
     if (this.route.snapshot.params.shotId) {
-        this.shotId = this.route.snapshot.params.shotId;
-        this.getAllComments();
-        this.getChangeEvent();
+      this.shotId = this.route.snapshot.params.shotId;
+      this.getAllComments();
+      this.getChangeEvent();
     } else {
-      this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
+      this.eventSubscription = this.shareService.subscribeOnChange().subscribe(data => {
           this.shotId = data;
           this.getAllComments();
         }
@@ -52,11 +56,36 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   getChangeEvent() {
-    this.eventSubscription =  this.shareService.subscribeOnChange().subscribe(data => {
+    this.eventSubscription = this.shareService.subscribeOnChange().subscribe(data => {
         this.shotId = data;
         this.getAllComments();
       }
     );
+  }
+
+  deleteComment(id) {
+    console.log(id);
+    this.commentsService.deleteOneComment(id).subscribe(
+      () => {
+        this.commentsService.getComments(this.shotId).subscribe(
+          comments => {
+            this.comments = comments;
+          });
+      }
+    );
+  }
+
+  editComment(id, index, inputForm) {
+    if (inputForm.disabled) {
+      inputForm.disabled = false;
+    } else {
+      this.commentsService.updateOneComment(id, inputForm.value).subscribe(() => {
+        this.commentsService.getComments(this.shotId).subscribe(data => {
+          this.comments = data;
+        });
+      });
+      inputForm.disabled = true;
+    }
   }
 
   sendComment() {
@@ -70,6 +99,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.commentatorId = localStorage.getItem('USER_ID');
+    this.editCommentForm.disable();
   }
 
   ngOnDestroy(): void {

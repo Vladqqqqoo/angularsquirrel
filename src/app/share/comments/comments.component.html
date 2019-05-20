@@ -1,13 +1,19 @@
-<div *ngIf="shot" class="container-fluid">
-  <div class="comment" *ngFor="let comment of comments">
+<div *ngIf="shot" class="container-fluid my-class">
+  <div class="comment" *ngFor="let comment of comments;  let number = index">
     <div class="user-info">
       <img *ngIf="comment.user.avatar" src="http://localhost:3000/{{comment.user.avatar}}" alt="ap;[a[a">
       <p>{{comment.user.login}}</p>
     </div>
-    <h6>
-      {{comment.commentMessage}}
-    </h6>
+    <input #inputComment required type="text" [formControl]="editCommentForm" matInput placeholder="Your comment" value="{{comment.commentMessage}}">
+    <div *ngIf="comment.commentatorId === commentatorId" class="button-container">
+      <button mat-button (click)="deleteComment(comment._id)">
+        delete
+      </button>
+      <button mat-button (click)="editComment(comment._id, number, inputComment)">
+        edit
+      </button>
+    </div>
   </div>
-  <input required type="text" [formControl]="newCommentMessageForm" matInput placeholder="Enter your comment">
   <button mat-button (click)="sendComment()">  Comment </button>
+  <input required type="text" [formControl]="newCommentMessageForm" matInput placeholder="Enter your comment">
 </div>

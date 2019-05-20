@@ -8,7 +8,15 @@
   max-width: 600px;
 }
 
+mat-dialog-content {
+  margin: 0;
+  padding: 0;
+  max-height: 90vh;
+}
 
+::-webkit-scrollbar {
+  display: none;
+}
 
 .image-container img {
   width: 100%;
@@ -41,7 +49,6 @@
 .one-shot-component-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   margin: 0 auto;
   max-width: 800px;
   background-color: rgba(255,255,255, 0.85);

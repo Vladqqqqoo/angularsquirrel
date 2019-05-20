@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -9,7 +9,8 @@ export class CommentsService {
 
   constructor(
     private httpClient: HttpClient
-  ) {}
+  ) {
+  }
 
   sendComment(message, id): Observable<any> {
     return this.httpClient.post(`http://localhost:3000/comment`, {
@@ -21,5 +22,13 @@ export class CommentsService {
 
   getComments(id): Observable<any> {
     return this.httpClient.get(`http://localhost:3000/comment/all/${id}`);
+  }
+
+  deleteOneComment(id): Observable<any> {
+    return this.httpClient.delete(`http://localhost:3000/comment/${id}`);
+  }
+
+  updateOneComment(id, message): Observable<any> {
+    return this.httpClient.put(`http://localhost:3000/comment/${id}`, {message});
   }
 }

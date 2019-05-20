@@ -14,9 +14,9 @@ const URL = 'http://localhost:3000/account/avatar';
 })
 export class UserInfoComponent implements OnInit {
 
-  avatarImage = 'https://image.flaticon.com/icons/png/512/26/26098.png';
-  fileLabel: String;
-  userForm: FormGroup;
+  private avatarImage = 'https://image.flaticon.com/icons/png/512/26/26098.png';
+  private fileLabel: String;
+  private userForm: FormGroup;
 
   public uploader: FileUploader = new FileUploader({
     url: URL,

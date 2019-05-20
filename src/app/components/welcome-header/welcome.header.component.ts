@@ -9,7 +9,9 @@ import {LoginAndRegisterFormContainer} from '../login-and-register-form-containe
 })
 export class WelcomeHeaderComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   signUpComponentInit(): void {
     this.dialog.open(LoginAndRegisterFormContainer, {data: {initLogin: false, initRegister: true}});

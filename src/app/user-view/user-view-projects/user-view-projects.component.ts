@@ -11,8 +11,8 @@ import {Location} from '@angular/common';
   styleUrls: ['./user-view-projects.component.scss']
 })
 export class UserViewProjectsComponent implements OnInit {
-  shots: any;
-  user: any;
+  private shots: any;
+  private user: any;
 
   constructor(
     private userViewProjectsService: UserViewProjectsService,
@@ -28,7 +28,7 @@ export class UserViewProjectsComponent implements OnInit {
 
   deleteOne(id) {
     this.userViewProjectsService.deleteOneShot(id).subscribe(
-      data => {
+      () => {
         this.userViewProjectsService.getProjectList().subscribe(shots => {
           this.shots = shots;
           for (const shot of this.shots) {
@@ -42,11 +42,12 @@ export class UserViewProjectsComponent implements OnInit {
   openShot(shotId) {
     this.location.go(`shots/${shotId}`);
     this.dialog.open(OneShotComponent, {
-      data: {id: shotId},
+      data: {id: shotId,
+             userId: localStorage.getItem('USER_ID') },
       panelClass: 'modalWindow',
     });
     this.dialog.afterAllClosed.subscribe(
-      data => {
+      () => {
         this.dialog.closeAll();
         this.location.go('profile');
       }

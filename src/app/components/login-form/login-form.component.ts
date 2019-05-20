@@ -13,7 +13,7 @@ import {ToastrService} from 'ngx-toastr';
 })
 export class LoginFormComponent implements OnInit {
 
-  loginForm: FormGroup;
+  private loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,

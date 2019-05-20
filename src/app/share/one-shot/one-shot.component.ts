@@ -17,7 +17,7 @@ export class OneShotComponent implements OnInit {
   shotImageUrl: string;
   nextShot: any;
   prevShot: any;
-  done: boolean;
+  arrows: any;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
@@ -36,7 +36,7 @@ export class OneShotComponent implements OnInit {
       this.location.go(`shots/${this.prevShot._id}`);
       this.shot = this.prevShot;
       this.shotImageUrl = `http://localhost:3000/${this.prevShot.shotUrl}`;
-      this.oneShotService.getOneShot(this.prevShot._id).subscribe(
+      this.oneShotService.getOneShot(this.prevShot._id, this.data.userId).subscribe(
         prev => {
           this.prevShot = prev.prevShot;
           this.nextShot = prev.nextShot;
@@ -53,7 +53,7 @@ export class OneShotComponent implements OnInit {
       this.location.go(`shots/${this.nextShot._id}`);
       this.shotImageUrl = `http://localhost:3000/${this.nextShot.shotUrl}`;
       this.shot = this.nextShot;
-      this.oneShotService.getOneShot(this.nextShot._id).subscribe(
+      this.oneShotService.getOneShot(this.nextShot._id, this.data.userId).subscribe(
         next => {
           this.nextShot = next.nextShot;
           this.prevShot = next.prevShot;
@@ -76,16 +76,17 @@ export class OneShotComponent implements OnInit {
     if (this.data.id) {
       this.shotId = this.data.id;
       this.shareService.emitChange(this.shotId);
+      this.arrows = true;
     } else if (this.route.snapshot.params.shotId) {
+      this.arrows = false;
       this.shotId = this.route.snapshot.params.shotId;
     }
-    this.oneShotService.getOneShot(this.shotId).subscribe(shot => {
+    this.oneShotService.getOneShot(this.shotId, this.data.userId).subscribe(shot => {
       this.nextShot = shot.nextShot;
       this.prevShot = shot.prevShot;
       this.shot = shot.currentShot;
       this.shotImageUrl = `http://localhost:3000/${shot.currentShot.shotUrl}`;
       this.isLiked();
     } );
-    this.done = true;
   }
 }
