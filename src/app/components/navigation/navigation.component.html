@@ -10,6 +10,7 @@
         <div class="dropdown-content">
           <a routerLink="profile">View profile</a>
           <a routerLink="profile/followings">My followings</a>
+          <a routerLink="/im">Messages</a>
         </div>
       </div>
       <div class="col-md-2 linkToMain" *ngIf="authService.isLoggedIn()">
@@ -34,4 +35,5 @@
       <button mat-stroked-button class="button-In-Out-Elem" (click)="logOut()">Log Out</button>
     </div>
   </ng-template>
+
 </div>

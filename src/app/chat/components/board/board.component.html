@@ -1,0 +1,6 @@
+<div class="row board">
+  <div class="room" *ngFor="let room of rooms" (click)="joinRoom(room.id)">
+    <h5>{{room.name}}</h5>
+    <p>{{room.lastMessage}}</p>
+  </div>
+</div>

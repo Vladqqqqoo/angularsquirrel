@@ -37,14 +37,8 @@ export class CommentsComponent implements OnInit, OnDestroy {
     if (this.route.snapshot.params.shotId) {
       this.shotId = this.route.snapshot.params.shotId;
       this.getAllComments();
-      this.getChangeEvent();
-    } else {
-      this.eventSubscription = this.shareService.subscribeOnChange().subscribe(data => {
-          this.shotId = data;
-          this.getAllComments();
-        }
-      );
     }
+    this.getChangeEvent();
   }
 
   getAllComments() {

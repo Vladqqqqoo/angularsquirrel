@@ -1,6 +1,6 @@
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+  import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import {FileItem, FileUploader, ParsedResponseHeaders} from 'ng2-file-upload';
 import {AuthService} from "../../../share/auth/auth.service";
@@ -12,7 +12,7 @@ const URL = 'http://localhost:3000/account/avatar';
   templateUrl: './user-info.component.html',
   styleUrls: ['./user-info.component.scss'],
 })
-export class UserInfoComponent implements OnInit {
+export class UserInfoComponent implements OnInit{
 
   private avatarImage = 'https://image.flaticon.com/icons/png/512/26/26098.png';
   private fileLabel: String;

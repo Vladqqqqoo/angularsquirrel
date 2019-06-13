@@ -35,7 +35,6 @@ export class NewShotComponent implements OnInit {
     this.uploader.onSuccessItem = (item, response, status, headers) => this.onSuccessItem(item, response, status, headers);
     this.uploader.onErrorItem = (item, response, status, headers) => this.onErrorItem(item, response, status, headers);
     this.uploader.onAfterAddingFile = (fileItem) => {
-      console.log(fileItem);
       this.uloadImg = this.sanitizer.bypassSecurityTrustUrl((window.URL.createObjectURL(fileItem._file)));
       const img = new Image();
       img.src = window.URL.createObjectURL(fileItem._file);

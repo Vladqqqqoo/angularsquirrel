@@ -5,6 +5,7 @@ import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
 import {OneShotComponent} from '../../../share/one-shot/one-shot.component';
 import {Location} from '@angular/common';
 import {Subscription} from 'rxjs';
+import {ShotAndCommentShareService} from "../../../share/shot-and-comment-share.service";
 
 @Component({
   selector: 'app-main-container-component',
@@ -15,13 +16,13 @@ import {Subscription} from 'rxjs';
 export class MainContainerComponent implements OnInit, OnDestroy {
 
   private shots: any;
-
   private httpSubscription: Subscription;
   private dialogSubscription: Subscription;
 
+
   constructor(
     @Inject(MAT_DIALOG_DATA) private data: any,
-
+    private shotAndCommentShareService: ShotAndCommentShareService,
     private location: Location,
     public dialog: MatDialog,
     private authService: AuthService,
@@ -42,8 +43,9 @@ export class MainContainerComponent implements OnInit, OnDestroy {
 
   openDialog(shotId) {
     this.dialog.open(OneShotComponent, {
-      data: {id: shotId,
-            userId: false
+      data: {
+        id: shotId,
+        userId: false
       },
       panelClass: 'modalWindow',
     });
@@ -65,15 +67,20 @@ export class MainContainerComponent implements OnInit, OnDestroy {
         }
       }
     );
+    this.shotAndCommentShareService.$changeLikes.subscribe((shot) => {
+      let findShot = this.shots.findIndex(elem => {
+        return elem._id === shot._id;
+      });
+      this.shots[findShot] = {...this.shots[findShot], likes: shot.likes, isLiked: shot.isLiked, likedBy: shot.likedBy}
+    })
   }
 
   ngOnDestroy(): void {
     this.httpSubscription.unsubscribe();
     if (this.dialogSubscription) {
-    this.dialogSubscription.unsubscribe();
+      this.dialogSubscription.unsubscribe();
     }
   }
-
 
 
 }

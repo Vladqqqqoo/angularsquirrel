@@ -7,6 +7,7 @@ const routes: Routes = [
   {path: 'account', canLoad: [AuthGuard], canActivate: [AuthGuard], loadChildren: './user/user.module#UserModule'},
   {path: 'profile', canLoad: [AuthGuard], canActivate: [AuthGuard], loadChildren: './user-view/user-view.module#UserViewModule'},
   {path: 'shots', canLoad: [AuthGuard], canActivate: [AuthGuard], loadChildren: './shots/shots.module#ShotsModule'},
+  {path: 'im', canLoad: [AuthGuard], canActivate: [AuthGuard], loadChildren: './chat/chat.module#ChatModule'}
 ];
 
 @NgModule({

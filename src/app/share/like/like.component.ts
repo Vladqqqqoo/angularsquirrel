@@ -18,6 +18,7 @@ export class LikeComponent implements OnInit, OnDestroy {
   sendLike(id) {
     this.likeSubscription = this.likeService.sendLike(id).subscribe(
       likeInfo => {
+        console.log(likeInfo);
         this.changeLikes.emit(likeInfo);
       }
     );

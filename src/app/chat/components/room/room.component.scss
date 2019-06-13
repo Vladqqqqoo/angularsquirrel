@@ -1,0 +1,32 @@
+.message-container {
+  flex-direction: column;
+  align-content: center;
+}
+
+.userOptions {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.mat-form-field-flex {
+  width: 100%;
+}
+
+.sentButton {
+  width: 100px;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 50%;
+  border: 1px solid black;
+  margin: 10px 10px;
+}
+
+.message {
+  border: 1px grey dashed;
+  margin: 5px 5px;
+}

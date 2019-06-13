@@ -11,7 +11,7 @@
          class="col-md-6 my-drop-zone">
       <p *ngIf="!uploader.queue[0]; else showFileName">Put some image here</p>
       <ng-template #showFileName>
-        <img [src]="uloadImg" alt="preload image">
+        <img class="upload-image" [src]="uloadImg" alt="preload image">
         <p>{{uploader.queue[0].file.name}}</p>
       </ng-template>
     </div>

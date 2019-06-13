@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {OneShotService} from './one-shot.service';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -66,6 +66,7 @@ export class OneShotComponent implements OnInit {
   changeLikesAmount(likeInfo) {
     this.shot.likes = likeInfo.likes;
     this.shot.isLiked = likeInfo.isLiked;
+    this.shareService.emitChangeLikes(this.shot);
   }
 
   isLiked() {

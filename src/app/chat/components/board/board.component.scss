@@ -1,0 +1,11 @@
+.board {
+  flex-direction: column;
+  align-content: center;
+}
+
+.room {
+  margin: 10px;
+  border: 1px solid grey;
+  border-radius: 4px;
+  width: 500px;
+}

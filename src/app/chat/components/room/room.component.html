@@ -1,0 +1,18 @@
+<div class="row message-container">
+  <div class="messages">
+    <div class="message" *ngFor="let message of messages">
+      <span>{{message.from}}</span>
+      <p>{{message.text}}</p>
+    </div>
+  </div>
+  <div class="userOptions">
+    <mat-form-field matPrefix matSuffix class="example-full-width" appearance="fill">
+      <mat-label>Message</mat-label>
+      <textarea matInput [formControl]="messageForm" placeholder="Enter your message" cols="100" rows="4"></textarea>
+    </mat-form-field>
+    <br/>
+    <button class="sentButton" mat-flat-button color="primary" (click)="sendMessage()">
+      Sent
+    </button>
+  </div>
+</div>

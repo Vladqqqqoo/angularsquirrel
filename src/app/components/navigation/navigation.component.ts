@@ -3,6 +3,7 @@ import {MatDialog} from '@angular/material';
 import {LoginAndRegisterFormContainer} from '../login-and-register-form-container/login-and-register-form-container';
 import {AuthService} from '../../share/auth/auth.service';
 import {Router} from "@angular/router";
+import {ChatService} from "../../chat.service";
 
 @Component({
   selector: 'app-navigation',
@@ -15,7 +16,7 @@ export class NavigationComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) {
   }
 
